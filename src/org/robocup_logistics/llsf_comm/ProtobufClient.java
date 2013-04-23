@@ -36,6 +36,8 @@ public class ProtobufClient {
 	private HashMap<Key, GeneratedMessage> msgs = new HashMap<Key, GeneratedMessage>();
 	private ProtobufMessageHandler handler;
 	
+	private boolean is_connected = false;
+	
 	public ProtobufClient(String hostname, int port) {
 		this.hostname = hostname;
 		this.port = port;
@@ -70,6 +72,8 @@ public class ProtobufClient {
 				}
 			}
 		} catch (InterruptedException e) {}
+		
+		is_connected = true;
 	}
 	
 	public void disconnect() {
@@ -77,7 +81,13 @@ public class ProtobufClient {
 			send.terminate();
 			recv.terminate();
 			sockchan.close();
+			
+			is_connected = false;
 		} catch (IOException e) {}
+	}
+	
+	public boolean is_connected() {
+		return is_connected;
 	}
 	
 	public void register_handler(ProtobufMessageHandler handler) {
