@@ -4,8 +4,10 @@ import java.nio.ByteBuffer;
 import java.util.List;
 
 import org.robocup_logistics.llsf_comm.ProtobufMessageHandler;
+import org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal;
 import org.robocup_logistics.llsf_msgs.PuckInfoProtos.Puck;
 import org.robocup_logistics.llsf_msgs.PuckInfoProtos.PuckInfo;
+import org.robocup_logistics.llsf_msgs.TimeProtos.Time;
 
 
 import com.google.protobuf.GeneratedMessage;
@@ -32,6 +34,24 @@ public class Handler implements ProtobufMessageHandler {
 					int id = puck.getId();
 					System.out.println("  Puck-ID: " + id);
 				}
+				
+			} catch (InvalidProtocolBufferException e) {
+				e.printStackTrace();
+			}
+			
+		} else if (msg instanceof BeaconSignal) {
+
+			byte[] array = new byte[in_msg.capacity()];
+			in_msg.rewind();
+			in_msg.get(array);
+			BeaconSignal bs;
+			Time t;
+			
+			try {
+				bs = BeaconSignal.parseFrom(array);
+				t = bs.getTime();
+				System.out.println("Time: " + t.getSec() + ", " + t.getNsec());
+				System.out.println("names: " + bs.getPeerName() + " " + bs.getTeamName());
 				
 			} catch (InvalidProtocolBufferException e) {
 				e.printStackTrace();
