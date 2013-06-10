@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.robocup_logistics.llsf_comm.ProtobufMessageHandler;
 import org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal;
-import org.robocup_logistics.llsf_msgs.PuckInfoProtos.Puck;
-import org.robocup_logistics.llsf_msgs.PuckInfoProtos.PuckInfo;
+import org.robocup_logistics.llsf_msgs.RobotInfoProtos.Robot;
+import org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotInfo;
 import org.robocup_logistics.llsf_msgs.TimeProtos.Time;
 
 
@@ -17,22 +17,24 @@ public class Handler implements ProtobufMessageHandler {
 	
 	public void handle_message(ByteBuffer in_msg, GeneratedMessage msg) {
 		
-		if (msg instanceof PuckInfo) {
+		if (msg instanceof RobotInfo) {
 			
 			byte[] array = new byte[in_msg.capacity()];
 			in_msg.rewind();
 			in_msg.get(array);
-			PuckInfo info;
+			RobotInfo info;
 			
 			try {
-				info = PuckInfo.parseFrom(array);
-				int count = info.getPucksCount();
-				System.out.println("Anzahl Pucks: " + count);
-				List<Puck> pucks = info.getPucksList();
-				for (int i = 0; i < pucks.size(); i++) {
-					Puck puck = pucks.get(i);
-					int id = puck.getId();
-					System.out.println("  Puck-ID: " + id);
+				info = RobotInfo.parseFrom(array);
+				int count = info.getRobotsCount();
+				System.out.println("Number of robots: " + count);
+				List<Robot> robots = info.getRobotsList();
+				for (int i = 0; i < robots.size(); i++) {
+					Robot robot = robots.get(i);
+					String name = robot.getName();
+					String team = robot.getTeam();
+					int number = robot.getNumber();
+					System.out.println("  robot #" + number + ": " + name + " - " + team);
 				}
 				
 			} catch (InvalidProtocolBufferException e) {
