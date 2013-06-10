@@ -151,11 +151,11 @@ public final class RobotInfoProtos {
     
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
-      COMP_ID(0, 2002),
+      COMP_ID(0, 2000),
       MSG_TYPE(1, 31),
       ;
       
-      public static final int COMP_ID_VALUE = 2002;
+      public static final int COMP_ID_VALUE = 2000;
       public static final int MSG_TYPE_VALUE = 31;
       
       
@@ -163,7 +163,7 @@ public final class RobotInfoProtos {
       
       public static CompType valueOf(int value) {
         switch (value) {
-          case 2002: return COMP_ID;
+          case 2000: return COMP_ID;
           case 31: return MSG_TYPE;
           default: return null;
         }
@@ -1338,11 +1338,11 @@ public final class RobotInfoProtos {
     
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
-      COMP_ID(0, 2002),
+      COMP_ID(0, 2000),
       MSG_TYPE(1, 30),
       ;
       
-      public static final int COMP_ID_VALUE = 2002;
+      public static final int COMP_ID_VALUE = 2000;
       public static final int MSG_TYPE_VALUE = 30;
       
       
@@ -1350,7 +1350,7 @@ public final class RobotInfoProtos {
       
       public static CompType valueOf(int value) {
         switch (value) {
-          case 2002: return COMP_ID;
+          case 2000: return COMP_ID;
           case 30: return MSG_TYPE;
           default: return null;
         }
@@ -1954,9 +1954,9 @@ public final class RobotInfoProtos {
       "\030\010 \001(\0162\025.llsf_msgs.RobotState\022%\n\032mainten" +
       "ance_time_remaining\030\t \001(\002:\0010\022\032\n\022maintena" +
       "nce_cycles\030\n \001(\r\"&\n\010CompType\022\014\n\007COMP_ID\020" +
-      "\322\017\022\014\n\010MSG_TYPE\020\037\"U\n\tRobotInfo\022 \n\006robots\030" +
+      "\320\017\022\014\n\010MSG_TYPE\020\037\"U\n\tRobotInfo\022 \n\006robots\030" +
       "\001 \003(\0132\020.llsf_msgs.Robot\"&\n\010CompType\022\014\n\007C",
-      "OMP_ID\020\322\017\022\014\n\010MSG_TYPE\020\036*;\n\nRobotState\022\n\n" +
+      "OMP_ID\020\320\017\022\014\n\010MSG_TYPE\020\036*;\n\nRobotState\022\n\n" +
       "\006ACTIVE\020\001\022\017\n\013MAINTENANCE\020\002\022\020\n\014DISQUALIFI" +
       "ED\020\003B2\n\037org.robocup_logistics.llsf_msgsB" +
       "\017RobotInfoProtos"

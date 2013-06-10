@@ -162,9 +162,6 @@ public class ProtobufBroadcastPeer {
 	}
 
 	private void handle_message(int cmp_id, int msg_id, ByteBuffer in_msg) {
-		
-		System.out.println(msg_id);
-		
 		if (handler != null) {
 			for (Map.Entry<Key, GeneratedMessage> e: msgs.entrySet()) {
 				Key key = e.getKey();
