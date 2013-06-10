@@ -8,6 +8,78 @@ public final class RobotInfoProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  public enum RobotState
+      implements com.google.protobuf.ProtocolMessageEnum {
+    ACTIVE(0, 1),
+    MAINTENANCE(1, 2),
+    DISQUALIFIED(2, 3),
+    ;
+    
+    public static final int ACTIVE_VALUE = 1;
+    public static final int MAINTENANCE_VALUE = 2;
+    public static final int DISQUALIFIED_VALUE = 3;
+    
+    
+    public final int getNumber() { return value; }
+    
+    public static RobotState valueOf(int value) {
+      switch (value) {
+        case 1: return ACTIVE;
+        case 2: return MAINTENANCE;
+        case 3: return DISQUALIFIED;
+        default: return null;
+      }
+    }
+    
+    public static com.google.protobuf.Internal.EnumLiteMap<RobotState>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<RobotState>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<RobotState>() {
+            public RobotState findValueByNumber(int number) {
+              return RobotState.valueOf(number);
+            }
+          };
+    
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return org.robocup_logistics.llsf_msgs.RobotInfoProtos.getDescriptor().getEnumTypes().get(0);
+    }
+    
+    private static final RobotState[] VALUES = {
+      ACTIVE, MAINTENANCE, DISQUALIFIED, 
+    };
+    
+    public static RobotState valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+    
+    private final int index;
+    private final int value;
+    
+    private RobotState(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+    
+    // @@protoc_insertion_point(enum_scope:llsf_msgs.RobotState)
+  }
+  
   public interface RobotOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
@@ -18,6 +90,10 @@ public final class RobotInfoProtos {
     // required string team = 2;
     boolean hasTeam();
     String getTeam();
+    
+    // required uint32 number = 7;
+    boolean hasNumber();
+    int getNumber();
     
     // required string host = 3;
     boolean hasHost();
@@ -32,6 +108,18 @@ public final class RobotInfoProtos {
     boolean hasPose();
     org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose();
     org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder getPoseOrBuilder();
+    
+    // optional .llsf_msgs.RobotState state = 8;
+    boolean hasState();
+    org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState getState();
+    
+    // optional float maintenance_time_remaining = 9 [default = 0];
+    boolean hasMaintenanceTimeRemaining();
+    float getMaintenanceTimeRemaining();
+    
+    // optional uint32 maintenance_cycles = 10;
+    boolean hasMaintenanceCycles();
+    int getMaintenanceCycles();
   }
   public static final class Robot extends
       com.google.protobuf.GeneratedMessage
@@ -195,11 +283,21 @@ public final class RobotInfoProtos {
       }
     }
     
+    // required uint32 number = 7;
+    public static final int NUMBER_FIELD_NUMBER = 7;
+    private int number_;
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public int getNumber() {
+      return number_;
+    }
+    
     // required string host = 3;
     public static final int HOST_FIELD_NUMBER = 3;
     private java.lang.Object host_;
     public boolean hasHost() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     public String getHost() {
       java.lang.Object ref = host_;
@@ -231,7 +329,7 @@ public final class RobotInfoProtos {
     public static final int LAST_SEEN_FIELD_NUMBER = 4;
     private org.robocup_logistics.llsf_msgs.TimeProtos.Time lastSeen_;
     public boolean hasLastSeen() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     public org.robocup_logistics.llsf_msgs.TimeProtos.Time getLastSeen() {
       return lastSeen_;
@@ -244,7 +342,7 @@ public final class RobotInfoProtos {
     public static final int POSE_FIELD_NUMBER = 6;
     private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D pose_;
     public boolean hasPose() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose() {
       return pose_;
@@ -253,12 +351,46 @@ public final class RobotInfoProtos {
       return pose_;
     }
     
+    // optional .llsf_msgs.RobotState state = 8;
+    public static final int STATE_FIELD_NUMBER = 8;
+    private org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState state_;
+    public boolean hasState() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    public org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState getState() {
+      return state_;
+    }
+    
+    // optional float maintenance_time_remaining = 9 [default = 0];
+    public static final int MAINTENANCE_TIME_REMAINING_FIELD_NUMBER = 9;
+    private float maintenanceTimeRemaining_;
+    public boolean hasMaintenanceTimeRemaining() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    public float getMaintenanceTimeRemaining() {
+      return maintenanceTimeRemaining_;
+    }
+    
+    // optional uint32 maintenance_cycles = 10;
+    public static final int MAINTENANCE_CYCLES_FIELD_NUMBER = 10;
+    private int maintenanceCycles_;
+    public boolean hasMaintenanceCycles() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    public int getMaintenanceCycles() {
+      return maintenanceCycles_;
+    }
+    
     private void initFields() {
       name_ = "";
       team_ = "";
+      number_ = 0;
       host_ = "";
       lastSeen_ = org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance();
       pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
+      state_ = org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState.ACTIVE;
+      maintenanceTimeRemaining_ = 0F;
+      maintenanceCycles_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -270,6 +402,10 @@ public final class RobotInfoProtos {
         return false;
       }
       if (!hasTeam()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasNumber()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -304,14 +440,26 @@ public final class RobotInfoProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, getTeamBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBytes(3, getHostBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(4, lastSeen_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeMessage(6, pose_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeUInt32(7, number_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeEnum(8, state_.getNumber());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeFloat(9, maintenanceTimeRemaining_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeUInt32(10, maintenanceCycles_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -330,17 +478,33 @@ public final class RobotInfoProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, getTeamBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getHostBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, lastSeen_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, pose_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(7, number_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(8, state_.getNumber());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(9, maintenanceTimeRemaining_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(10, maintenanceCycles_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -472,20 +636,28 @@ public final class RobotInfoProtos {
         bitField0_ = (bitField0_ & ~0x00000001);
         team_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        host_ = "";
+        number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
+        host_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (lastSeenBuilder_ == null) {
           lastSeen_ = org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance();
         } else {
           lastSeenBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (poseBuilder_ == null) {
           pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
         } else {
           poseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
+        state_ = org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState.ACTIVE;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        maintenanceTimeRemaining_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        maintenanceCycles_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
       
@@ -535,23 +707,39 @@ public final class RobotInfoProtos {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.host_ = host_;
+        result.number_ = number_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
+        }
+        result.host_ = host_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
         }
         if (lastSeenBuilder_ == null) {
           result.lastSeen_ = lastSeen_;
         } else {
           result.lastSeen_ = lastSeenBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         if (poseBuilder_ == null) {
           result.pose_ = pose_;
         } else {
           result.pose_ = poseBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.state_ = state_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.maintenanceTimeRemaining_ = maintenanceTimeRemaining_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.maintenanceCycles_ = maintenanceCycles_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -574,6 +762,9 @@ public final class RobotInfoProtos {
         if (other.hasTeam()) {
           setTeam(other.getTeam());
         }
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
+        }
         if (other.hasHost()) {
           setHost(other.getHost());
         }
@@ -582,6 +773,15 @@ public final class RobotInfoProtos {
         }
         if (other.hasPose()) {
           mergePose(other.getPose());
+        }
+        if (other.hasState()) {
+          setState(other.getState());
+        }
+        if (other.hasMaintenanceTimeRemaining()) {
+          setMaintenanceTimeRemaining(other.getMaintenanceTimeRemaining());
+        }
+        if (other.hasMaintenanceCycles()) {
+          setMaintenanceCycles(other.getMaintenanceCycles());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -593,6 +793,10 @@ public final class RobotInfoProtos {
           return false;
         }
         if (!hasTeam()) {
+          
+          return false;
+        }
+        if (!hasNumber()) {
           
           return false;
         }
@@ -651,7 +855,7 @@ public final class RobotInfoProtos {
               break;
             }
             case 26: {
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               host_ = input.readBytes();
               break;
             }
@@ -671,6 +875,32 @@ public final class RobotInfoProtos {
               }
               input.readMessage(subBuilder, extensionRegistry);
               setPose(subBuilder.buildPartial());
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000004;
+              number_ = input.readUInt32();
+              break;
+            }
+            case 64: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState value = org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(8, rawValue);
+              } else {
+                bitField0_ |= 0x00000040;
+                state_ = value;
+              }
+              break;
+            }
+            case 77: {
+              bitField0_ |= 0x00000080;
+              maintenanceTimeRemaining_ = input.readFloat();
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000100;
+              maintenanceCycles_ = input.readUInt32();
               break;
             }
           }
@@ -751,10 +981,31 @@ public final class RobotInfoProtos {
         onChanged();
       }
       
+      // required uint32 number = 7;
+      private int number_ ;
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      public int getNumber() {
+        return number_;
+      }
+      public Builder setNumber(int value) {
+        bitField0_ |= 0x00000004;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        number_ = 0;
+        onChanged();
+        return this;
+      }
+      
       // required string host = 3;
       private java.lang.Object host_ = "";
       public boolean hasHost() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       public String getHost() {
         java.lang.Object ref = host_;
@@ -770,19 +1021,19 @@ public final class RobotInfoProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         host_ = value;
         onChanged();
         return this;
       }
       public Builder clearHost() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         host_ = getDefaultInstance().getHost();
         onChanged();
         return this;
       }
       void setHost(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         host_ = value;
         onChanged();
       }
@@ -792,7 +1043,7 @@ public final class RobotInfoProtos {
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.TimeProtos.Time, org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder, org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder> lastSeenBuilder_;
       public boolean hasLastSeen() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       public org.robocup_logistics.llsf_msgs.TimeProtos.Time getLastSeen() {
         if (lastSeenBuilder_ == null) {
@@ -811,7 +1062,7 @@ public final class RobotInfoProtos {
         } else {
           lastSeenBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       public Builder setLastSeen(
@@ -822,12 +1073,12 @@ public final class RobotInfoProtos {
         } else {
           lastSeenBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       public Builder mergeLastSeen(org.robocup_logistics.llsf_msgs.TimeProtos.Time value) {
         if (lastSeenBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
               lastSeen_ != org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance()) {
             lastSeen_ =
               org.robocup_logistics.llsf_msgs.TimeProtos.Time.newBuilder(lastSeen_).mergeFrom(value).buildPartial();
@@ -838,7 +1089,7 @@ public final class RobotInfoProtos {
         } else {
           lastSeenBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       public Builder clearLastSeen() {
@@ -848,11 +1099,11 @@ public final class RobotInfoProtos {
         } else {
           lastSeenBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
       public org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder getLastSeenBuilder() {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
         return getLastSeenFieldBuilder().getBuilder();
       }
@@ -882,7 +1133,7 @@ public final class RobotInfoProtos {
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder> poseBuilder_;
       public boolean hasPose() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose() {
         if (poseBuilder_ == null) {
@@ -901,7 +1152,7 @@ public final class RobotInfoProtos {
         } else {
           poseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       public Builder setPose(
@@ -912,12 +1163,12 @@ public final class RobotInfoProtos {
         } else {
           poseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       public Builder mergePose(org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D value) {
         if (poseBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
               pose_ != org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance()) {
             pose_ =
               org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.newBuilder(pose_).mergeFrom(value).buildPartial();
@@ -928,7 +1179,7 @@ public final class RobotInfoProtos {
         } else {
           poseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       public Builder clearPose() {
@@ -938,11 +1189,11 @@ public final class RobotInfoProtos {
         } else {
           poseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder getPoseBuilder() {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return getPoseFieldBuilder().getBuilder();
       }
@@ -965,6 +1216,72 @@ public final class RobotInfoProtos {
           pose_ = null;
         }
         return poseBuilder_;
+      }
+      
+      // optional .llsf_msgs.RobotState state = 8;
+      private org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState state_ = org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState.ACTIVE;
+      public boolean hasState() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      public org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState getState() {
+        return state_;
+      }
+      public Builder setState(org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000040;
+        state_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearState() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        state_ = org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState.ACTIVE;
+        onChanged();
+        return this;
+      }
+      
+      // optional float maintenance_time_remaining = 9 [default = 0];
+      private float maintenanceTimeRemaining_ ;
+      public boolean hasMaintenanceTimeRemaining() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      public float getMaintenanceTimeRemaining() {
+        return maintenanceTimeRemaining_;
+      }
+      public Builder setMaintenanceTimeRemaining(float value) {
+        bitField0_ |= 0x00000080;
+        maintenanceTimeRemaining_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearMaintenanceTimeRemaining() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        maintenanceTimeRemaining_ = 0F;
+        onChanged();
+        return this;
+      }
+      
+      // optional uint32 maintenance_cycles = 10;
+      private int maintenanceCycles_ ;
+      public boolean hasMaintenanceCycles() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      public int getMaintenanceCycles() {
+        return maintenanceCycles_;
+      }
+      public Builder setMaintenanceCycles(int value) {
+        bitField0_ |= 0x00000100;
+        maintenanceCycles_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearMaintenanceCycles() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        maintenanceCycles_ = 0;
+        onChanged();
+        return this;
       }
       
       // @@protoc_insertion_point(builder_scope:llsf_msgs.Robot)
@@ -1630,14 +1947,19 @@ public final class RobotInfoProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\017RobotInfo.proto\022\tllsf_msgs\032\nTime.proto" +
-      "\032\014Pose2D.proto\"\236\001\n\005Robot\022\014\n\004name\030\001 \002(\t\022\014" +
-      "\n\004team\030\002 \002(\t\022\014\n\004host\030\003 \002(\t\022\"\n\tlast_seen\030" +
-      "\004 \002(\0132\017.llsf_msgs.Time\022\037\n\004pose\030\006 \001(\0132\021.l" +
-      "lsf_msgs.Pose2D\"&\n\010CompType\022\014\n\007COMP_ID\020\322" +
-      "\017\022\014\n\010MSG_TYPE\020\037\"U\n\tRobotInfo\022 \n\006robots\030\001" +
-      " \003(\0132\020.llsf_msgs.Robot\"&\n\010CompType\022\014\n\007CO" +
-      "MP_ID\020\322\017\022\014\n\010MSG_TYPE\020\036B2\n\037org.robocup_lo" +
-      "gistics.llsf_msgsB\017RobotInfoProtos"
+      "\032\014Pose2D.proto\"\227\002\n\005Robot\022\014\n\004name\030\001 \002(\t\022\014" +
+      "\n\004team\030\002 \002(\t\022\016\n\006number\030\007 \002(\r\022\014\n\004host\030\003 \002" +
+      "(\t\022\"\n\tlast_seen\030\004 \002(\0132\017.llsf_msgs.Time\022\037" +
+      "\n\004pose\030\006 \001(\0132\021.llsf_msgs.Pose2D\022$\n\005state" +
+      "\030\010 \001(\0162\025.llsf_msgs.RobotState\022%\n\032mainten" +
+      "ance_time_remaining\030\t \001(\002:\0010\022\032\n\022maintena" +
+      "nce_cycles\030\n \001(\r\"&\n\010CompType\022\014\n\007COMP_ID\020" +
+      "\322\017\022\014\n\010MSG_TYPE\020\037\"U\n\tRobotInfo\022 \n\006robots\030" +
+      "\001 \003(\0132\020.llsf_msgs.Robot\"&\n\010CompType\022\014\n\007C",
+      "OMP_ID\020\322\017\022\014\n\010MSG_TYPE\020\036*;\n\nRobotState\022\n\n" +
+      "\006ACTIVE\020\001\022\017\n\013MAINTENANCE\020\002\022\020\n\014DISQUALIFI" +
+      "ED\020\003B2\n\037org.robocup_logistics.llsf_msgsB" +
+      "\017RobotInfoProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1649,7 +1971,7 @@ public final class RobotInfoProtos {
           internal_static_llsf_msgs_Robot_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_Robot_descriptor,
-              new java.lang.String[] { "Name", "Team", "Host", "LastSeen", "Pose", },
+              new java.lang.String[] { "Name", "Team", "Number", "Host", "LastSeen", "Pose", "State", "MaintenanceTimeRemaining", "MaintenanceCycles", },
               org.robocup_logistics.llsf_msgs.RobotInfoProtos.Robot.class,
               org.robocup_logistics.llsf_msgs.RobotInfoProtos.Robot.Builder.class);
           internal_static_llsf_msgs_RobotInfo_descriptor =

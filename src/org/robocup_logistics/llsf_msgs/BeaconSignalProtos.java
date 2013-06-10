@@ -20,6 +20,10 @@ public final class BeaconSignalProtos {
     boolean hasSeq();
     long getSeq();
     
+    // required uint32 number = 8;
+    boolean hasNumber();
+    int getNumber();
+    
     // required string team_name = 4;
     boolean hasTeamName();
     String getTeamName();
@@ -154,11 +158,21 @@ public final class BeaconSignalProtos {
       return seq_;
     }
     
+    // required uint32 number = 8;
+    public static final int NUMBER_FIELD_NUMBER = 8;
+    private int number_;
+    public boolean hasNumber() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public int getNumber() {
+      return number_;
+    }
+    
     // required string team_name = 4;
     public static final int TEAM_NAME_FIELD_NUMBER = 4;
     private java.lang.Object teamName_;
     public boolean hasTeamName() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     public String getTeamName() {
       java.lang.Object ref = teamName_;
@@ -190,7 +204,7 @@ public final class BeaconSignalProtos {
     public static final int PEER_NAME_FIELD_NUMBER = 5;
     private java.lang.Object peerName_;
     public boolean hasPeerName() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     public String getPeerName() {
       java.lang.Object ref = peerName_;
@@ -222,7 +236,7 @@ public final class BeaconSignalProtos {
     public static final int POSE_FIELD_NUMBER = 7;
     private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D pose_;
     public boolean hasPose() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose() {
       return pose_;
@@ -234,6 +248,7 @@ public final class BeaconSignalProtos {
     private void initFields() {
       time_ = org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance();
       seq_ = 0L;
+      number_ = 0;
       teamName_ = "";
       peerName_ = "";
       pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
@@ -248,6 +263,10 @@ public final class BeaconSignalProtos {
         return false;
       }
       if (!hasSeq()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasNumber()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -282,14 +301,17 @@ public final class BeaconSignalProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt64(2, seq_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBytes(4, getTeamNameBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeBytes(5, getPeerNameBytes());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeMessage(7, pose_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeUInt32(8, number_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -308,17 +330,21 @@ public final class BeaconSignalProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, seq_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, getTeamNameBytes());
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, getPeerNameBytes());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, pose_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(8, number_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -454,16 +480,18 @@ public final class BeaconSignalProtos {
         bitField0_ = (bitField0_ & ~0x00000001);
         seq_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        teamName_ = "";
+        number_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        peerName_ = "";
+        teamName_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        peerName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (poseBuilder_ == null) {
           pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
         } else {
           poseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       
@@ -517,13 +545,17 @@ public final class BeaconSignalProtos {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.teamName_ = teamName_;
+        result.number_ = number_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.peerName_ = peerName_;
+        result.teamName_ = teamName_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
+        }
+        result.peerName_ = peerName_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         if (poseBuilder_ == null) {
           result.pose_ = pose_;
@@ -552,6 +584,9 @@ public final class BeaconSignalProtos {
         if (other.hasSeq()) {
           setSeq(other.getSeq());
         }
+        if (other.hasNumber()) {
+          setNumber(other.getNumber());
+        }
         if (other.hasTeamName()) {
           setTeamName(other.getTeamName());
         }
@@ -571,6 +606,10 @@ public final class BeaconSignalProtos {
           return false;
         }
         if (!hasSeq()) {
+          
+          return false;
+        }
+        if (!hasNumber()) {
           
           return false;
         }
@@ -633,12 +672,12 @@ public final class BeaconSignalProtos {
               break;
             }
             case 34: {
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               teamName_ = input.readBytes();
               break;
             }
             case 42: {
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               peerName_ = input.readBytes();
               break;
             }
@@ -649,6 +688,11 @@ public final class BeaconSignalProtos {
               }
               input.readMessage(subBuilder, extensionRegistry);
               setPose(subBuilder.buildPartial());
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000004;
+              number_ = input.readUInt32();
               break;
             }
           }
@@ -768,10 +812,31 @@ public final class BeaconSignalProtos {
         return this;
       }
       
+      // required uint32 number = 8;
+      private int number_ ;
+      public boolean hasNumber() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      public int getNumber() {
+        return number_;
+      }
+      public Builder setNumber(int value) {
+        bitField0_ |= 0x00000004;
+        number_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearNumber() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        number_ = 0;
+        onChanged();
+        return this;
+      }
+      
       // required string team_name = 4;
       private java.lang.Object teamName_ = "";
       public boolean hasTeamName() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       public String getTeamName() {
         java.lang.Object ref = teamName_;
@@ -787,19 +852,19 @@ public final class BeaconSignalProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         teamName_ = value;
         onChanged();
         return this;
       }
       public Builder clearTeamName() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         teamName_ = getDefaultInstance().getTeamName();
         onChanged();
         return this;
       }
       void setTeamName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         teamName_ = value;
         onChanged();
       }
@@ -807,7 +872,7 @@ public final class BeaconSignalProtos {
       // required string peer_name = 5;
       private java.lang.Object peerName_ = "";
       public boolean hasPeerName() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       public String getPeerName() {
         java.lang.Object ref = peerName_;
@@ -823,19 +888,19 @@ public final class BeaconSignalProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         peerName_ = value;
         onChanged();
         return this;
       }
       public Builder clearPeerName() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         peerName_ = getDefaultInstance().getPeerName();
         onChanged();
         return this;
       }
       void setPeerName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         peerName_ = value;
         onChanged();
       }
@@ -845,7 +910,7 @@ public final class BeaconSignalProtos {
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder> poseBuilder_;
       public boolean hasPose() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose() {
         if (poseBuilder_ == null) {
@@ -864,7 +929,7 @@ public final class BeaconSignalProtos {
         } else {
           poseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       public Builder setPose(
@@ -875,12 +940,12 @@ public final class BeaconSignalProtos {
         } else {
           poseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       public Builder mergePose(org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D value) {
         if (poseBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
               pose_ != org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance()) {
             pose_ =
               org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.newBuilder(pose_).mergeFrom(value).buildPartial();
@@ -891,7 +956,7 @@ public final class BeaconSignalProtos {
         } else {
           poseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       public Builder clearPose() {
@@ -901,11 +966,11 @@ public final class BeaconSignalProtos {
         } else {
           poseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder getPoseBuilder() {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return getPoseFieldBuilder().getBuilder();
       }
@@ -956,13 +1021,13 @@ public final class BeaconSignalProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\022BeaconSignal.proto\022\tllsf_msgs\032\nTime.pr" +
-      "oto\032\014Pose2D.proto\"\251\001\n\014BeaconSignal\022\035\n\004ti" +
-      "me\030\001 \002(\0132\017.llsf_msgs.Time\022\013\n\003seq\030\002 \002(\004\022\021" +
-      "\n\tteam_name\030\004 \002(\t\022\021\n\tpeer_name\030\005 \002(\t\022\037\n\004" +
-      "pose\030\007 \001(\0132\021.llsf_msgs.Pose2D\"&\n\010CompTyp" +
-      "e\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020\001B5\n\037org.rob" +
-      "ocup_logistics.llsf_msgsB\022BeaconSignalPr" +
-      "otos"
+      "oto\032\014Pose2D.proto\"\271\001\n\014BeaconSignal\022\035\n\004ti" +
+      "me\030\001 \002(\0132\017.llsf_msgs.Time\022\013\n\003seq\030\002 \002(\004\022\016" +
+      "\n\006number\030\010 \002(\r\022\021\n\tteam_name\030\004 \002(\t\022\021\n\tpee" +
+      "r_name\030\005 \002(\t\022\037\n\004pose\030\007 \001(\0132\021.llsf_msgs.P" +
+      "ose2D\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_T" +
+      "YPE\020\001B5\n\037org.robocup_logistics.llsf_msgs" +
+      "B\022BeaconSignalProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -974,7 +1039,7 @@ public final class BeaconSignalProtos {
           internal_static_llsf_msgs_BeaconSignal_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_BeaconSignal_descriptor,
-              new java.lang.String[] { "Time", "Seq", "TeamName", "PeerName", "Pose", },
+              new java.lang.String[] { "Time", "Seq", "Number", "TeamName", "PeerName", "Pose", },
               org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.class,
               org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.Builder.class);
           return null;
