@@ -19,6 +19,12 @@ import org.robocup_logistics.llsf_tools.Key;
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.GeneratedMessage;
 
+/**
+ * The ProtobufClient is a client to communicate with a refbox via protobuf messages. You can
+ * send stream messages (TCP) by calling the enqueue method. To receive messages, register a
+ * ProtobufMessageHandler, incoming messages will be passed to your handler. To send and receive
+ * broadcast messages (UDP), use the ProtobufBroadcastPeer.
+ */
 public class ProtobufClient {
 	
 	private String hostname;
@@ -38,11 +44,28 @@ public class ProtobufClient {
 	
 	private boolean is_connected = false;
 	
+	/**
+	 * Instantiates a new ProtobufClient. This method does not connect (see connect).
+	 * 
+	 * @param hostname
+	 *            the IP address of the refbox
+	 * @param port
+	 *            the port to which to connect
+	 * @see connect()
+	 */
 	public ProtobufClient(String hostname, int port) {
 		this.hostname = hostname;
 		this.port = port;
 	}
 
+	/**
+	 * Tries to connect to the refbox at the IP address and port given in the contructor.
+	 * Throws an UnknownHostException if the hostname defined in the contructor is not known.
+	 * Throws an IOException if the connection cannot be established.
+	 * 
+	 * @throws IOException
+	 *             Signals that the connection to the refbox cannot be established.
+	 */
 	public void connect() throws IOException {
 		con = new ConThread();
 		con.start();
@@ -76,6 +99,9 @@ public class ProtobufClient {
 		is_connected = true;
 	}
 	
+	/**
+	 * Disconnects from the refbox.
+	 */
 	public void disconnect() {
 		try {
 			send.terminate();
@@ -86,14 +112,39 @@ public class ProtobufClient {
 		} catch (IOException e) {}
 	}
 	
+	/**
+	 * Checks if a connection to the refbox is established.
+	 * 
+	 * @return true, if connection is established.
+	 */
 	public boolean is_connected() {
 		return is_connected;
 	}
 	
+	/**
+	 * Registers a new ProtobufMessageHandler responsible for handling and deserializing incoming
+	 * protobuf messages. Required if you want to access received messages. Only allows one registered
+	 * handler at the same time.
+	 * 
+	 * @param handler
+	 *            the ProtobufMessageHandler
+	 * @see ProtobufMessageHandler
+	 */
 	public void register_handler(ProtobufMessageHandler handler) {
 		this.handler = handler;
 	}
 	
+	/**
+	 * Adds and registers a new protobuf message type. This is required to instantiate the correct
+	 * protobuf message object when a message is received from the refbox. For example, if you want
+	 * the client to be able to receive and process a GameState message, call 
+	 * client.&ltGameState&gtadd_message(GameState.class).
+	 * 
+	 * @param <T>
+	 *            the type of the protobuf message to register, has to extend from GeneratedMessage 
+	 * @param c
+	 *            the class object of the same protobuf message
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends GeneratedMessage> void add_message(Class<T> c) {
 		try {
@@ -118,7 +169,7 @@ public class ProtobufClient {
 		}
 	}
 	
-	public void handle_message(int cmp_id, int msg_id, ByteBuffer in_msg) {
+	private void handle_message(int cmp_id, int msg_id, ByteBuffer in_msg) {
 		if (handler != null) {
 			for (Map.Entry<Key, GeneratedMessage> e: msgs.entrySet()) {
 				Key key = e.getKey();
@@ -130,6 +181,13 @@ public class ProtobufClient {
 		}
 	}
 	
+	/**
+	 * Puts a ProtobufMessage into the send queue in order to be sent out to the refbox.
+	 * 
+	 * @param msg
+	 *            the ProtobufMessage to send
+	 * @see ProtobufMessage
+	 */
 	public void enqueue(ProtobufMessage msg) {
 		synchronized (act_q) {
 			act_q.add(msg);
@@ -137,20 +195,6 @@ public class ProtobufClient {
 				act_q.notifyAll();
 			} catch(IllegalMonitorStateException e) {}
 		}
-	}
-	
-	public synchronized void enqueue_and_wait(ProtobufMessage msg) {
-		synchronized (act_q) {
-			act_q.add(msg);
-			act_q.notifyAll();	
-		}
-		try {
-			this.wait();	
-		} catch (InterruptedException e) {}
-	}
-	
-	public synchronized void wake() {
-		notifyAll();
 	}
 	
 	private class ConThread extends Thread {
@@ -177,10 +221,10 @@ public class ProtobufClient {
 		
 	}
 	
-	public class SendThread extends Thread {
+	private class SendThread extends Thread {
 		
 		private boolean run = true;
-		
+
 		public void run() {
 			while (run) {
 				synchronized (act_q) {
@@ -204,7 +248,7 @@ public class ProtobufClient {
 				}
 			}
 		}
-		
+
 		public void terminate() {
 			this.run = false;
 			synchronized(act_q) {
@@ -213,11 +257,11 @@ public class ProtobufClient {
 		}
 		
 	}
-	
-	public class RecvThread extends Thread {
+
+	private class RecvThread extends Thread {
 		
 		private boolean run = true;
-		
+
 		public void run() {
 			while (run) {
 				try {
@@ -240,7 +284,7 @@ public class ProtobufClient {
 				}
 			}
 		}
-		
+
 		public void terminate() {
 			this.run = false;
 		}

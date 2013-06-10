@@ -8,6 +8,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
+import java.nio.channels.UnresolvedAddressException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -19,6 +20,12 @@ import org.robocup_logistics.llsf_tools.Key;
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.GeneratedMessage;
 
+/**
+ * The ProtobufBroadcastPeer provides the possibility to communicate with a refbox using broadcast messages.
+ * You can send broadcast messages (UDP) by calling the enqueue method. To receive messages, register a
+ * ProtobufMessageHandler, incoming messages will be passed to your handler. To send and receive
+ * stream messages (TCP), use the ProtobufClient.
+ */
 public class ProtobufBroadcastPeer {
 	
 	private DatagramSocket sendsocket;
@@ -39,36 +46,66 @@ public class ProtobufBroadcastPeer {
 	private HashMap<Key, GeneratedMessage> msgs = new HashMap<Key, GeneratedMessage>();
 	private ProtobufMessageHandler handler;
 	
+	/**
+	 * Instantiates a new ProtobufBroadcastPeer. This method does not connect (see start).
+	 * 
+	 * @param hostname
+	 *            the IP address of the refbox
+	 * @param sendport
+	 *            the port to which to send
+	 * @param recvport
+	 * 			  the port to listen on for incoming messages
+	 * @see start()
+	 */
 	public ProtobufBroadcastPeer(String hostname, int sendport, int recvport) {
 		this.hostname = hostname;
 		this.sendport = sendport;
 		this.recvport = recvport;
 	}
 
+	/**
+	 * Opens the socket to be able to send messages and starts listening on the receive port passed
+	 * to the constructor.
+	 * 
+	 * @throws IOException
+	 *             Signals that the connection to the refbox cannot be established.
+	 */
 	public void start() throws IOException {
+		ConThread con = new ConThread();
+		con.start();
 		try {
-			sendsocket = new DatagramSocket();
-			recvsocket = new DatagramSocket(recvport);
-			address = InetAddress.getByName(hostname);
-
-			//Initialize Queues
-			queue1 = new LinkedList<ProtobufMessage>();
-			queue2 = new LinkedList<ProtobufMessage>();
-			act_q = queue1;
-			send_q = queue2;
-			
-			//Start Send and Receive Threads
-			send = new SendThread();
-			send.start();
-			recv = new RecvThread();
-			recv.start();
-		} catch (UnknownHostException e) {
-			throw new UnknownHostException("Don't know about host " + hostname);
-		} catch (IOException e) {
-			throw new IOException("Couldn't get I/O for the connection to " + hostname);
+			con.join();
+			if (con.getException() == null) {
+				
+				//Initialize Queues
+				queue1 = new LinkedList<ProtobufMessage>();
+				queue2 = new LinkedList<ProtobufMessage>();
+				act_q = queue1;
+				send_q = queue2;
+				
+				//Start Send and Receive Threads
+				send = new SendThread();
+				send.start();
+				recv = new RecvThread();
+				recv.start();
+				
+			} else {
+				if (con.getException() instanceof UnknownHostException) {
+					throw new UnknownHostException("Don't know about host " + hostname);
+				} else if (con.getException() instanceof IOException) {
+					throw new IOException("Couldn't get I/O for the connection to " + hostname);
+				} else if (con.getException() instanceof UnresolvedAddressException) {
+					throw new UnresolvedAddressException();
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 	
+	/**
+	 * Stops the ProtobufBroadcastPeer and closes the sockets.
+	 */
 	public void stop() {
 		send.terminate();
 		recv.terminate();
@@ -76,10 +113,30 @@ public class ProtobufBroadcastPeer {
 		recvsocket.close();
 	}
 	
+	/**
+	 * Registers a new ProtobufMessageHandler responsible for handling and deserializing incoming
+	 * protobuf messages. Required if you want to access received messages. Only allows one registered
+	 * handler at the same time.
+	 * 
+	 * @param handler
+	 *            the ProtobufMessageHandler
+	 * @see ProtobufMessageHandler
+	 */
 	public void register_handler(ProtobufMessageHandler handler) {
 		this.handler = handler;
 	}
 	
+	/**
+	 * Adds and registers a new protobuf message type. This is required to instantiate the correct
+	 * protobuf message object when a message is received from the refbox. For example, if you want
+	 * the client to be able to receive and process a GameState message, call 
+	 * client.<GameState>add_message(GameState.class).
+	 * 
+	 * @param <T>
+	 *            the type of the protobuf message to register, has to extend from GeneratedMessage 
+	 * @param c
+	 *            the class object of the same protobuf message
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends GeneratedMessage> void add_message(Class<T> c) {
 		try {
@@ -103,8 +160,11 @@ public class ProtobufBroadcastPeer {
 			e.printStackTrace();
 		}
 	}
-	
-	public void handle_message(int cmp_id, int msg_id, ByteBuffer in_msg) {
+
+	private void handle_message(int cmp_id, int msg_id, ByteBuffer in_msg) {
+		
+		System.out.println(msg_id);
+		
 		if (handler != null) {
 			for (Map.Entry<Key, GeneratedMessage> e: msgs.entrySet()) {
 				Key key = e.getKey();
@@ -116,6 +176,13 @@ public class ProtobufBroadcastPeer {
 		}
 	}
 	
+	/**
+	 * Puts a ProtobufMessage into the send queue in order to be sent out to the refbox.
+	 * 
+	 * @param msg
+	 *            the ProtobufMessage to send
+	 * @see ProtobufMessage
+	 */
 	public void enqueue(ProtobufMessage msg) {
 		synchronized (act_q) {
 			act_q.add(msg);
@@ -125,10 +192,34 @@ public class ProtobufBroadcastPeer {
 		}
 	}
 	
-	public class SendThread extends Thread {
+	private class ConThread extends Thread {
+		
+		private Exception e = null;
+		
+		public void run() {
+			try {
+				sendsocket = new DatagramSocket();
+				recvsocket = new DatagramSocket(recvport);
+				address = InetAddress.getByName(hostname);
+	        } catch (UnknownHostException e) {
+	        	this.e = e;
+	        } catch (IOException e) {
+	        	this.e = e;
+	        } catch (UnresolvedAddressException e) {
+	        	this.e = e;
+	        }
+		}
+		
+		public Exception getException() {
+			return this.e;
+		}
+		
+	}
+
+	private class SendThread extends Thread {
 		
 		private boolean run = true;
-		
+
 		public void run() {
 			while (run) {
 				synchronized (act_q) {
@@ -154,7 +245,7 @@ public class ProtobufBroadcastPeer {
 				}
 			}
 		}
-		
+
 		public void terminate() {
 			this.run = false;
 			synchronized(act_q) {
@@ -163,11 +254,11 @@ public class ProtobufBroadcastPeer {
 		}
 		
 	}
-	
-	public class RecvThread extends Thread {
+
+	private class RecvThread extends Thread {
 		
 		private boolean run = true;
-		
+
 		public void run() {
 			while (run) {
 				try {
@@ -192,7 +283,7 @@ public class ProtobufBroadcastPeer {
 				}
 			}
 		}
-		
+
 		public void terminate() {
 			this.run = false;
 		}
