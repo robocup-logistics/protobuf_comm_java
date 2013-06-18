@@ -104,8 +104,12 @@ public class ProtobufClient {
 	 */
 	public void disconnect() {
 		try {
-			send.terminate();
-			recv.terminate();
+			if (send != null) {
+				send.terminate();
+			}
+			if (recv != null) {
+				recv.terminate();
+			}
 			sockchan.close();
 			
 			is_connected = false;
@@ -281,6 +285,7 @@ public class ProtobufClient {
 					
 					handle_message(cid, msgid, (ByteBuffer) in_msg.rewind());
 				} catch (IOException e) {
+					e.printStackTrace();
 				}
 			}
 		}

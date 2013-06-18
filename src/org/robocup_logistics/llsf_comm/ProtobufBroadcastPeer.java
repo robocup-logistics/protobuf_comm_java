@@ -107,8 +107,12 @@ public class ProtobufBroadcastPeer {
 	 * Stops the ProtobufBroadcastPeer and closes the sockets.
 	 */
 	public void stop() {
-		send.terminate();
-		recv.terminate();
+		if (send != null) {
+			send.terminate();
+		}
+		if (recv != null) {
+			recv.terminate();
+		}
 		sendsocket.close();
 		recvsocket.close();
 	}
