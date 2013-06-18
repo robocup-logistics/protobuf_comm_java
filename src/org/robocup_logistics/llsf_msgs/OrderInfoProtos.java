@@ -38,6 +38,10 @@ public final class OrderInfoProtos {
     // optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];
     boolean hasDeliveryGate();
     org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate getDeliveryGate();
+    
+    // optional bool late_order = 20;
+    boolean hasLateOrder();
+    boolean getLateOrder();
   }
   public static final class Order extends
       com.google.protobuf.GeneratedMessage
@@ -354,6 +358,16 @@ public final class OrderInfoProtos {
       return deliveryGate_;
     }
     
+    // optional bool late_order = 20;
+    public static final int LATE_ORDER_FIELD_NUMBER = 20;
+    private boolean lateOrder_;
+    public boolean hasLateOrder() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    public boolean getLateOrder() {
+      return lateOrder_;
+    }
+    
     private void initFields() {
       id_ = 0;
       product_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType.P1;
@@ -362,6 +376,7 @@ public final class OrderInfoProtos {
       deliveryPeriodBegin_ = 0;
       deliveryPeriodEnd_ = 0;
       deliveryGate_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.ANY;
+      lateOrder_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -420,6 +435,9 @@ public final class OrderInfoProtos {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeEnum(8, deliveryGate_.getNumber());
       }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBool(20, lateOrder_);
+      }
       getUnknownFields().writeTo(output);
     }
     
@@ -456,6 +474,10 @@ public final class OrderInfoProtos {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(8, deliveryGate_.getNumber());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(20, lateOrder_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -595,6 +617,8 @@ public final class OrderInfoProtos {
         bitField0_ = (bitField0_ & ~0x00000020);
         deliveryGate_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.ANY;
         bitField0_ = (bitField0_ & ~0x00000040);
+        lateOrder_ = false;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
       
@@ -661,6 +685,10 @@ public final class OrderInfoProtos {
           to_bitField0_ |= 0x00000040;
         }
         result.deliveryGate_ = deliveryGate_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.lateOrder_ = lateOrder_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -697,6 +725,9 @@ public final class OrderInfoProtos {
         }
         if (other.hasDeliveryGate()) {
           setDeliveryGate(other.getDeliveryGate());
+        }
+        if (other.hasLateOrder()) {
+          setLateOrder(other.getLateOrder());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -798,6 +829,11 @@ public final class OrderInfoProtos {
                 bitField0_ |= 0x00000040;
                 deliveryGate_ = value;
               }
+              break;
+            }
+            case 160: {
+              bitField0_ |= 0x00000080;
+              lateOrder_ = input.readBool();
               break;
             }
           }
@@ -955,6 +991,27 @@ public final class OrderInfoProtos {
       public Builder clearDeliveryGate() {
         bitField0_ = (bitField0_ & ~0x00000040);
         deliveryGate_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.ANY;
+        onChanged();
+        return this;
+      }
+      
+      // optional bool late_order = 20;
+      private boolean lateOrder_ ;
+      public boolean hasLateOrder() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      public boolean getLateOrder() {
+        return lateOrder_;
+      }
+      public Builder setLateOrder(boolean value) {
+        bitField0_ |= 0x00000080;
+        lateOrder_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearLateOrder() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        lateOrder_ = false;
         onChanged();
         return this;
       }
@@ -1621,20 +1678,20 @@ public final class OrderInfoProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017OrderInfo.proto\022\tllsf_msgs\"\361\002\n\005Order\022\n" +
+      "\n\017OrderInfo.proto\022\tllsf_msgs\"\205\003\n\005Order\022\n" +
       "\n\002id\030\001 \002(\r\022-\n\007product\030\002 \002(\0162\034.llsf_msgs." +
       "Order.ProductType\022\032\n\022quantity_requested\030" +
       "\003 \002(\r\022\032\n\022quantity_delivered\030\004 \002(\r\022\035\n\025del" +
       "ivery_period_begin\030\006 \002(\r\022\033\n\023delivery_per" +
       "iod_end\030\007 \002(\r\0229\n\rdelivery_gate\030\010 \001(\0162\035.l" +
-      "lsf_msgs.Order.DeliveryGate:\003ANY\"&\n\010Comp" +
-      "Type\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020(\"%\n\013Prod" +
-      "uctType\022\006\n\002P1\020\001\022\006\n\002P2\020\002\022\006\n\002P3\020\003\"/\n\014Deliv" +
-      "eryGate\022\007\n\003ANY\020\001\022\006\n\002D1\020\002\022\006\n\002D2\020\003\022\006\n\002D3\020\004",
-      "\"U\n\tOrderInfo\022 \n\006orders\030\001 \003(\0132\020.llsf_msg" +
-      "s.Order\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG" +
-      "_TYPE\020)B2\n\037org.robocup_logistics.llsf_ms" +
-      "gsB\017OrderInfoProtos"
+      "lsf_msgs.Order.DeliveryGate:\003ANY\022\022\n\nlate" +
+      "_order\030\024 \001(\010\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014" +
+      "\n\010MSG_TYPE\020(\"%\n\013ProductType\022\006\n\002P1\020\001\022\006\n\002P" +
+      "2\020\002\022\006\n\002P3\020\003\"/\n\014DeliveryGate\022\007\n\003ANY\020\001\022\006\n\002",
+      "D1\020\002\022\006\n\002D2\020\003\022\006\n\002D3\020\004\"U\n\tOrderInfo\022 \n\006ord" +
+      "ers\030\001 \003(\0132\020.llsf_msgs.Order\"&\n\010CompType\022" +
+      "\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020)B2\n\037org.roboc" +
+      "up_logistics.llsf_msgsB\017OrderInfoProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1646,7 +1703,7 @@ public final class OrderInfoProtos {
           internal_static_llsf_msgs_Order_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_Order_descriptor,
-              new java.lang.String[] { "Id", "Product", "QuantityRequested", "QuantityDelivered", "DeliveryPeriodBegin", "DeliveryPeriodEnd", "DeliveryGate", },
+              new java.lang.String[] { "Id", "Product", "QuantityRequested", "QuantityDelivered", "DeliveryPeriodBegin", "DeliveryPeriodEnd", "DeliveryGate", "LateOrder", },
               org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.class,
               org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder.class);
           internal_static_llsf_msgs_OrderInfo_descriptor =

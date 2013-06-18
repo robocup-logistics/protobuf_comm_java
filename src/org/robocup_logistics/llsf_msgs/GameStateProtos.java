@@ -31,6 +31,10 @@ public final class GameStateProtos {
     // optional string team = 6;
     boolean hasTeam();
     String getTeam();
+    
+    // optional .llsf_msgs.GameState.RefBoxMode refbox_mode = 7 [default = STANDALONE];
+    boolean hasRefboxMode();
+    org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode getRefboxMode();
   }
   public static final class GameState extends
       com.google.protobuf.GeneratedMessage
@@ -213,7 +217,7 @@ public final class GameStateProtos {
       POST_GAME(4, 40),
       OPEN_CHALLENGE(5, 1000),
       NAVIGATION_CHALLENGE(6, 1001),
-      WHAC_A_MOLE_CHALLENGE(7, 1002),
+      WHACK_A_MOLE_CHALLENGE(7, 1002),
       ;
       
       public static final int PRE_GAME_VALUE = 0;
@@ -223,7 +227,7 @@ public final class GameStateProtos {
       public static final int POST_GAME_VALUE = 40;
       public static final int OPEN_CHALLENGE_VALUE = 1000;
       public static final int NAVIGATION_CHALLENGE_VALUE = 1001;
-      public static final int WHAC_A_MOLE_CHALLENGE_VALUE = 1002;
+      public static final int WHACK_A_MOLE_CHALLENGE_VALUE = 1002;
       
       
       public final int getNumber() { return value; }
@@ -237,7 +241,7 @@ public final class GameStateProtos {
           case 40: return POST_GAME;
           case 1000: return OPEN_CHALLENGE;
           case 1001: return NAVIGATION_CHALLENGE;
-          case 1002: return WHAC_A_MOLE_CHALLENGE;
+          case 1002: return WHACK_A_MOLE_CHALLENGE;
           default: return null;
         }
       }
@@ -268,7 +272,7 @@ public final class GameStateProtos {
       }
       
       private static final Phase[] VALUES = {
-        PRE_GAME, SETUP, EXPLORATION, PRODUCTION, POST_GAME, OPEN_CHALLENGE, NAVIGATION_CHALLENGE, WHAC_A_MOLE_CHALLENGE, 
+        PRE_GAME, SETUP, EXPLORATION, PRODUCTION, POST_GAME, OPEN_CHALLENGE, NAVIGATION_CHALLENGE, WHACK_A_MOLE_CHALLENGE, 
       };
       
       public static Phase valueOf(
@@ -289,6 +293,78 @@ public final class GameStateProtos {
       }
       
       // @@protoc_insertion_point(enum_scope:llsf_msgs.GameState.Phase)
+    }
+    
+    public enum RefBoxMode
+        implements com.google.protobuf.ProtocolMessageEnum {
+      STANDALONE(0, 0),
+      MASTER(1, 1),
+      SLAVE(2, 2),
+      ;
+      
+      public static final int STANDALONE_VALUE = 0;
+      public static final int MASTER_VALUE = 1;
+      public static final int SLAVE_VALUE = 2;
+      
+      
+      public final int getNumber() { return value; }
+      
+      public static RefBoxMode valueOf(int value) {
+        switch (value) {
+          case 0: return STANDALONE;
+          case 1: return MASTER;
+          case 2: return SLAVE;
+          default: return null;
+        }
+      }
+      
+      public static com.google.protobuf.Internal.EnumLiteMap<RefBoxMode>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static com.google.protobuf.Internal.EnumLiteMap<RefBoxMode>
+          internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<RefBoxMode>() {
+              public RefBoxMode findValueByNumber(int number) {
+                return RefBoxMode.valueOf(number);
+              }
+            };
+      
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.getDescriptor().getEnumTypes().get(3);
+      }
+      
+      private static final RefBoxMode[] VALUES = {
+        STANDALONE, MASTER, SLAVE, 
+      };
+      
+      public static RefBoxMode valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+      
+      private final int index;
+      private final int value;
+      
+      private RefBoxMode(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+      
+      // @@protoc_insertion_point(enum_scope:llsf_msgs.GameState.RefBoxMode)
     }
     
     private int bitField0_;
@@ -367,12 +443,23 @@ public final class GameStateProtos {
       }
     }
     
+    // optional .llsf_msgs.GameState.RefBoxMode refbox_mode = 7 [default = STANDALONE];
+    public static final int REFBOX_MODE_FIELD_NUMBER = 7;
+    private org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode refboxMode_;
+    public boolean hasRefboxMode() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    public org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode getRefboxMode() {
+      return refboxMode_;
+    }
+    
     private void initFields() {
       gameTime_ = org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance();
       state_ = org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.State.INIT;
       phase_ = org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.Phase.PRE_GAME;
       points_ = 0;
       team_ = "";
+      refboxMode_ = org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode.STANDALONE;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -417,6 +504,9 @@ public final class GameStateProtos {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeBytes(6, getTeamBytes());
       }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeEnum(7, refboxMode_.getNumber());
+      }
       getUnknownFields().writeTo(output);
     }
     
@@ -445,6 +535,10 @@ public final class GameStateProtos {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(6, getTeamBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(7, refboxMode_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -585,6 +679,8 @@ public final class GameStateProtos {
         bitField0_ = (bitField0_ & ~0x00000008);
         team_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
+        refboxMode_ = org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode.STANDALONE;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       
@@ -647,6 +743,10 @@ public final class GameStateProtos {
           to_bitField0_ |= 0x00000010;
         }
         result.team_ = team_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.refboxMode_ = refboxMode_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -677,6 +777,9 @@ public final class GameStateProtos {
         }
         if (other.hasTeam()) {
           setTeam(other.getTeam());
+        }
+        if (other.hasRefboxMode()) {
+          setRefboxMode(other.getRefboxMode());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -764,6 +867,17 @@ public final class GameStateProtos {
             case 50: {
               bitField0_ |= 0x00000010;
               team_ = input.readBytes();
+              break;
+            }
+            case 56: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode value = org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(7, rawValue);
+              } else {
+                bitField0_ |= 0x00000020;
+                refboxMode_ = value;
+              }
               break;
             }
           }
@@ -965,6 +1079,30 @@ public final class GameStateProtos {
         bitField0_ |= 0x00000010;
         team_ = value;
         onChanged();
+      }
+      
+      // optional .llsf_msgs.GameState.RefBoxMode refbox_mode = 7 [default = STANDALONE];
+      private org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode refboxMode_ = org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode.STANDALONE;
+      public boolean hasRefboxMode() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      public org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode getRefboxMode() {
+        return refboxMode_;
+      }
+      public Builder setRefboxMode(org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
+        refboxMode_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearRefboxMode() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        refboxMode_ = org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.RefBoxMode.STANDALONE;
+        onChanged();
+        return this;
       }
       
       // @@protoc_insertion_point(builder_scope:llsf_msgs.GameState)
@@ -1851,22 +1989,25 @@ public final class GameStateProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\017GameState.proto\022\tllsf_msgs\032\nTime.proto" +
-      "\"\246\003\n\tGameState\022\"\n\tgame_time\030\001 \002(\0132\017.llsf" +
+      "\"\236\004\n\tGameState\022\"\n\tgame_time\030\001 \002(\0132\017.llsf" +
       "_msgs.Time\022)\n\005state\030\003 \002(\0162\032.llsf_msgs.Ga" +
       "meState.State\022)\n\005phase\030\004 \002(\0162\032.llsf_msgs" +
       ".GameState.Phase\022\016\n\006points\030\005 \001(\r\022\014\n\004team" +
-      "\030\006 \001(\t\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_" +
-      "TYPE\020\024\":\n\005State\022\010\n\004INIT\020\000\022\016\n\nWAIT_START\020" +
-      "\001\022\013\n\007RUNNING\020\002\022\n\n\006PAUSED\020\003\"\234\001\n\005Phase\022\014\n\010" +
-      "PRE_GAME\020\000\022\t\n\005SETUP\020\n\022\017\n\013EXPLORATION\020\024\022\016" +
-      "\n\nPRODUCTION\020\036\022\r\n\tPOST_GAME\020(\022\023\n\016OPEN_CH",
-      "ALLENGE\020\350\007\022\031\n\024NAVIGATION_CHALLENGE\020\351\007\022\032\n" +
-      "\025WHAC_A_MOLE_CHALLENGE\020\352\007\"a\n\014SetGameStat" +
+      "\030\006 \001(\t\022@\n\013refbox_mode\030\007 \001(\0162\037.llsf_msgs." +
+      "GameState.RefBoxMode:\nSTANDALONE\"&\n\010Comp" +
+      "Type\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020\024\":\n\005Stat" +
+      "e\022\010\n\004INIT\020\000\022\016\n\nWAIT_START\020\001\022\013\n\007RUNNING\020\002" +
+      "\022\n\n\006PAUSED\020\003\"\235\001\n\005Phase\022\014\n\010PRE_GAME\020\000\022\t\n\005",
+      "SETUP\020\n\022\017\n\013EXPLORATION\020\024\022\016\n\nPRODUCTION\020\036" +
+      "\022\r\n\tPOST_GAME\020(\022\023\n\016OPEN_CHALLENGE\020\350\007\022\031\n\024" +
+      "NAVIGATION_CHALLENGE\020\351\007\022\033\n\026WHACK_A_MOLE_" +
+      "CHALLENGE\020\352\007\"3\n\nRefBoxMode\022\016\n\nSTANDALONE" +
+      "\020\000\022\n\n\006MASTER\020\001\022\t\n\005SLAVE\020\002\"a\n\014SetGameStat" +
       "e\022)\n\005state\030\001 \002(\0162\032.llsf_msgs.GameState.S" +
       "tate\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TY" +
       "PE\020\025\"a\n\014SetGamePhase\022)\n\005phase\030\001 \002(\0162\032.ll" +
       "sf_msgs.GameState.Phase\"&\n\010CompType\022\014\n\007C" +
-      "OMP_ID\020\320\017\022\014\n\010MSG_TYPE\020\026B2\n\037org.robocup_l" +
+      "OMP_ID\020\320\017\022\014\n\010MSG_TYPE\020\026B2\n\037org.robocup_l",
       "ogistics.llsf_msgsB\017GameStateProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -1879,7 +2020,7 @@ public final class GameStateProtos {
           internal_static_llsf_msgs_GameState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_GameState_descriptor,
-              new java.lang.String[] { "GameTime", "State", "Phase", "Points", "Team", },
+              new java.lang.String[] { "GameTime", "State", "Phase", "Points", "Team", "RefboxMode", },
               org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.class,
               org.robocup_logistics.llsf_msgs.GameStateProtos.GameState.Builder.class);
           internal_static_llsf_msgs_SetGameState_descriptor =

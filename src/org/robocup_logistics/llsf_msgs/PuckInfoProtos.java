@@ -17,6 +17,7 @@ public final class PuckInfoProtos {
     P2(4, 5),
     P3(5, 6),
     CONSUMED(6, 7),
+    FINISHED(7, 8),
     ;
     
     public static final int S0_VALUE = 0;
@@ -26,6 +27,7 @@ public final class PuckInfoProtos {
     public static final int P2_VALUE = 5;
     public static final int P3_VALUE = 6;
     public static final int CONSUMED_VALUE = 7;
+    public static final int FINISHED_VALUE = 8;
     
     
     public final int getNumber() { return value; }
@@ -39,6 +41,7 @@ public final class PuckInfoProtos {
         case 5: return P2;
         case 6: return P3;
         case 7: return CONSUMED;
+        case 8: return FINISHED;
         default: return null;
       }
     }
@@ -69,7 +72,7 @@ public final class PuckInfoProtos {
     }
     
     private static final PuckState[] VALUES = {
-      S0, S1, S2, P1, P2, P3, CONSUMED, 
+      S0, S1, S2, P1, P2, P3, CONSUMED, FINISHED, 
     };
     
     public static PuckState valueOf(
@@ -1855,10 +1858,10 @@ public final class PuckInfoProtos {
       "\017.llsf_msgs.Puck\"&\n\010CompType\022\014\n\007COMP_ID\020" +
       "\320\017\022\014\n\010MSG_TYPE\0203\"?\n\010SetPucks\022\013\n\003ids\030\001 \003(" +
       "\r\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020" +
-      "4*I\n\tPuckState\022\006\n\002S0\020\000\022\006\n\002S1\020\001\022\006\n\002S2\020\002\022\006" +
-      "\n\002P1\020\004\022\006\n\002P2\020\005\022\006\n\002P3\020\006\022\014\n\010CONSUMED\020\007B1\n\037",
-      "org.robocup_logistics.llsf_msgsB\016PuckInf" +
-      "oProtos"
+      "4*W\n\tPuckState\022\006\n\002S0\020\000\022\006\n\002S1\020\001\022\006\n\002S2\020\002\022\006" +
+      "\n\002P1\020\004\022\006\n\002P2\020\005\022\006\n\002P3\020\006\022\014\n\010CONSUMED\020\007\022\014\n\010",
+      "FINISHED\020\010B1\n\037org.robocup_logistics.llsf" +
+      "_msgsB\016PuckInfoProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
