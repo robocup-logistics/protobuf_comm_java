@@ -200,6 +200,7 @@ public class ProtobufBroadcastPeer {
 		public void run() {
 			try {
 				sendsocket = new DatagramSocket();
+				sendsocket.setBroadcast(true);
 				recvsocket = new DatagramSocket(recvport);
 				address = InetAddress.getByName(hostname);
 	        } catch (UnknownHostException e) {
