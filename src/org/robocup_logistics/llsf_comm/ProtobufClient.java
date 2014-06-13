@@ -6,6 +6,8 @@ import java.lang.reflect.Method;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.channels.ClosedByInterruptException;
 import java.nio.channels.SocketChannel;
 import java.nio.channels.UnresolvedAddressException;
 import java.util.HashMap;
@@ -13,8 +15,9 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
+import org.robocup_logistics.llsf_exceptions.EncryptedStreamMessageException;
+import org.robocup_logistics.llsf_exceptions.UnknownProtocolVersionException;
 import org.robocup_logistics.llsf_tools.Key;
-
 
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.GeneratedMessage;
@@ -66,7 +69,7 @@ public class ProtobufClient {
 	 * @throws IOException
 	 *             Signals that the connection to the refbox cannot be established.
 	 */
-	public void connect() throws IOException {
+	public void connect() throws InterruptedException, IOException, UnresolvedAddressException {
 		con = new ConThread();
 		con.start();
 		try {
@@ -94,7 +97,9 @@ public class ProtobufClient {
 					throw new UnresolvedAddressException();
 				}
 			}
-		} catch (InterruptedException e) {}
+		} catch (InterruptedException e) {
+			throw e;
+		}
 		
 		is_connected = true;
 	}
@@ -102,13 +107,31 @@ public class ProtobufClient {
 	/**
 	 * Disconnects from the refbox.
 	 */
-	public void disconnect() {
+	public void disconnect(boolean wait) {
 		try {
 			if (send != null) {
 				send.terminate();
 			}
 			if (recv != null) {
 				recv.terminate();
+			}
+			
+			if (wait) {
+				try {
+					if (send != null) {
+						send.join();
+					}
+					if (recv != null) {
+						recv.join();
+					}
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}	
+			}
+			
+			if (sockchan != null) {
+				sockchan.close();
+				sockchan = null;
 			}
 			sockchan.close();
 			
@@ -238,16 +261,25 @@ public class ProtobufClient {
 							Queue<ProtobufMessage> help_q = send_q;
 							send_q = act_q;
 							act_q = help_q;
-						} catch (InterruptedException e) {}	
+						} catch (InterruptedException e) {
+							break;
+						}
 					}
 				}
 				synchronized (send_q) {
 					try {
 						while (!send_q.isEmpty()) {
 							ProtobufMessage msg = send_q.remove();
-							sockchan.write(msg.serialize());
+							if (sockchan != null && sockchan.isConnected()) {
+								sockchan.write(msg.serialize(false, null));
+							} else {
+								throw new IOException();
+							}
 						}
 					} catch (IOException e) {
+						run = false;
+						disconnect(true);
+						handler.connection_lost(e);
 					}
 				}
 			}
@@ -255,6 +287,7 @@ public class ProtobufClient {
 
 		public void terminate() {
 			this.run = false;
+			this.interrupt();
 			synchronized(act_q) {
 				act_q.notifyAll();	
 			}
@@ -269,29 +302,81 @@ public class ProtobufClient {
 		public void run() {
 			while (run) {
 				try {
-					
-					//Header einlesen
-					ByteBuffer in_header = ByteBuffer.allocate(8);
-					sockchan.read(in_header);
+					//read headers
+					ByteBuffer in_header = ByteBuffer.allocate(12);
+					if (sockchan != null && sockchan.isConnected()) {
+						int read = sockchan.read(in_header);
+						if (read == -1) {
+							throw new IOException();
+						}
+					} else {
+						throw new IOException();
+					}
+					in_header.order(ByteOrder.BIG_ENDIAN);
 					in_header.rewind();
 					
-					//Payload einlesen
+					ProtobufFrameHeader frameHeader = readHeader(in_header);
+					
+					int protocolVersion = frameHeader.getProtocolVersion();
+					if (protocolVersion != 2) {
+						throw new UnknownProtocolVersionException("Protocol version " + protocolVersion + " does not exist and cannot be processed.");
+					}
+					
+					int cipher = frameHeader.getCipher();
+					if (cipher != 0) {
+						throw new EncryptedStreamMessageException("Encryption in stream messages is not allowed.");
+					}
+					
+					//read payload
 					int cid = in_header.getShort();
 					int msgid = in_header.getShort();
-					ByteBuffer in_msg = ByteBuffer.allocate(in_header.getInt());
+					
+					int size = frameHeader.getPayloadSize();
+					
+					if (size < 0 || size > 1000000) {
+						continue;
+					}
+					
+					ByteBuffer in_msg = ByteBuffer.allocate(size - 4); //without component ID and message type
 					while (in_msg.remaining() != 0) {
+<<<<<<< HEAD
 						sockchan.read(in_msg);
+=======
+						if (sockchan != null && sockchan.isConnected()) {
+							int read = sockchan.read(in_msg);
+							if (read == -1) {
+								throw new IOException();
+							}
+						} else {
+							throw new IOException();
+						}
+>>>>>>> implemented new framing protocol and encryption
 					}
 					
 					handle_message(cid, msgid, (ByteBuffer) in_msg.rewind());
 				} catch (IOException e) {
-					e.printStackTrace();
+					run = false;
+					disconnect(true);
+					handler.connection_lost(e);
 				}
 			}
 		}
 
 		public void terminate() {
 			this.run = false;
+		}
+		
+		private ProtobufFrameHeader readHeader(ByteBuffer header) {
+			ProtobufFrameHeader frameHeader = new ProtobufFrameHeader();
+			
+			frameHeader.setProtocolVersion((int) header.get());
+			frameHeader.setCipher((int) header.get());
+			frameHeader.setReserved1((int) header.get());
+			frameHeader.setReserved2((int) header.get());
+			
+			frameHeader.setPayloadSize(header.getInt());
+			
+			return frameHeader;
 		}
 		
 	}

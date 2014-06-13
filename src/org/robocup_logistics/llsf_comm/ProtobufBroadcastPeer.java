@@ -1,6 +1,7 @@
 package org.robocup_logistics.llsf_comm;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.DatagramPacket;
@@ -8,14 +9,26 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.channels.ClosedByInterruptException;
 import java.nio.channels.UnresolvedAddressException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
-import org.robocup_logistics.llsf_tools.Key;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
+import org.robocup_logistics.llsf_encryption.BufferDecryptor;
+import org.robocup_logistics.llsf_encryption.BufferEncryptor;
+import org.robocup_logistics.llsf_exceptions.UnknownEncryptionMethodException;
+import org.robocup_logistics.llsf_exceptions.UnknownProtocolVersionException;
+import org.robocup_logistics.llsf_tools.Key;
 
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.GeneratedMessage;
@@ -36,12 +49,19 @@ public class ProtobufBroadcastPeer {
 	private int sendport;
 	private int recvport;
 	
+	private boolean encrypt;
+	private int cipher = 2;
+	
+	private BufferEncryptor encryptor;
+	private BufferDecryptor decryptor;
+	
 	private Queue<ProtobufMessage> queue1;
 	private Queue<ProtobufMessage> queue2;
 	private Queue<ProtobufMessage> act_q;
 	private Queue<ProtobufMessage> send_q;
 	private SendThread send;
 	private RecvThread recv;
+	private StopThread stop;
 	
 	private HashMap<Key, GeneratedMessage> msgs = new HashMap<Key, GeneratedMessage>();
 	private ProtobufMessageHandler handler;
@@ -61,6 +81,66 @@ public class ProtobufBroadcastPeer {
 		this.hostname = hostname;
 		this.sendport = sendport;
 		this.recvport = recvport;
+		encrypt = false;
+	}
+	
+	/**
+	 * Instantiates a new ProtobufBroadcastPeer with an encryption key. Use this contructor if
+	 * you want to send and receive encrypted messages. This method does not connect (see start).
+	 * 
+	 * @param hostname
+	 *            the IP address of the refbox
+	 * @param sendport
+	 *            the port to which to send
+	 * @param recvport
+	 * 			  the port to listen on for incoming messages
+	 * @see start()
+	 */
+	public ProtobufBroadcastPeer(String hostname, int sendport, int recvport, boolean encrypt, String encryptionKey) {
+		this(hostname, sendport, recvport);
+		this.encrypt = encrypt;
+		
+		if (encrypt) {
+			try {
+				encryptor = new BufferEncryptor(cipher, encryptionKey);
+				decryptor = new BufferDecryptor(cipher, encryptionKey);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			} catch (NoSuchPaddingException e) {
+				e.printStackTrace();
+			}	
+		}
+	}
+	
+	/**
+	 * Enables encryption with the given encryption key. From now on
+	 * messages will be sent and received encrypted.
+	 * 
+	 * @param hostname
+	 *            the IP address of the refbox
+	 * @param sendport
+	 *            the port to which to send
+	 * @param recvport
+	 * 			  the port to listen on for incoming messages
+	 * @see start()
+	 */
+	public void setEncrypt(boolean encrypt, String encryptionKey) {
+		this.encrypt = encrypt;
+		
+		if (encrypt) {
+			try {
+				encryptor = new BufferEncryptor(cipher, encryptionKey);
+				decryptor = new BufferDecryptor(cipher, encryptionKey);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			} catch (NoSuchPaddingException e) {
+				e.printStackTrace();
+			}	
+		}
 	}
 
 	/**
@@ -71,6 +151,14 @@ public class ProtobufBroadcastPeer {
 	 *             Signals that the connection to the refbox cannot be established.
 	 */
 	public void start() throws IOException {
+		if (stop != null && stop.isAlive()) {
+			try {
+				stop.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		ConThread con = new ConThread();
 		con.start();
 		try {
@@ -107,14 +195,15 @@ public class ProtobufBroadcastPeer {
 	 * Stops the ProtobufBroadcastPeer and closes the sockets.
 	 */
 	public void stop() {
-		if (send != null) {
-			send.terminate();
+		if (stop != null && stop.isAlive()) {
+			try {
+				stop.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
-		if (recv != null) {
-			recv.terminate();
-		}
-		sendsocket.close();
-		recvsocket.close();
+		stop = new StopThread();
+		stop.start();
 	}
 	
 	/**
@@ -217,6 +306,41 @@ public class ProtobufBroadcastPeer {
 		}
 		
 	}
+	
+	private class StopThread extends Thread {
+		
+		public void run() {
+			
+			if (send != null) {
+				send.terminate();
+			}
+			if (recv != null) {
+				recv.terminate();
+			}
+			
+			if (sendsocket != null) {
+				sendsocket.close();
+				sendsocket = null;
+			}
+			if (recvsocket != null) {
+				recvsocket.close();	
+				recvsocket = null;
+			}
+			
+			try {
+				if (send != null) {
+					send.join();
+				}
+				if (recv != null) {
+					recv.join();
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+	}
 
 	private class SendThread extends Thread {
 		
@@ -231,14 +355,16 @@ public class ProtobufBroadcastPeer {
 							Queue<ProtobufMessage> help_q = send_q;
 							send_q = act_q;
 							act_q = help_q;
-						} catch (InterruptedException e) {}	
+						} catch (InterruptedException e) {
+							break;
+						}	
 					}
 				}
 				synchronized (send_q) {
 					try {
 						while (!send_q.isEmpty()) {
 							ProtobufMessage msg = send_q.remove();
-							byte[] sendData = msg.serialize().array(); 
+							byte[] sendData = msg.serialize(encrypt, encryptor).array(); 
 							DatagramPacket send = new DatagramPacket(sendData, sendData.length, address, sendport);
 							sendsocket.send(send);
 						}
@@ -250,6 +376,7 @@ public class ProtobufBroadcastPeer {
 
 		public void terminate() {
 			this.run = false;
+			this.interrupt();
 			synchronized(act_q) {
 				act_q.notifyAll();	
 			}
@@ -268,19 +395,93 @@ public class ProtobufBroadcastPeer {
 					DatagramPacket receive = new DatagramPacket(receiveData, receiveData.length);
 					recvsocket.receive(receive);
 					
-					byte[] header = new byte[8];
-					System.arraycopy(receiveData, 0, header, 0, 8);
-					ByteBuffer header_buf = ByteBuffer.wrap(header);
-					header_buf.rewind();
-					int cmp_id = header_buf.getShort();
-					int msg_id = header_buf.getShort();
-					int size = header_buf.getInt();
+					byte[] frame_header = new byte[ProtobufMessage.FRAME_HEADER_SIZE];
+					System.arraycopy(receiveData, 0, frame_header, 0, ProtobufMessage.FRAME_HEADER_SIZE);
+					ByteBuffer frame_header_buf = ByteBuffer.wrap(frame_header);
+					frame_header_buf.order(ByteOrder.BIG_ENDIAN);
+					frame_header_buf.rewind();
 					
-					byte[] data = new byte[size];
-					System.arraycopy(receiveData, 8, data, 0, size);
-					ByteBuffer data_buf = ByteBuffer.wrap(data);
+					ProtobufFrameHeader frameHeader = readHeader(frame_header_buf);
 					
-					handle_message(cmp_id, msg_id, (ByteBuffer) data_buf.rewind());
+					int protocolVersion = frameHeader.getProtocolVersion();
+					if (protocolVersion != 2) {
+						throw new UnknownProtocolVersionException("Protocol version " + protocolVersion + " does not exist and cannot be processed.");
+					}
+					
+					int cipher = frameHeader.getCipher();
+					boolean encrypted;
+					if (cipher == 0) {
+						encrypted = false;
+					} else if (cipher == 2) {
+						encrypted = true;
+					} else {
+						throw new UnknownEncryptionMethodException("The encryption method related to cipher " + cipher + " is unknown.");
+					}
+					
+					int payloadSize = frameHeader.getPayloadSize();
+					
+					if (payloadSize < 0 || payloadSize > 1000000) {
+						continue;
+					}
+					
+					if (encrypted) {
+						
+						int ivSize = encryptor.getIvSize();
+						
+						byte[] initializationVector = new byte[ivSize];
+						System.arraycopy(receiveData, ProtobufMessage.FRAME_HEADER_SIZE, initializationVector, 0, ivSize);
+						byte[] data = new byte[payloadSize - ivSize];
+						System.arraycopy(receiveData, ProtobufMessage.FRAME_HEADER_SIZE + ivSize, data, 0, payloadSize - ivSize);
+						
+						try {
+							byte[] decryptedData = decryptor.decrypt(data, initializationVector);
+							
+							ByteBuffer finalData = ByteBuffer.wrap(decryptedData);
+							finalData.order(ByteOrder.BIG_ENDIAN);
+							finalData.rewind();
+							
+							int cmp_id = finalData.getShort();
+							int msg_id = finalData.getShort();
+							
+							ByteBuffer message = ByteBuffer.allocate(decryptedData.length - ProtobufMessage.MESSAGE_HEADER_SIZE);
+							message.rewind();
+							message.put(finalData);
+							
+							handle_message(cmp_id, msg_id, (ByteBuffer) message.rewind());
+							
+						} catch (NoSuchAlgorithmException e) {
+							e.printStackTrace();
+						} catch (NoSuchPaddingException e) {
+							e.printStackTrace();
+						} catch (InvalidKeyException e) {
+							e.printStackTrace();
+						} catch (InvalidAlgorithmParameterException e) {
+							e.printStackTrace();
+						} catch (IllegalBlockSizeException e) {
+							e.printStackTrace();
+						} catch (BadPaddingException e) {
+							e.printStackTrace();
+						}
+						
+					} else {
+						
+						byte[] msg_header = new byte[ProtobufMessage.MESSAGE_HEADER_SIZE];
+						System.arraycopy(receiveData, ProtobufMessage.FRAME_HEADER_SIZE, msg_header, 0, ProtobufMessage.MESSAGE_HEADER_SIZE);
+						ByteBuffer msg_header_buf = ByteBuffer.wrap(msg_header);
+						msg_header_buf.order(ByteOrder.BIG_ENDIAN);
+						msg_header_buf.rewind();
+						
+						int cmp_id = msg_header_buf.getShort();
+						int msg_id = msg_header_buf.getShort();
+						
+						byte[] data = new byte[payloadSize - ProtobufMessage.MESSAGE_HEADER_SIZE];
+						System.arraycopy(receiveData, ProtobufMessage.FRAME_HEADER_SIZE + ProtobufMessage.MESSAGE_HEADER_SIZE, data, 0, payloadSize - ProtobufMessage.MESSAGE_HEADER_SIZE);
+						ByteBuffer data_buf = ByteBuffer.wrap(data);
+						
+						handle_message(cmp_id, msg_id, (ByteBuffer) data_buf.rewind());
+						
+					}					
+				} catch (ClosedByInterruptException e) {
 				} catch (IOException e) {
 				}
 			}
@@ -288,6 +489,20 @@ public class ProtobufBroadcastPeer {
 
 		public void terminate() {
 			this.run = false;
+			this.interrupt();
+		}
+		
+		private ProtobufFrameHeader readHeader(ByteBuffer header) {
+			ProtobufFrameHeader frameHeader = new ProtobufFrameHeader();
+			
+			frameHeader.setProtocolVersion((int) header.get());
+			frameHeader.setCipher((int) header.get());
+			frameHeader.setReserved1((int) header.get());
+			frameHeader.setReserved2((int) header.get());
+			
+			frameHeader.setPayloadSize(header.getInt());
+			
+			return frameHeader;
 		}
 		
 	}

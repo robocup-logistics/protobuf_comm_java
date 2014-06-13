@@ -1,5 +1,6 @@
 package org.robocup_logistics.llsf_comm;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 
 import com.google.protobuf.GeneratedMessage;
@@ -27,5 +28,7 @@ public interface ProtobufMessageHandler {
 	 *            the instance of the same type as the protobuf message you received
 	 */
 	public void handle_message(ByteBuffer in_msg, GeneratedMessage msg);
+	public void connection_lost(IOException e);
+	public void timeout();
 
 }

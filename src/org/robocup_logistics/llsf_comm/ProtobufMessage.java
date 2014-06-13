@@ -2,6 +2,15 @@ package org.robocup_logistics.llsf_comm;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
+import org.robocup_logistics.llsf_encryption.BufferEncryptor;
 
 import com.google.protobuf.GeneratedMessage;
 
@@ -14,10 +23,18 @@ import com.google.protobuf.GeneratedMessage;
  */
 public class ProtobufMessage {
 	
+	protected int protocolVersion = 2;
+	protected int cipher = 0;
+	protected int reserved1 = 0;
+	protected int reserved2 = 0;
+
+	protected int payload_size;
 	protected int cmp_id;
 	protected int msg_id;
-	protected int size;
 	protected byte[] msg;
+
+	public final static int FRAME_HEADER_SIZE = 8;
+	public final static int MESSAGE_HEADER_SIZE = 4;
 	
 	/**
 	 * Instantiates a new ProtobufMessage. Pass the same component ID and message ID as defined in
@@ -29,9 +46,9 @@ public class ProtobufMessage {
 	 *            the message ID defined in the .proto file
 	 */
 	public ProtobufMessage(int cmp_id, int msg_id) {
+		this.payload_size = 0;
 		this.cmp_id = cmp_id;
 		this.msg_id = msg_id;
-		this.size = 0;
 		this.msg = null;
 	}
 	
@@ -48,8 +65,7 @@ public class ProtobufMessage {
 	 *            the instance of the actual protobuf message
 	 */
 	public ProtobufMessage(int cmp_id, int msg_id, GeneratedMessage gmsg) {
-		this.cmp_id = cmp_id;
-		this.msg_id = msg_id;
+		this(cmp_id, msg_id);
 		this.set_message(gmsg);
 	}
 	
@@ -77,7 +93,7 @@ public class ProtobufMessage {
 	 * @return the size of the message
 	 */
 	public int get_size() {
-		return this.size;
+		return this.payload_size;
 	}
 	
 	/**
@@ -118,12 +134,12 @@ public class ProtobufMessage {
 	 *            the protobuf message, has to extend from GeneratedMessage
 	 */
 	public void set_message(GeneratedMessage gmsg) {
-		int cmp = (int) Math.pow(2,31) - 1;
+		int cmp = (int) Math.pow(2, 31) - 1;
 		byte[] msg = gmsg.toByteArray();
 		if (msg.length > cmp) {
 			//throw new FawkesNetworkMessageTooBigException("Network Message size too big");
 		} else {
-			this.size = msg.length;
+			this.payload_size = msg.length + MESSAGE_HEADER_SIZE;
 			this.msg = msg;
 		}
 	}
@@ -134,14 +150,60 @@ public class ProtobufMessage {
 	 * 
 	 * @return the ByteBuffer containing the ProtobufMessage
 	 */
-	public ByteBuffer serialize() {
-		ByteBuffer buf = ByteBuffer.allocate(this.size + 8).order(ByteOrder.BIG_ENDIAN);
+	public ByteBuffer serialize(boolean encrypt, BufferEncryptor encryptor) {
+		
+		int completeSize;
+		byte[] iv = null;
+		
+		byte[] encryptedData = null;
+		if (encrypt) {
+			ByteBuffer toEncrypt = ByteBuffer.allocate(payload_size).order(ByteOrder.BIG_ENDIAN);
+			toEncrypt.putShort((short) cmp_id).putShort((short) msg_id);
+			toEncrypt.put(msg);
+			
+			try {
+				encryptedData = encryptor.encrypt(toEncrypt);
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+			} catch (NoSuchPaddingException e) {
+				e.printStackTrace();
+			} catch (InvalidKeyException e) {
+				e.printStackTrace();
+			} catch (InvalidAlgorithmParameterException e) {
+				e.printStackTrace();
+			} catch (IllegalBlockSizeException e) {
+				e.printStackTrace();
+			} catch (BadPaddingException e) {
+				e.printStackTrace();
+			}
+			
+			iv = encryptor.getIv();
+			
+			completeSize = FRAME_HEADER_SIZE + encryptor.getIvSize() + encryptedData.length;
+			payload_size = completeSize - FRAME_HEADER_SIZE;
+		} else {
+			completeSize = FRAME_HEADER_SIZE + payload_size;
+		}
+		
+		ByteBuffer buf = ByteBuffer.allocate(completeSize).order(ByteOrder.BIG_ENDIAN);
 		if (this.cmp_id == -1 || this.msg_id == -1) {
 			return null;
 			//throw new FawkesNetworkMessageUnknownIDException("Unknown component or message ID");
 		} else {
-			buf.putShort((short) this.cmp_id).putShort((short) this.msg_id).putInt(this.size);
-			buf.put(this.msg);
+			buf.put((byte) protocolVersion).put((byte) encryptor.getCipher()).put((byte) reserved1).put((byte) reserved2);
+
+			buf.putInt(payload_size);
+			
+			if (encrypt) {
+				buf.put(iv);
+				buf.put(encryptedData);
+			} else {
+				buf.putShort((short) this.cmp_id).putShort((short) this.msg_id);
+				buf.put(this.msg);
+			}
+			
+			encryptor.createNextIV();
+			
 			return (ByteBuffer) buf.rewind();	
 		}
 	}
