@@ -26,7 +26,6 @@ import javax.crypto.NoSuchPaddingException;
 
 import org.robocup_logistics.llsf_encryption.BufferDecryptor;
 import org.robocup_logistics.llsf_encryption.BufferEncryptor;
-import org.robocup_logistics.llsf_exceptions.UnknownEncryptionMethodException;
 import org.robocup_logistics.llsf_exceptions.UnknownProtocolVersionException;
 import org.robocup_logistics.llsf_tools.Key;
 
@@ -50,7 +49,6 @@ public class ProtobufBroadcastPeer {
 	private int recvport;
 	
 	private boolean encrypt;
-	private int cipher = 2;
 	
 	private BufferEncryptor encryptor;
 	private BufferDecryptor decryptor;
@@ -85,8 +83,10 @@ public class ProtobufBroadcastPeer {
 	}
 	
 	/**
-	 * Instantiates a new ProtobufBroadcastPeer with an encryption key. Use this contructor if
-	 * you want to send and receive encrypted messages. This method does not connect (see start).
+	 * Instantiates a new ProtobufBroadcastPeer with a cipher and an encryption key. The cipher must be
+	 * one of the values defined in the refbox integration manual in section 2.2.1. Use this constructor if
+	 * you want to send and receive encrypted messages. If you set encrypt to false or the cipher to 0,
+	 * encryption is disabled. This method does not connect (see start).
 	 * 
 	 * @param hostname
 	 *            the IP address of the refbox
@@ -94,16 +94,22 @@ public class ProtobufBroadcastPeer {
 	 *            the port to which to send
 	 * @param recvport
 	 * 			  the port to listen on for incoming messages
+	 * @param encrypt
+	 * 			  enables or disables encryption
+	 * @param cipher
+	 * 			  the cipher as defined in the refbox integration manual in section 2.2.1
+	 * @param encryptionKey
+	 * 			  the encryption key as String
 	 * @see start()
 	 */
-	public ProtobufBroadcastPeer(String hostname, int sendport, int recvport, boolean encrypt, String encryptionKey) {
+	public ProtobufBroadcastPeer(String hostname, int sendport, int recvport, boolean encrypt, int cipher, String encryptionKey) {
 		this(hostname, sendport, recvport);
 		this.encrypt = encrypt;
 		
-		if (encrypt) {
+		if (encrypt && cipher != 0) {
 			try {
 				encryptor = new BufferEncryptor(cipher, encryptionKey);
-				decryptor = new BufferDecryptor(cipher, encryptionKey);
+				decryptor = new BufferDecryptor(encryptionKey);
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			} catch (NoSuchAlgorithmException e) {
@@ -111,28 +117,30 @@ public class ProtobufBroadcastPeer {
 			} catch (NoSuchPaddingException e) {
 				e.printStackTrace();
 			}	
+		} else {
+			this.encrypt = false;
 		}
 	}
 	
 	/**
-	 * Enables encryption with the given encryption key. From now on
-	 * messages will be sent and received encrypted.
+	 * Enables encryption with the given cipher and encryption key. From now on
+	 * messages will be sent and received encrypted if you set encrypt to true
+	 * and the cipher to a non-zero value.
 	 * 
-	 * @param hostname
-	 *            the IP address of the refbox
-	 * @param sendport
-	 *            the port to which to send
-	 * @param recvport
-	 * 			  the port to listen on for incoming messages
-	 * @see start()
+	 * @param encrypt
+	 * 			  enables or disables encryption
+	 * @param cipher
+	 * 			  the cipher as defined in the refbox integration manual in section 2.2.1
+	 * @param encryptionKey
+	 * 			  the encryption key as String
 	 */
-	public void setEncrypt(boolean encrypt, String encryptionKey) {
+	public void setEncrypt(boolean encrypt, int cipher, String encryptionKey) {
 		this.encrypt = encrypt;
 		
-		if (encrypt) {
+		if (encrypt && cipher != 0) {
 			try {
 				encryptor = new BufferEncryptor(cipher, encryptionKey);
-				decryptor = new BufferDecryptor(cipher, encryptionKey);
+				decryptor = new BufferDecryptor(encryptionKey);
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			} catch (NoSuchAlgorithmException e) {
@@ -140,6 +148,8 @@ public class ProtobufBroadcastPeer {
 			} catch (NoSuchPaddingException e) {
 				e.printStackTrace();
 			}	
+		} else {
+			this.encrypt = false;
 		}
 	}
 
@@ -412,10 +422,8 @@ public class ProtobufBroadcastPeer {
 					boolean encrypted;
 					if (cipher == 0) {
 						encrypted = false;
-					} else if (cipher == 2) {
-						encrypted = true;
 					} else {
-						throw new UnknownEncryptionMethodException("The encryption method related to cipher " + cipher + " is unknown.");
+						encrypted = true;
 					}
 					
 					int payloadSize = frameHeader.getPayloadSize();
@@ -426,15 +434,22 @@ public class ProtobufBroadcastPeer {
 					
 					if (encrypted) {
 						
-						int ivSize = encryptor.getIvSize();
-						
-						byte[] initializationVector = new byte[ivSize];
-						System.arraycopy(receiveData, ProtobufMessage.FRAME_HEADER_SIZE, initializationVector, 0, ivSize);
-						byte[] data = new byte[payloadSize - ivSize];
-						System.arraycopy(receiveData, ProtobufMessage.FRAME_HEADER_SIZE + ivSize, data, 0, payloadSize - ivSize);
+						byte[] initializationVector = null;
+						byte[] data = null;
+						if (cipher == 2 || cipher == 4) { //CBC
+							int ivSize = encryptor.getIvSize();
+							
+							initializationVector = new byte[ivSize];
+							System.arraycopy(receiveData, ProtobufMessage.FRAME_HEADER_SIZE, initializationVector, 0, ivSize);
+							data = new byte[payloadSize - ivSize];
+							System.arraycopy(receiveData, ProtobufMessage.FRAME_HEADER_SIZE + ivSize, data, 0, payloadSize - ivSize);	
+						} else if (cipher == 1 || cipher == 3) { //ECB
+							data = new byte[payloadSize];
+							System.arraycopy(receiveData, ProtobufMessage.FRAME_HEADER_SIZE, data, 0, payloadSize);
+						}
 						
 						try {
-							byte[] decryptedData = decryptor.decrypt(data, initializationVector);
+							byte[] decryptedData = decryptor.decrypt(cipher, data, initializationVector);
 							
 							ByteBuffer finalData = ByteBuffer.wrap(decryptedData);
 							finalData.order(ByteOrder.BIG_ENDIAN);

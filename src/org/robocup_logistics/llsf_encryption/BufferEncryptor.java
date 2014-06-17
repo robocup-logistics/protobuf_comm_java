@@ -15,17 +15,18 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.robocup_logistics.llsf_exceptions.UnknownEncryptionMethodException;
+
 /**
- * The BufferEncryptor is responsible for encrypting messages. At the moment
- * it is only capable of handling encryption with AES 128 CBC.
+ * The BufferEncryptor is responsible for encrypting messages.
  */
 public class BufferEncryptor {
 	
 	private int cipher;
 	
-	private final static String ALGORITHM = "AES/CBC/PKCS5Padding";
+	private static String ALGORITHM;
 	
-	private static int KEY_SIZE_BITS = 128;
+	private static int KEY_SIZE_BITS;
 	private static int IV_SIZE_BYTES;
 	
 	private byte[][] keyAndIV;
@@ -46,6 +47,22 @@ public class BufferEncryptor {
 	public BufferEncryptor(int cipher, String key) throws UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException {
 		
 		this.cipher = cipher;
+		
+		if (cipher == 1) {
+			ALGORITHM = "AES/ECB/PKCS5Padding";
+			KEY_SIZE_BITS = 128;
+		} else if (cipher == 2) {
+			ALGORITHM = "AES/CBC/PKCS5Padding";
+			KEY_SIZE_BITS = 128;
+		} else if (cipher == 3) {
+			ALGORITHM = "AES/ECB/PKCS5Padding";
+			KEY_SIZE_BITS = 256;
+		} else if (cipher == 4) {
+			ALGORITHM = "AES/CBC/PKCS5Padding";
+			KEY_SIZE_BITS = 256;
+		} else {
+			throw new UnknownEncryptionMethodException("The encryption method related to cipher " + cipher + " is unknown.");
+		}
 		
 		byte[] keyBytes = key.getBytes("UTF-8");
 		
@@ -74,7 +91,13 @@ public class BufferEncryptor {
 	 */
 	public byte[] encrypt(ByteBuffer toEncrypt) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
 		Cipher cipher = Cipher.getInstance(ALGORITHM);
-		cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec);
+		
+		if (this.cipher == 1 || this.cipher == 3) { //ECB
+			cipher.init(Cipher.ENCRYPT_MODE, keySpec);
+		} else if (this.cipher == 2 || this.cipher == 4) { //CBC
+			cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec);
+		}
+		
 		byte[] encryptedData = cipher.doFinal(toEncrypt.array());
 		
 		return encryptedData;
@@ -83,7 +106,7 @@ public class BufferEncryptor {
 	/**
 	 * Creates initialization vector for the next message.
 	 */
-	public void createNextIV() {
+	public void createNextIv() {
 		new Random().nextBytes(keyAndIV[1]);
 		ivSpec = new IvParameterSpec(keyAndIV[1]);
 	}

@@ -24,7 +24,6 @@ import com.google.protobuf.GeneratedMessage;
 public class ProtobufMessage {
 	
 	protected int protocolVersion = 2;
-	protected int cipher = 0;
 	protected int reserved1 = 0;
 	protected int reserved2 = 0;
 
@@ -152,8 +151,9 @@ public class ProtobufMessage {
 	 */
 	public ByteBuffer serialize(boolean encrypt, BufferEncryptor encryptor) {
 		
-		int completeSize;
+		int completeSize = 0;
 		byte[] iv = null;
+		int cipher = encryptor.getCipher();
 		
 		byte[] encryptedData = null;
 		if (encrypt) {
@@ -177,10 +177,14 @@ public class ProtobufMessage {
 				e.printStackTrace();
 			}
 			
-			iv = encryptor.getIv();
-			
-			completeSize = FRAME_HEADER_SIZE + encryptor.getIvSize() + encryptedData.length;
+			if (cipher == 2 || cipher == 4) { //CBC
+				iv = encryptor.getIv();
+				completeSize = FRAME_HEADER_SIZE + encryptor.getIvSize() + encryptedData.length;
+			} else if (cipher == 1 || cipher == 3) { //ECB
+				completeSize = FRAME_HEADER_SIZE + encryptedData.length;
+			}
 			payload_size = completeSize - FRAME_HEADER_SIZE;
+			
 		} else {
 			completeSize = FRAME_HEADER_SIZE + payload_size;
 		}
@@ -190,19 +194,23 @@ public class ProtobufMessage {
 			return null;
 			//throw new FawkesNetworkMessageUnknownIDException("Unknown component or message ID");
 		} else {
-			buf.put((byte) protocolVersion).put((byte) encryptor.getCipher()).put((byte) reserved1).put((byte) reserved2);
+			buf.put((byte) protocolVersion).put((byte) cipher).put((byte) reserved1).put((byte) reserved2);
 
 			buf.putInt(payload_size);
 			
 			if (encrypt) {
-				buf.put(iv);
+				if (cipher == 2 || cipher == 4) { //CBC
+					buf.put(iv);	
+				}
 				buf.put(encryptedData);
 			} else {
 				buf.putShort((short) this.cmp_id).putShort((short) this.msg_id);
 				buf.put(this.msg);
 			}
 			
-			encryptor.createNextIV();
+			if (cipher == 2 || cipher == 4) { //CBC
+				encryptor.createNextIv();
+			}
 			
 			return (ByteBuffer) buf.rewind();	
 		}

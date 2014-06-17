@@ -111,10 +111,10 @@ public class User {
 		//See config.yaml for further information on the ports.
 		switch (TEAM_COLOR) {
 		case CYAN:
-			peerPrivate = new ProtobufBroadcastPeer("x.x.x.255", 4446, 4441, true, ENCRYPTION_KEY);
+			peerPrivate = new ProtobufBroadcastPeer("x.x.x.255", 4446, 4441, true, 2, ENCRYPTION_KEY);
 			break;
 		case MAGENTA:
-			peerPrivate = new ProtobufBroadcastPeer("x.x.x.255", 4447, 4442, true, ENCRYPTION_KEY);
+			peerPrivate = new ProtobufBroadcastPeer("x.x.x.255", 4447, 4442, true, 2, ENCRYPTION_KEY);
 			break;
 		}
 	
@@ -132,30 +132,40 @@ public class User {
 			Handler handler = new Handler();
 			peerPrivate.register_handler(handler);
 	
-			//The following messages are only sent once in this example!
-			NanoSecondsTimestampProvider nstp = new NanoSecondsTimestampProvider();
-			
-			long ms = System.currentTimeMillis();
-			long ns = nstp.currentNanoSecondsTimestamp();
-	
-			int sec = (int) (ms / 1000);
-			long nsec = ns - (ms * 1000000L);
-				
-			Time t = Time.newBuilder().setSec(sec).setNsec(nsec).build();
-			BeaconSignal bs = BeaconSignal.newBuilder().setTime(t).setSeq(1).setNumber(1).setPeerName("R-1").setTeamName(TEAM_NAME).setTeamColor(TEAM_COLOR).build();
-			
-			ProtobufMessage msg = new ProtobufMessage(2000, 1, bs);
-			peerPrivate.enqueue(msg);
-			
-			//let us pass some time...
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {}
-			
 			MachineReportProtos.MachineReportEntry mi = MachineReportProtos.MachineReportEntry.newBuilder().setName("M1").setType("T1").build();
 			MachineReport mr = MachineReport.newBuilder().addMachines(mi).setTeamColor(Team.CYAN).build();
 			ProtobufMessage machineReport = new ProtobufMessage(2000, 61, mr);
 			peerPrivate.enqueue(machineReport);
+			
+			new Thread(new Runnable() {
+				
+				public void run() {
+					
+					while(true) {
+						try {
+							Thread.sleep(2000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						
+						NanoSecondsTimestampProvider nstp = new NanoSecondsTimestampProvider();
+						
+						long ms = System.currentTimeMillis();
+						long ns = nstp.currentNanoSecondsTimestamp();
+				
+						int sec = (int) (ms / 1000);
+						long nsec = ns - (ms * 1000000L);
+							
+						Time t = Time.newBuilder().setSec(sec).setNsec(nsec).build();
+						BeaconSignal bs = BeaconSignal.newBuilder().setTime(t).setSeq(1).setNumber(1).setPeerName("R-1").setTeamName(TEAM_NAME).setTeamColor(TEAM_COLOR).build();
+						
+						ProtobufMessage msg = new ProtobufMessage(2000, 1, bs);
+						peerPrivate.enqueue(msg);
+					}
+					
+				}
+				
+			}).start();
 		}
 	}
 
