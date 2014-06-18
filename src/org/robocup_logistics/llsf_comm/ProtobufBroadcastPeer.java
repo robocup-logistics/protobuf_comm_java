@@ -40,8 +40,7 @@ import com.google.protobuf.GeneratedMessage;
  */
 public class ProtobufBroadcastPeer {
 	
-	private DatagramSocket sendsocket;
-	private DatagramSocket recvsocket;
+	private DatagramSocket socket;
 	private InetAddress address;
 	
 	private String hostname;
@@ -298,9 +297,8 @@ public class ProtobufBroadcastPeer {
 		
 		public void run() {
 			try {
-				sendsocket = new DatagramSocket();
-				sendsocket.setBroadcast(true);
-				recvsocket = new DatagramSocket(recvport);
+				socket = new DatagramSocket(recvport);
+				socket.setBroadcast(true);
 				address = InetAddress.getByName(hostname);
 	        } catch (UnknownHostException e) {
 	        	this.e = e;
@@ -328,13 +326,9 @@ public class ProtobufBroadcastPeer {
 				recv.terminate();
 			}
 			
-			if (sendsocket != null) {
-				sendsocket.close();
-				sendsocket = null;
-			}
-			if (recvsocket != null) {
-				recvsocket.close();	
-				recvsocket = null;
+			if (socket != null) {
+				socket.close();
+				socket = null;
 			}
 			
 			try {
@@ -376,7 +370,9 @@ public class ProtobufBroadcastPeer {
 							ProtobufMessage msg = send_q.remove();
 							byte[] sendData = msg.serialize(encrypt, encryptor).array(); 
 							DatagramPacket send = new DatagramPacket(sendData, sendData.length, address, sendport);
-							sendsocket.send(send);
+							if (socket != null) {
+								socket.send(send);	
+							}
 						}
 					} catch (IOException e) {
 					}
@@ -401,9 +397,11 @@ public class ProtobufBroadcastPeer {
 		public void run() {
 			while (run) {
 				try {
-					byte[] receiveData = new byte[recvsocket.getReceiveBufferSize()];
+					byte[] receiveData = new byte[socket.getReceiveBufferSize()];
 					DatagramPacket receive = new DatagramPacket(receiveData, receiveData.length);
-					recvsocket.receive(receive);
+					if (socket != null) {
+						socket.receive(receive);	
+					}
 					
 					byte[] frame_header = new byte[ProtobufMessage.FRAME_HEADER_SIZE];
 					System.arraycopy(receiveData, 0, frame_header, 0, ProtobufMessage.FRAME_HEADER_SIZE);

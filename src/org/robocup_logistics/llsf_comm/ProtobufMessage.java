@@ -152,8 +152,12 @@ public class ProtobufMessage {
 	public ByteBuffer serialize(boolean encrypt, BufferEncryptor encryptor) {
 		
 		int completeSize = 0;
+		int cipher = 0;
 		byte[] iv = null;
-		int cipher = encryptor.getCipher();
+		
+		if (encrypt) {
+			cipher = encryptor.getCipher();
+		}
 		
 		byte[] encryptedData = null;
 		if (encrypt) {
