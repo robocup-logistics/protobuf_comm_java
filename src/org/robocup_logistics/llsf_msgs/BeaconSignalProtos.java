@@ -10,73 +10,344 @@ public final class BeaconSignalProtos {
   }
   public interface BeaconSignalOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required .llsf_msgs.Time time = 1;
+    /**
+     * <code>required .llsf_msgs.Time time = 1;</code>
+     *
+     * <pre>
+     * Local time in UTC
+     * </pre>
+     */
     boolean hasTime();
+    /**
+     * <code>required .llsf_msgs.Time time = 1;</code>
+     *
+     * <pre>
+     * Local time in UTC
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.TimeProtos.Time getTime();
+    /**
+     * <code>required .llsf_msgs.Time time = 1;</code>
+     *
+     * <pre>
+     * Local time in UTC
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder getTimeOrBuilder();
-    
+
     // required uint64 seq = 2;
+    /**
+     * <code>required uint64 seq = 2;</code>
+     *
+     * <pre>
+     * Sequence number
+     * </pre>
+     */
     boolean hasSeq();
+    /**
+     * <code>required uint64 seq = 2;</code>
+     *
+     * <pre>
+     * Sequence number
+     * </pre>
+     */
     long getSeq();
-    
+
     // required uint32 number = 8;
+    /**
+     * <code>required uint32 number = 8;</code>
+     *
+     * <pre>
+     * The robot's jersey number
+     * </pre>
+     */
     boolean hasNumber();
+    /**
+     * <code>required uint32 number = 8;</code>
+     *
+     * <pre>
+     * The robot's jersey number
+     * </pre>
+     */
     int getNumber();
-    
+
     // required string team_name = 4;
+    /**
+     * <code>required string team_name = 4;</code>
+     *
+     * <pre>
+     * The robot's team name
+     * </pre>
+     */
     boolean hasTeamName();
-    String getTeamName();
-    
+    /**
+     * <code>required string team_name = 4;</code>
+     *
+     * <pre>
+     * The robot's team name
+     * </pre>
+     */
+    java.lang.String getTeamName();
+    /**
+     * <code>required string team_name = 4;</code>
+     *
+     * <pre>
+     * The robot's team name
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTeamNameBytes();
+
     // required string peer_name = 5;
+    /**
+     * <code>required string peer_name = 5;</code>
+     *
+     * <pre>
+     * The robot's name
+     * </pre>
+     */
     boolean hasPeerName();
-    String getPeerName();
-    
+    /**
+     * <code>required string peer_name = 5;</code>
+     *
+     * <pre>
+     * The robot's name
+     * </pre>
+     */
+    java.lang.String getPeerName();
+    /**
+     * <code>required string peer_name = 5;</code>
+     *
+     * <pre>
+     * The robot's name
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getPeerNameBytes();
+
+    // optional .llsf_msgs.Team team_color = 6;
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 6;</code>
+     *
+     * <pre>
+     * Team color, teams MUST sent this
+     * </pre>
+     */
+    boolean hasTeamColor();
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 6;</code>
+     *
+     * <pre>
+     * Team color, teams MUST sent this
+     * </pre>
+     */
+    org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor();
+
     // optional .llsf_msgs.Pose2D pose = 7;
+    /**
+     * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+     *
+     * <pre>
+     * Position and orientation of the
+     * robot on the LLSF playing field
+     * </pre>
+     */
     boolean hasPose();
+    /**
+     * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+     *
+     * <pre>
+     * Position and orientation of the
+     * robot on the LLSF playing field
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose();
+    /**
+     * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+     *
+     * <pre>
+     * Position and orientation of the
+     * robot on the LLSF playing field
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder getPoseOrBuilder();
   }
+  /**
+   * Protobuf type {@code llsf_msgs.BeaconSignal}
+   */
   public static final class BeaconSignal extends
       com.google.protobuf.GeneratedMessage
       implements BeaconSignalOrBuilder {
     // Use BeaconSignal.newBuilder() to construct.
-    private BeaconSignal(Builder builder) {
+    private BeaconSignal(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private BeaconSignal(boolean noInit) {}
-    
+    private BeaconSignal(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final BeaconSignal defaultInstance;
     public static BeaconSignal getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public BeaconSignal getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BeaconSignal(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = time_.toBuilder();
+              }
+              time_ = input.readMessage(org.robocup_logistics.llsf_msgs.TimeProtos.Time.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(time_);
+                time_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              seq_ = input.readUInt64();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              teamName_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
+              peerName_ = input.readBytes();
+              break;
+            }
+            case 48: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.TeamProtos.Team value = org.robocup_logistics.llsf_msgs.TeamProtos.Team.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(6, rawValue);
+              } else {
+                bitField0_ |= 0x00000020;
+                teamColor_ = value;
+              }
+              break;
+            }
+            case 58: {
+              org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                subBuilder = pose_.toBuilder();
+              }
+              pose_ = input.readMessage(org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pose_);
+                pose_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000004;
+              number_ = input.readUInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.internal_static_llsf_msgs_BeaconSignal_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.internal_static_llsf_msgs_BeaconSignal_fieldAccessorTable;
+      return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.internal_static_llsf_msgs_BeaconSignal_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.class, org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<BeaconSignal> PARSER =
+        new com.google.protobuf.AbstractParser<BeaconSignal>() {
+      public BeaconSignal parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BeaconSignal(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BeaconSignal> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.BeaconSignal.CompType}
+     */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 1;</code>
+       */
       MSG_TYPE(1, 1),
       ;
-      
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 1;</code>
+       */
       public static final int MSG_TYPE_VALUE = 1;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
@@ -84,7 +355,7 @@ public final class BeaconSignalProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<CompType>
           internalGetValueMap() {
         return internalValueMap;
@@ -96,7 +367,7 @@ public final class BeaconSignalProtos {
                 return CompType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -109,11 +380,9 @@ public final class BeaconSignalProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final CompType[] VALUES = {
-        COMP_ID, MSG_TYPE, 
-      };
-      
+
+      private static final CompType[] VALUES = values();
+
       public static CompType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -122,142 +391,286 @@ public final class BeaconSignalProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private CompType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.BeaconSignal.CompType)
     }
-    
+
     private int bitField0_;
     // required .llsf_msgs.Time time = 1;
     public static final int TIME_FIELD_NUMBER = 1;
     private org.robocup_logistics.llsf_msgs.TimeProtos.Time time_;
+    /**
+     * <code>required .llsf_msgs.Time time = 1;</code>
+     *
+     * <pre>
+     * Local time in UTC
+     * </pre>
+     */
     public boolean hasTime() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>required .llsf_msgs.Time time = 1;</code>
+     *
+     * <pre>
+     * Local time in UTC
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.TimeProtos.Time getTime() {
       return time_;
     }
+    /**
+     * <code>required .llsf_msgs.Time time = 1;</code>
+     *
+     * <pre>
+     * Local time in UTC
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder getTimeOrBuilder() {
       return time_;
     }
-    
+
     // required uint64 seq = 2;
     public static final int SEQ_FIELD_NUMBER = 2;
     private long seq_;
+    /**
+     * <code>required uint64 seq = 2;</code>
+     *
+     * <pre>
+     * Sequence number
+     * </pre>
+     */
     public boolean hasSeq() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>required uint64 seq = 2;</code>
+     *
+     * <pre>
+     * Sequence number
+     * </pre>
+     */
     public long getSeq() {
       return seq_;
     }
-    
+
     // required uint32 number = 8;
     public static final int NUMBER_FIELD_NUMBER = 8;
     private int number_;
+    /**
+     * <code>required uint32 number = 8;</code>
+     *
+     * <pre>
+     * The robot's jersey number
+     * </pre>
+     */
     public boolean hasNumber() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
+    /**
+     * <code>required uint32 number = 8;</code>
+     *
+     * <pre>
+     * The robot's jersey number
+     * </pre>
+     */
     public int getNumber() {
       return number_;
     }
-    
+
     // required string team_name = 4;
     public static final int TEAM_NAME_FIELD_NUMBER = 4;
     private java.lang.Object teamName_;
+    /**
+     * <code>required string team_name = 4;</code>
+     *
+     * <pre>
+     * The robot's team name
+     * </pre>
+     */
     public boolean hasTeamName() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    public String getTeamName() {
+    /**
+     * <code>required string team_name = 4;</code>
+     *
+     * <pre>
+     * The robot's team name
+     * </pre>
+     */
+    public java.lang.String getTeamName() {
       java.lang.Object ref = teamName_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           teamName_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getTeamNameBytes() {
+    /**
+     * <code>required string team_name = 4;</code>
+     *
+     * <pre>
+     * The robot's team name
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTeamNameBytes() {
       java.lang.Object ref = teamName_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         teamName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // required string peer_name = 5;
     public static final int PEER_NAME_FIELD_NUMBER = 5;
     private java.lang.Object peerName_;
+    /**
+     * <code>required string peer_name = 5;</code>
+     *
+     * <pre>
+     * The robot's name
+     * </pre>
+     */
     public boolean hasPeerName() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
-    public String getPeerName() {
+    /**
+     * <code>required string peer_name = 5;</code>
+     *
+     * <pre>
+     * The robot's name
+     * </pre>
+     */
+    public java.lang.String getPeerName() {
       java.lang.Object ref = peerName_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           peerName_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getPeerNameBytes() {
+    /**
+     * <code>required string peer_name = 5;</code>
+     *
+     * <pre>
+     * The robot's name
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getPeerNameBytes() {
       java.lang.Object ref = peerName_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         peerName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
+    // optional .llsf_msgs.Team team_color = 6;
+    public static final int TEAM_COLOR_FIELD_NUMBER = 6;
+    private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_;
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 6;</code>
+     *
+     * <pre>
+     * Team color, teams MUST sent this
+     * </pre>
+     */
+    public boolean hasTeamColor() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 6;</code>
+     *
+     * <pre>
+     * Team color, teams MUST sent this
+     * </pre>
+     */
+    public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+      return teamColor_;
+    }
+
     // optional .llsf_msgs.Pose2D pose = 7;
     public static final int POSE_FIELD_NUMBER = 7;
     private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D pose_;
+    /**
+     * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+     *
+     * <pre>
+     * Position and orientation of the
+     * robot on the LLSF playing field
+     * </pre>
+     */
     public boolean hasPose() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
+    /**
+     * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+     *
+     * <pre>
+     * Position and orientation of the
+     * robot on the LLSF playing field
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose() {
       return pose_;
     }
+    /**
+     * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+     *
+     * <pre>
+     * Position and orientation of the
+     * robot on the LLSF playing field
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder getPoseOrBuilder() {
       return pose_;
     }
-    
+
     private void initFields() {
       time_ = org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance();
       seq_ = 0L;
       number_ = 0;
       teamName_ = "";
       peerName_ = "";
+      teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
       pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasTime()) {
         memoizedIsInitialized = 0;
         return false;
@@ -291,7 +704,7 @@ public final class BeaconSignalProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -308,6 +721,9 @@ public final class BeaconSignalProtos {
         output.writeBytes(5, getPeerNameBytes());
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeEnum(6, teamColor_.getNumber());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeMessage(7, pose_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
@@ -315,12 +731,12 @@ public final class BeaconSignalProtos {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -340,6 +756,10 @@ public final class BeaconSignalProtos {
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, teamColor_.getNumber());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, pose_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
@@ -350,94 +770,83 @@ public final class BeaconSignalProtos {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code llsf_msgs.BeaconSignal}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignalOrBuilder {
@@ -445,18 +854,21 @@ public final class BeaconSignalProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.internal_static_llsf_msgs_BeaconSignal_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.internal_static_llsf_msgs_BeaconSignal_fieldAccessorTable;
+        return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.internal_static_llsf_msgs_BeaconSignal_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.class, org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.Builder.class);
       }
-      
+
       // Construct using org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -469,7 +881,7 @@ public final class BeaconSignalProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         if (timeBuilder_ == null) {
@@ -486,28 +898,30 @@ public final class BeaconSignalProtos {
         bitField0_ = (bitField0_ & ~0x00000008);
         peerName_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        bitField0_ = (bitField0_ & ~0x00000020);
         if (poseBuilder_ == null) {
           pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
         } else {
           poseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.getDescriptor();
+        return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.internal_static_llsf_msgs_BeaconSignal_descriptor;
       }
-      
+
       public org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal getDefaultInstanceForType() {
         return org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.getDefaultInstance();
       }
-      
+
       public org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal build() {
         org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal result = buildPartial();
         if (!result.isInitialized()) {
@@ -515,17 +929,7 @@ public final class BeaconSignalProtos {
         }
         return result;
       }
-      
-      private org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal buildPartial() {
         org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal result = new org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal(this);
         int from_bitField0_ = bitField0_;
@@ -557,6 +961,10 @@ public final class BeaconSignalProtos {
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
+        result.teamColor_ = teamColor_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
         if (poseBuilder_ == null) {
           result.pose_ = pose_;
         } else {
@@ -566,7 +974,7 @@ public final class BeaconSignalProtos {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal) {
           return mergeFrom((org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal)other);
@@ -575,7 +983,7 @@ public final class BeaconSignalProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal other) {
         if (other == org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.getDefaultInstance()) return this;
         if (other.hasTime()) {
@@ -588,10 +996,17 @@ public final class BeaconSignalProtos {
           setNumber(other.getNumber());
         }
         if (other.hasTeamName()) {
-          setTeamName(other.getTeamName());
+          bitField0_ |= 0x00000008;
+          teamName_ = other.teamName_;
+          onChanged();
         }
         if (other.hasPeerName()) {
-          setPeerName(other.getPeerName());
+          bitField0_ |= 0x00000010;
+          peerName_ = other.peerName_;
+          onChanged();
+        }
+        if (other.hasTeamColor()) {
+          setTeamColor(other.getTeamColor());
         }
         if (other.hasPose()) {
           mergePose(other.getPose());
@@ -599,7 +1014,7 @@ public final class BeaconSignalProtos {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasTime()) {
           
@@ -633,81 +1048,47 @@ public final class BeaconSignalProtos {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder subBuilder = org.robocup_logistics.llsf_msgs.TimeProtos.Time.newBuilder();
-              if (hasTime()) {
-                subBuilder.mergeFrom(getTime());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setTime(subBuilder.buildPartial());
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              seq_ = input.readUInt64();
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000008;
-              teamName_ = input.readBytes();
-              break;
-            }
-            case 42: {
-              bitField0_ |= 0x00000010;
-              peerName_ = input.readBytes();
-              break;
-            }
-            case 58: {
-              org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder subBuilder = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.newBuilder();
-              if (hasPose()) {
-                subBuilder.mergeFrom(getPose());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setPose(subBuilder.buildPartial());
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000004;
-              number_ = input.readUInt32();
-              break;
-            }
+        org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required .llsf_msgs.Time time = 1;
       private org.robocup_logistics.llsf_msgs.TimeProtos.Time time_ = org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.TimeProtos.Time, org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder, org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder> timeBuilder_;
+      /**
+       * <code>required .llsf_msgs.Time time = 1;</code>
+       *
+       * <pre>
+       * Local time in UTC
+       * </pre>
+       */
       public boolean hasTime() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required .llsf_msgs.Time time = 1;</code>
+       *
+       * <pre>
+       * Local time in UTC
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.TimeProtos.Time getTime() {
         if (timeBuilder_ == null) {
           return time_;
@@ -715,6 +1096,13 @@ public final class BeaconSignalProtos {
           return timeBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .llsf_msgs.Time time = 1;</code>
+       *
+       * <pre>
+       * Local time in UTC
+       * </pre>
+       */
       public Builder setTime(org.robocup_logistics.llsf_msgs.TimeProtos.Time value) {
         if (timeBuilder_ == null) {
           if (value == null) {
@@ -728,6 +1116,13 @@ public final class BeaconSignalProtos {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>required .llsf_msgs.Time time = 1;</code>
+       *
+       * <pre>
+       * Local time in UTC
+       * </pre>
+       */
       public Builder setTime(
           org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder builderForValue) {
         if (timeBuilder_ == null) {
@@ -739,6 +1134,13 @@ public final class BeaconSignalProtos {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>required .llsf_msgs.Time time = 1;</code>
+       *
+       * <pre>
+       * Local time in UTC
+       * </pre>
+       */
       public Builder mergeTime(org.robocup_logistics.llsf_msgs.TimeProtos.Time value) {
         if (timeBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
@@ -755,6 +1157,13 @@ public final class BeaconSignalProtos {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>required .llsf_msgs.Time time = 1;</code>
+       *
+       * <pre>
+       * Local time in UTC
+       * </pre>
+       */
       public Builder clearTime() {
         if (timeBuilder_ == null) {
           time_ = org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance();
@@ -765,11 +1174,25 @@ public final class BeaconSignalProtos {
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
+      /**
+       * <code>required .llsf_msgs.Time time = 1;</code>
+       *
+       * <pre>
+       * Local time in UTC
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder getTimeBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getTimeFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .llsf_msgs.Time time = 1;</code>
+       *
+       * <pre>
+       * Local time in UTC
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder getTimeOrBuilder() {
         if (timeBuilder_ != null) {
           return timeBuilder_.getMessageOrBuilder();
@@ -777,6 +1200,13 @@ public final class BeaconSignalProtos {
           return time_;
         }
       }
+      /**
+       * <code>required .llsf_msgs.Time time = 1;</code>
+       *
+       * <pre>
+       * Local time in UTC
+       * </pre>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.TimeProtos.Time, org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder, org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder> 
           getTimeFieldBuilder() {
@@ -790,65 +1220,164 @@ public final class BeaconSignalProtos {
         }
         return timeBuilder_;
       }
-      
+
       // required uint64 seq = 2;
       private long seq_ ;
+      /**
+       * <code>required uint64 seq = 2;</code>
+       *
+       * <pre>
+       * Sequence number
+       * </pre>
+       */
       public boolean hasSeq() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required uint64 seq = 2;</code>
+       *
+       * <pre>
+       * Sequence number
+       * </pre>
+       */
       public long getSeq() {
         return seq_;
       }
+      /**
+       * <code>required uint64 seq = 2;</code>
+       *
+       * <pre>
+       * Sequence number
+       * </pre>
+       */
       public Builder setSeq(long value) {
         bitField0_ |= 0x00000002;
         seq_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required uint64 seq = 2;</code>
+       *
+       * <pre>
+       * Sequence number
+       * </pre>
+       */
       public Builder clearSeq() {
         bitField0_ = (bitField0_ & ~0x00000002);
         seq_ = 0L;
         onChanged();
         return this;
       }
-      
+
       // required uint32 number = 8;
       private int number_ ;
+      /**
+       * <code>required uint32 number = 8;</code>
+       *
+       * <pre>
+       * The robot's jersey number
+       * </pre>
+       */
       public boolean hasNumber() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
+      /**
+       * <code>required uint32 number = 8;</code>
+       *
+       * <pre>
+       * The robot's jersey number
+       * </pre>
+       */
       public int getNumber() {
         return number_;
       }
+      /**
+       * <code>required uint32 number = 8;</code>
+       *
+       * <pre>
+       * The robot's jersey number
+       * </pre>
+       */
       public Builder setNumber(int value) {
         bitField0_ |= 0x00000004;
         number_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required uint32 number = 8;</code>
+       *
+       * <pre>
+       * The robot's jersey number
+       * </pre>
+       */
       public Builder clearNumber() {
         bitField0_ = (bitField0_ & ~0x00000004);
         number_ = 0;
         onChanged();
         return this;
       }
-      
+
       // required string team_name = 4;
       private java.lang.Object teamName_ = "";
+      /**
+       * <code>required string team_name = 4;</code>
+       *
+       * <pre>
+       * The robot's team name
+       * </pre>
+       */
       public boolean hasTeamName() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      public String getTeamName() {
+      /**
+       * <code>required string team_name = 4;</code>
+       *
+       * <pre>
+       * The robot's team name
+       * </pre>
+       */
+      public java.lang.String getTeamName() {
         java.lang.Object ref = teamName_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           teamName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setTeamName(String value) {
+      /**
+       * <code>required string team_name = 4;</code>
+       *
+       * <pre>
+       * The robot's team name
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getTeamNameBytes() {
+        java.lang.Object ref = teamName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          teamName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string team_name = 4;</code>
+       *
+       * <pre>
+       * The robot's team name
+       * </pre>
+       */
+      public Builder setTeamName(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -857,34 +1386,96 @@ public final class BeaconSignalProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string team_name = 4;</code>
+       *
+       * <pre>
+       * The robot's team name
+       * </pre>
+       */
       public Builder clearTeamName() {
         bitField0_ = (bitField0_ & ~0x00000008);
         teamName_ = getDefaultInstance().getTeamName();
         onChanged();
         return this;
       }
-      void setTeamName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000008;
+      /**
+       * <code>required string team_name = 4;</code>
+       *
+       * <pre>
+       * The robot's team name
+       * </pre>
+       */
+      public Builder setTeamNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
         teamName_ = value;
         onChanged();
+        return this;
       }
-      
+
       // required string peer_name = 5;
       private java.lang.Object peerName_ = "";
+      /**
+       * <code>required string peer_name = 5;</code>
+       *
+       * <pre>
+       * The robot's name
+       * </pre>
+       */
       public boolean hasPeerName() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
-      public String getPeerName() {
+      /**
+       * <code>required string peer_name = 5;</code>
+       *
+       * <pre>
+       * The robot's name
+       * </pre>
+       */
+      public java.lang.String getPeerName() {
         java.lang.Object ref = peerName_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           peerName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setPeerName(String value) {
+      /**
+       * <code>required string peer_name = 5;</code>
+       *
+       * <pre>
+       * The robot's name
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getPeerNameBytes() {
+        java.lang.Object ref = peerName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          peerName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string peer_name = 5;</code>
+       *
+       * <pre>
+       * The robot's name
+       * </pre>
+       */
+      public Builder setPeerName(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -893,25 +1484,112 @@ public final class BeaconSignalProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string peer_name = 5;</code>
+       *
+       * <pre>
+       * The robot's name
+       * </pre>
+       */
       public Builder clearPeerName() {
         bitField0_ = (bitField0_ & ~0x00000010);
         peerName_ = getDefaultInstance().getPeerName();
         onChanged();
         return this;
       }
-      void setPeerName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000010;
+      /**
+       * <code>required string peer_name = 5;</code>
+       *
+       * <pre>
+       * The robot's name
+       * </pre>
+       */
+      public Builder setPeerNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
         peerName_ = value;
         onChanged();
+        return this;
       }
-      
+
+      // optional .llsf_msgs.Team team_color = 6;
+      private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 6;</code>
+       *
+       * <pre>
+       * Team color, teams MUST sent this
+       * </pre>
+       */
+      public boolean hasTeamColor() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 6;</code>
+       *
+       * <pre>
+       * Team color, teams MUST sent this
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+        return teamColor_;
+      }
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 6;</code>
+       *
+       * <pre>
+       * Team color, teams MUST sent this
+       * </pre>
+       */
+      public Builder setTeamColor(org.robocup_logistics.llsf_msgs.TeamProtos.Team value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
+        teamColor_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 6;</code>
+       *
+       * <pre>
+       * Team color, teams MUST sent this
+       * </pre>
+       */
+      public Builder clearTeamColor() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        onChanged();
+        return this;
+      }
+
       // optional .llsf_msgs.Pose2D pose = 7;
       private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder> poseBuilder_;
+      /**
+       * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+       *
+       * <pre>
+       * Position and orientation of the
+       * robot on the LLSF playing field
+       * </pre>
+       */
       public boolean hasPose() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
+      /**
+       * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+       *
+       * <pre>
+       * Position and orientation of the
+       * robot on the LLSF playing field
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose() {
         if (poseBuilder_ == null) {
           return pose_;
@@ -919,6 +1597,14 @@ public final class BeaconSignalProtos {
           return poseBuilder_.getMessage();
         }
       }
+      /**
+       * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+       *
+       * <pre>
+       * Position and orientation of the
+       * robot on the LLSF playing field
+       * </pre>
+       */
       public Builder setPose(org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D value) {
         if (poseBuilder_ == null) {
           if (value == null) {
@@ -929,9 +1615,17 @@ public final class BeaconSignalProtos {
         } else {
           poseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         return this;
       }
+      /**
+       * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+       *
+       * <pre>
+       * Position and orientation of the
+       * robot on the LLSF playing field
+       * </pre>
+       */
       public Builder setPose(
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder builderForValue) {
         if (poseBuilder_ == null) {
@@ -940,12 +1634,20 @@ public final class BeaconSignalProtos {
         } else {
           poseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         return this;
       }
+      /**
+       * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+       *
+       * <pre>
+       * Position and orientation of the
+       * robot on the LLSF playing field
+       * </pre>
+       */
       public Builder mergePose(org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D value) {
         if (poseBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+          if (((bitField0_ & 0x00000040) == 0x00000040) &&
               pose_ != org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance()) {
             pose_ =
               org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.newBuilder(pose_).mergeFrom(value).buildPartial();
@@ -956,9 +1658,17 @@ public final class BeaconSignalProtos {
         } else {
           poseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         return this;
       }
+      /**
+       * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+       *
+       * <pre>
+       * Position and orientation of the
+       * robot on the LLSF playing field
+       * </pre>
+       */
       public Builder clearPose() {
         if (poseBuilder_ == null) {
           pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
@@ -966,14 +1676,30 @@ public final class BeaconSignalProtos {
         } else {
           poseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
+      /**
+       * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+       *
+       * <pre>
+       * Position and orientation of the
+       * robot on the LLSF playing field
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder getPoseBuilder() {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         onChanged();
         return getPoseFieldBuilder().getBuilder();
       }
+      /**
+       * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+       *
+       * <pre>
+       * Position and orientation of the
+       * robot on the LLSF playing field
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder getPoseOrBuilder() {
         if (poseBuilder_ != null) {
           return poseBuilder_.getMessageOrBuilder();
@@ -981,6 +1707,14 @@ public final class BeaconSignalProtos {
           return pose_;
         }
       }
+      /**
+       * <code>optional .llsf_msgs.Pose2D pose = 7;</code>
+       *
+       * <pre>
+       * Position and orientation of the
+       * robot on the LLSF playing field
+       * </pre>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder> 
           getPoseFieldBuilder() {
@@ -994,24 +1728,24 @@ public final class BeaconSignalProtos {
         }
         return poseBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:llsf_msgs.BeaconSignal)
     }
-    
+
     static {
       defaultInstance = new BeaconSignal(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:llsf_msgs.BeaconSignal)
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_BeaconSignal_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_llsf_msgs_BeaconSignal_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -1021,13 +1755,14 @@ public final class BeaconSignalProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\022BeaconSignal.proto\022\tllsf_msgs\032\nTime.pr" +
-      "oto\032\014Pose2D.proto\"\271\001\n\014BeaconSignal\022\035\n\004ti" +
-      "me\030\001 \002(\0132\017.llsf_msgs.Time\022\013\n\003seq\030\002 \002(\004\022\016" +
-      "\n\006number\030\010 \002(\r\022\021\n\tteam_name\030\004 \002(\t\022\021\n\tpee" +
-      "r_name\030\005 \002(\t\022\037\n\004pose\030\007 \001(\0132\021.llsf_msgs.P" +
-      "ose2D\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_T" +
-      "YPE\020\001B5\n\037org.robocup_logistics.llsf_msgs" +
-      "B\022BeaconSignalProtos"
+      "oto\032\nTeam.proto\032\014Pose2D.proto\"\336\001\n\014Beacon" +
+      "Signal\022\035\n\004time\030\001 \002(\0132\017.llsf_msgs.Time\022\013\n" +
+      "\003seq\030\002 \002(\004\022\016\n\006number\030\010 \002(\r\022\021\n\tteam_name\030" +
+      "\004 \002(\t\022\021\n\tpeer_name\030\005 \002(\t\022#\n\nteam_color\030\006" +
+      " \001(\0162\017.llsf_msgs.Team\022\037\n\004pose\030\007 \001(\0132\021.ll" +
+      "sf_msgs.Pose2D\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017" +
+      "\022\014\n\010MSG_TYPE\020\001B5\n\037org.robocup_logistics." +
+      "llsf_msgsB\022BeaconSignalProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1039,9 +1774,7 @@ public final class BeaconSignalProtos {
           internal_static_llsf_msgs_BeaconSignal_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_BeaconSignal_descriptor,
-              new java.lang.String[] { "Time", "Seq", "Number", "TeamName", "PeerName", "Pose", },
-              org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.class,
-              org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal.Builder.class);
+              new java.lang.String[] { "Time", "Seq", "Number", "TeamName", "PeerName", "TeamColor", "Pose", });
           return null;
         }
       };
@@ -1049,9 +1782,10 @@ public final class BeaconSignalProtos {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.robocup_logistics.llsf_msgs.TimeProtos.getDescriptor(),
+          org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor(),
           org.robocup_logistics.llsf_msgs.Pose2DProtos.getDescriptor(),
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }

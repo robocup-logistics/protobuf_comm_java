@@ -10,61 +10,212 @@ public final class ExplorationInfoProtos {
   }
   public interface ExplorationSignalOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string type = 1;
+    /**
+     * <code>required string type = 1;</code>
+     *
+     * <pre>
+     * machine type of this assignment
+     * </pre>
+     */
     boolean hasType();
-    String getType();
-    
+    /**
+     * <code>required string type = 1;</code>
+     *
+     * <pre>
+     * machine type of this assignment
+     * </pre>
+     */
+    java.lang.String getType();
+    /**
+     * <code>required string type = 1;</code>
+     *
+     * <pre>
+     * machine type of this assignment
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
+
     // repeated .llsf_msgs.LightSpec lights = 2;
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> 
         getLightsList();
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec getLights(int index);
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     int getLightsCount();
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     java.util.List<? extends org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder> 
         getLightsOrBuilderList();
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder getLightsOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code llsf_msgs.ExplorationSignal}
+   */
   public static final class ExplorationSignal extends
       com.google.protobuf.GeneratedMessage
       implements ExplorationSignalOrBuilder {
     // Use ExplorationSignal.newBuilder() to construct.
-    private ExplorationSignal(Builder builder) {
+    private ExplorationSignal(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private ExplorationSignal(boolean noInit) {}
-    
+    private ExplorationSignal(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final ExplorationSignal defaultInstance;
     public static ExplorationSignal getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public ExplorationSignal getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ExplorationSignal(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              type_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                lights_ = new java.util.ArrayList<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              lights_.add(input.readMessage(org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          lights_ = java.util.Collections.unmodifiableList(lights_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationSignal_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationSignal_fieldAccessorTable;
+      return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationSignal_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.class, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<ExplorationSignal> PARSER =
+        new com.google.protobuf.AbstractParser<ExplorationSignal>() {
+      public ExplorationSignal parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ExplorationSignal(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExplorationSignal> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.ExplorationSignal.CompType}
+     */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 70;</code>
+       */
       MSG_TYPE(1, 70),
       ;
-      
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 70;</code>
+       */
       public static final int MSG_TYPE_VALUE = 70;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
@@ -72,7 +223,7 @@ public final class ExplorationInfoProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<CompType>
           internalGetValueMap() {
         return internalValueMap;
@@ -84,7 +235,7 @@ public final class ExplorationInfoProtos {
                 return CompType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -97,11 +248,9 @@ public final class ExplorationInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final CompType[] VALUES = {
-        COMP_ID, MSG_TYPE, 
-      };
-      
+
+      private static final CompType[] VALUES = values();
+
       public static CompType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -110,72 +259,130 @@ public final class ExplorationInfoProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private CompType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.ExplorationSignal.CompType)
     }
-    
+
     private int bitField0_;
     // required string type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
     private java.lang.Object type_;
+    /**
+     * <code>required string type = 1;</code>
+     *
+     * <pre>
+     * machine type of this assignment
+     * </pre>
+     */
     public boolean hasType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getType() {
+    /**
+     * <code>required string type = 1;</code>
+     *
+     * <pre>
+     * machine type of this assignment
+     * </pre>
+     */
+    public java.lang.String getType() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           type_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getTypeBytes() {
+    /**
+     * <code>required string type = 1;</code>
+     *
+     * <pre>
+     * machine type of this assignment
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         type_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // repeated .llsf_msgs.LightSpec lights = 2;
     public static final int LIGHTS_FIELD_NUMBER = 2;
     private java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> lights_;
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     public java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> getLightsList() {
       return lights_;
     }
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     public java.util.List<? extends org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder> 
         getLightsOrBuilderList() {
       return lights_;
     }
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     public int getLightsCount() {
       return lights_.size();
     }
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec getLights(int index) {
       return lights_.get(index);
     }
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Light specification (MachineInfo.proto)
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder getLightsOrBuilder(
         int index) {
       return lights_.get(index);
     }
-    
+
     private void initFields() {
       type_ = "";
       lights_ = java.util.Collections.emptyList();
@@ -184,7 +391,7 @@ public final class ExplorationInfoProtos {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasType()) {
         memoizedIsInitialized = 0;
         return false;
@@ -198,7 +405,7 @@ public final class ExplorationInfoProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -210,12 +417,12 @@ public final class ExplorationInfoProtos {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -229,94 +436,83 @@ public final class ExplorationInfoProtos {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code llsf_msgs.ExplorationSignal}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignalOrBuilder {
@@ -324,18 +520,21 @@ public final class ExplorationInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationSignal_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationSignal_fieldAccessorTable;
+        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationSignal_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.class, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder.class);
       }
-      
+
       // Construct using org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -347,7 +546,7 @@ public final class ExplorationInfoProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -360,20 +559,20 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.getDescriptor();
+        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationSignal_descriptor;
       }
-      
+
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal getDefaultInstanceForType() {
         return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.getDefaultInstance();
       }
-      
+
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal build() {
         org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal result = buildPartial();
         if (!result.isInitialized()) {
@@ -381,17 +580,7 @@ public final class ExplorationInfoProtos {
         }
         return result;
       }
-      
-      private org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal buildPartial() {
         org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal result = new org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal(this);
         int from_bitField0_ = bitField0_;
@@ -413,7 +602,7 @@ public final class ExplorationInfoProtos {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal) {
           return mergeFrom((org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal)other);
@@ -422,11 +611,13 @@ public final class ExplorationInfoProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal other) {
         if (other == org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.getDefaultInstance()) return this;
         if (other.hasType()) {
-          setType(other.getType());
+          bitField0_ |= 0x00000001;
+          type_ = other.type_;
+          onChanged();
         }
         if (lightsBuilder_ == null) {
           if (!other.lights_.isEmpty()) {
@@ -457,7 +648,7 @@ public final class ExplorationInfoProtos {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasType()) {
           
@@ -471,63 +662,85 @@ public final class ExplorationInfoProtos {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              type_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder subBuilder = org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addLights(subBuilder.buildPartial());
-              break;
-            }
+        org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string type = 1;
       private java.lang.Object type_ = "";
+      /**
+       * <code>required string type = 1;</code>
+       *
+       * <pre>
+       * machine type of this assignment
+       * </pre>
+       */
       public boolean hasType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getType() {
+      /**
+       * <code>required string type = 1;</code>
+       *
+       * <pre>
+       * machine type of this assignment
+       * </pre>
+       */
+      public java.lang.String getType() {
         java.lang.Object ref = type_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           type_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setType(String value) {
+      /**
+       * <code>required string type = 1;</code>
+       *
+       * <pre>
+       * machine type of this assignment
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string type = 1;</code>
+       *
+       * <pre>
+       * machine type of this assignment
+       * </pre>
+       */
+      public Builder setType(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -536,18 +749,37 @@ public final class ExplorationInfoProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string type = 1;</code>
+       *
+       * <pre>
+       * machine type of this assignment
+       * </pre>
+       */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000001);
         type_ = getDefaultInstance().getType();
         onChanged();
         return this;
       }
-      void setType(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string type = 1;</code>
+       *
+       * <pre>
+       * machine type of this assignment
+       * </pre>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         type_ = value;
         onChanged();
+        return this;
       }
-      
+
       // repeated .llsf_msgs.LightSpec lights = 2;
       private java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> lights_ =
         java.util.Collections.emptyList();
@@ -557,10 +789,17 @@ public final class ExplorationInfoProtos {
           bitField0_ |= 0x00000002;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder> lightsBuilder_;
-      
+
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> getLightsList() {
         if (lightsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(lights_);
@@ -568,6 +807,13 @@ public final class ExplorationInfoProtos {
           return lightsBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public int getLightsCount() {
         if (lightsBuilder_ == null) {
           return lights_.size();
@@ -575,6 +821,13 @@ public final class ExplorationInfoProtos {
           return lightsBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec getLights(int index) {
         if (lightsBuilder_ == null) {
           return lights_.get(index);
@@ -582,6 +835,13 @@ public final class ExplorationInfoProtos {
           return lightsBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public Builder setLights(
           int index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec value) {
         if (lightsBuilder_ == null) {
@@ -596,6 +856,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public Builder setLights(
           int index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder builderForValue) {
         if (lightsBuilder_ == null) {
@@ -607,6 +874,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public Builder addLights(org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec value) {
         if (lightsBuilder_ == null) {
           if (value == null) {
@@ -620,6 +894,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public Builder addLights(
           int index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec value) {
         if (lightsBuilder_ == null) {
@@ -634,6 +915,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public Builder addLights(
           org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder builderForValue) {
         if (lightsBuilder_ == null) {
@@ -645,6 +933,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public Builder addLights(
           int index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder builderForValue) {
         if (lightsBuilder_ == null) {
@@ -656,6 +951,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public Builder addAllLights(
           java.lang.Iterable<? extends org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> values) {
         if (lightsBuilder_ == null) {
@@ -667,6 +969,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public Builder clearLights() {
         if (lightsBuilder_ == null) {
           lights_ = java.util.Collections.emptyList();
@@ -677,6 +986,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public Builder removeLights(int index) {
         if (lightsBuilder_ == null) {
           ensureLightsIsMutable();
@@ -687,10 +1003,24 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder getLightsBuilder(
           int index) {
         return getLightsFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder getLightsOrBuilder(
           int index) {
         if (lightsBuilder_ == null) {
@@ -698,6 +1028,13 @@ public final class ExplorationInfoProtos {
           return lightsBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public java.util.List<? extends org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder> 
            getLightsOrBuilderList() {
         if (lightsBuilder_ != null) {
@@ -706,15 +1043,36 @@ public final class ExplorationInfoProtos {
           return java.util.Collections.unmodifiableList(lights_);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder addLightsBuilder() {
         return getLightsFieldBuilder().addBuilder(
             org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder addLightsBuilder(
           int index) {
         return getLightsFieldBuilder().addBuilder(
             index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Light specification (MachineInfo.proto)
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder> 
            getLightsBuilderList() {
         return getLightsFieldBuilder().getBuilderList();
@@ -733,70 +1091,238 @@ public final class ExplorationInfoProtos {
         }
         return lightsBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:llsf_msgs.ExplorationSignal)
     }
-    
+
     static {
       defaultInstance = new ExplorationSignal(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:llsf_msgs.ExplorationSignal)
   }
-  
+
   public interface ExplorationMachineOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string name = 1;
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Name of the machine
+     * </pre>
+     */
     boolean hasName();
-    String getName();
-    
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Name of the machine
+     * </pre>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Name of the machine
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
     // required .llsf_msgs.Pose2D pose = 2;
+    /**
+     * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+     *
+     * <pre>
+     * Pose of the machine on the field
+     * </pre>
+     */
     boolean hasPose();
+    /**
+     * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+     *
+     * <pre>
+     * Pose of the machine on the field
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose();
+    /**
+     * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+     *
+     * <pre>
+     * Pose of the machine on the field
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder getPoseOrBuilder();
+
+    // required .llsf_msgs.Team team_color = 3;
+    /**
+     * <code>required .llsf_msgs.Team team_color = 3;</code>
+     *
+     * <pre>
+     * Team the machine belongs to
+     * </pre>
+     */
+    boolean hasTeamColor();
+    /**
+     * <code>required .llsf_msgs.Team team_color = 3;</code>
+     *
+     * <pre>
+     * Team the machine belongs to
+     * </pre>
+     */
+    org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor();
   }
+  /**
+   * Protobuf type {@code llsf_msgs.ExplorationMachine}
+   */
   public static final class ExplorationMachine extends
       com.google.protobuf.GeneratedMessage
       implements ExplorationMachineOrBuilder {
     // Use ExplorationMachine.newBuilder() to construct.
-    private ExplorationMachine(Builder builder) {
+    private ExplorationMachine(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private ExplorationMachine(boolean noInit) {}
-    
+    private ExplorationMachine(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final ExplorationMachine defaultInstance;
     public static ExplorationMachine getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public ExplorationMachine getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ExplorationMachine(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              name_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = pose_.toBuilder();
+              }
+              pose_ = input.readMessage(org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pose_);
+                pose_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.TeamProtos.Team value = org.robocup_logistics.llsf_msgs.TeamProtos.Team.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(3, rawValue);
+              } else {
+                bitField0_ |= 0x00000004;
+                teamColor_ = value;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationMachine_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationMachine_fieldAccessorTable;
+      return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationMachine_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.class, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<ExplorationMachine> PARSER =
+        new com.google.protobuf.AbstractParser<ExplorationMachine>() {
+      public ExplorationMachine parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ExplorationMachine(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExplorationMachine> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.ExplorationMachine.CompType}
+     */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 71;</code>
+       */
       MSG_TYPE(1, 71),
       ;
-      
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 71;</code>
+       */
       public static final int MSG_TYPE_VALUE = 71;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
@@ -804,7 +1330,7 @@ public final class ExplorationInfoProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<CompType>
           internalGetValueMap() {
         return internalValueMap;
@@ -816,7 +1342,7 @@ public final class ExplorationInfoProtos {
                 return CompType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -829,11 +1355,9 @@ public final class ExplorationInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final CompType[] VALUES = {
-        COMP_ID, MSG_TYPE, 
-      };
-      
+
+      private static final CompType[] VALUES = values();
+
       public static CompType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -842,78 +1366,151 @@ public final class ExplorationInfoProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private CompType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.ExplorationMachine.CompType)
     }
-    
+
     private int bitField0_;
     // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Name of the machine
+     * </pre>
+     */
     public boolean hasName() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getName() {
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Name of the machine
+     * </pre>
+     */
+    public java.lang.String getName() {
       java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           name_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getNameBytes() {
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Name of the machine
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
       java.lang.Object ref = name_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // required .llsf_msgs.Pose2D pose = 2;
     public static final int POSE_FIELD_NUMBER = 2;
     private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D pose_;
+    /**
+     * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+     *
+     * <pre>
+     * Pose of the machine on the field
+     * </pre>
+     */
     public boolean hasPose() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+     *
+     * <pre>
+     * Pose of the machine on the field
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose() {
       return pose_;
     }
+    /**
+     * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+     *
+     * <pre>
+     * Pose of the machine on the field
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder getPoseOrBuilder() {
       return pose_;
     }
-    
+
+    // required .llsf_msgs.Team team_color = 3;
+    public static final int TEAM_COLOR_FIELD_NUMBER = 3;
+    private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_;
+    /**
+     * <code>required .llsf_msgs.Team team_color = 3;</code>
+     *
+     * <pre>
+     * Team the machine belongs to
+     * </pre>
+     */
+    public boolean hasTeamColor() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required .llsf_msgs.Team team_color = 3;</code>
+     *
+     * <pre>
+     * Team the machine belongs to
+     * </pre>
+     */
+    public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+      return teamColor_;
+    }
+
     private void initFields() {
       name_ = "";
       pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
+      teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasName()) {
         memoizedIsInitialized = 0;
         return false;
       }
       if (!hasPose()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTeamColor()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -924,7 +1521,7 @@ public final class ExplorationInfoProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -934,14 +1531,17 @@ public final class ExplorationInfoProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, pose_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeEnum(3, teamColor_.getNumber());
+      }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -951,98 +1551,91 @@ public final class ExplorationInfoProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, pose_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, teamColor_.getNumber());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code llsf_msgs.ExplorationMachine}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachineOrBuilder {
@@ -1050,18 +1643,21 @@ public final class ExplorationInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationMachine_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationMachine_fieldAccessorTable;
+        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationMachine_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.class, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder.class);
       }
-      
+
       // Construct using org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1073,7 +1669,7 @@ public final class ExplorationInfoProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         name_ = "";
@@ -1084,22 +1680,24 @@ public final class ExplorationInfoProtos {
           poseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.getDescriptor();
+        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationMachine_descriptor;
       }
-      
+
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine getDefaultInstanceForType() {
         return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.getDefaultInstance();
       }
-      
+
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine build() {
         org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine result = buildPartial();
         if (!result.isInitialized()) {
@@ -1107,17 +1705,7 @@ public final class ExplorationInfoProtos {
         }
         return result;
       }
-      
-      private org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine buildPartial() {
         org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine result = new org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine(this);
         int from_bitField0_ = bitField0_;
@@ -1134,11 +1722,15 @@ public final class ExplorationInfoProtos {
         } else {
           result.pose_ = poseBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.teamColor_ = teamColor_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine) {
           return mergeFrom((org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine)other);
@@ -1147,19 +1739,24 @@ public final class ExplorationInfoProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine other) {
         if (other == org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.getDefaultInstance()) return this;
         if (other.hasName()) {
-          setName(other.getName());
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
         }
         if (other.hasPose()) {
           mergePose(other.getPose());
         }
+        if (other.hasTeamColor()) {
+          setTeamColor(other.getTeamColor());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasName()) {
           
@@ -1169,72 +1766,95 @@ public final class ExplorationInfoProtos {
           
           return false;
         }
+        if (!hasTeamColor()) {
+          
+          return false;
+        }
         if (!getPose().isInitialized()) {
           
           return false;
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder subBuilder = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.newBuilder();
-              if (hasPose()) {
-                subBuilder.mergeFrom(getPose());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setPose(subBuilder.buildPartial());
-              break;
-            }
+        org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string name = 1;
       private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Name of the machine
+       * </pre>
+       */
       public boolean hasName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getName() {
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Name of the machine
+       * </pre>
+       */
+      public java.lang.String getName() {
         java.lang.Object ref = name_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           name_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setName(String value) {
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Name of the machine
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Name of the machine
+       * </pre>
+       */
+      public Builder setName(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1243,25 +1863,58 @@ public final class ExplorationInfoProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Name of the machine
+       * </pre>
+       */
       public Builder clearName() {
         bitField0_ = (bitField0_ & ~0x00000001);
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
-      void setName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Name of the machine
+       * </pre>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         name_ = value;
         onChanged();
+        return this;
       }
-      
+
       // required .llsf_msgs.Pose2D pose = 2;
       private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder> poseBuilder_;
+      /**
+       * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+       *
+       * <pre>
+       * Pose of the machine on the field
+       * </pre>
+       */
       public boolean hasPose() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+       *
+       * <pre>
+       * Pose of the machine on the field
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D getPose() {
         if (poseBuilder_ == null) {
           return pose_;
@@ -1269,6 +1922,13 @@ public final class ExplorationInfoProtos {
           return poseBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+       *
+       * <pre>
+       * Pose of the machine on the field
+       * </pre>
+       */
       public Builder setPose(org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D value) {
         if (poseBuilder_ == null) {
           if (value == null) {
@@ -1282,6 +1942,13 @@ public final class ExplorationInfoProtos {
         bitField0_ |= 0x00000002;
         return this;
       }
+      /**
+       * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+       *
+       * <pre>
+       * Pose of the machine on the field
+       * </pre>
+       */
       public Builder setPose(
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder builderForValue) {
         if (poseBuilder_ == null) {
@@ -1293,6 +1960,13 @@ public final class ExplorationInfoProtos {
         bitField0_ |= 0x00000002;
         return this;
       }
+      /**
+       * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+       *
+       * <pre>
+       * Pose of the machine on the field
+       * </pre>
+       */
       public Builder mergePose(org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D value) {
         if (poseBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
@@ -1309,6 +1983,13 @@ public final class ExplorationInfoProtos {
         bitField0_ |= 0x00000002;
         return this;
       }
+      /**
+       * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+       *
+       * <pre>
+       * Pose of the machine on the field
+       * </pre>
+       */
       public Builder clearPose() {
         if (poseBuilder_ == null) {
           pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
@@ -1319,11 +2000,25 @@ public final class ExplorationInfoProtos {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
+      /**
+       * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+       *
+       * <pre>
+       * Pose of the machine on the field
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder getPoseBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getPoseFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+       *
+       * <pre>
+       * Pose of the machine on the field
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder getPoseOrBuilder() {
         if (poseBuilder_ != null) {
           return poseBuilder_.getMessageOrBuilder();
@@ -1331,6 +2026,13 @@ public final class ExplorationInfoProtos {
           return pose_;
         }
       }
+      /**
+       * <code>required .llsf_msgs.Pose2D pose = 2;</code>
+       *
+       * <pre>
+       * Pose of the machine on the field
+       * </pre>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder> 
           getPoseFieldBuilder() {
@@ -1344,81 +2046,302 @@ public final class ExplorationInfoProtos {
         }
         return poseBuilder_;
       }
-      
+
+      // required .llsf_msgs.Team team_color = 3;
+      private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+      /**
+       * <code>required .llsf_msgs.Team team_color = 3;</code>
+       *
+       * <pre>
+       * Team the machine belongs to
+       * </pre>
+       */
+      public boolean hasTeamColor() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required .llsf_msgs.Team team_color = 3;</code>
+       *
+       * <pre>
+       * Team the machine belongs to
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+        return teamColor_;
+      }
+      /**
+       * <code>required .llsf_msgs.Team team_color = 3;</code>
+       *
+       * <pre>
+       * Team the machine belongs to
+       * </pre>
+       */
+      public Builder setTeamColor(org.robocup_logistics.llsf_msgs.TeamProtos.Team value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        teamColor_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .llsf_msgs.Team team_color = 3;</code>
+       *
+       * <pre>
+       * Team the machine belongs to
+       * </pre>
+       */
+      public Builder clearTeamColor() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:llsf_msgs.ExplorationMachine)
     }
-    
+
     static {
       defaultInstance = new ExplorationMachine(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:llsf_msgs.ExplorationMachine)
   }
-  
+
   public interface ExplorationInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // repeated .llsf_msgs.ExplorationSignal signals = 1;
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal> 
         getSignalsList();
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal getSignals(int index);
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     int getSignalsCount();
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     java.util.List<? extends org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignalOrBuilder> 
         getSignalsOrBuilderList();
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignalOrBuilder getSignalsOrBuilder(
         int index);
-    
+
     // repeated .llsf_msgs.ExplorationMachine machines = 2;
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine> 
         getMachinesList();
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine getMachines(int index);
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     int getMachinesCount();
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     java.util.List<? extends org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachineOrBuilder> 
         getMachinesOrBuilderList();
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachineOrBuilder getMachinesOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code llsf_msgs.ExplorationInfo}
+   */
   public static final class ExplorationInfo extends
       com.google.protobuf.GeneratedMessage
       implements ExplorationInfoOrBuilder {
     // Use ExplorationInfo.newBuilder() to construct.
-    private ExplorationInfo(Builder builder) {
+    private ExplorationInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private ExplorationInfo(boolean noInit) {}
-    
+    private ExplorationInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final ExplorationInfo defaultInstance;
     public static ExplorationInfo getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public ExplorationInfo getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ExplorationInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                signals_ = new java.util.ArrayList<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              signals_.add(input.readMessage(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.PARSER, extensionRegistry));
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                machines_ = new java.util.ArrayList<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              machines_.add(input.readMessage(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          signals_ = java.util.Collections.unmodifiableList(signals_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          machines_ = java.util.Collections.unmodifiableList(machines_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationInfo_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationInfo_fieldAccessorTable;
+      return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.class, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<ExplorationInfo> PARSER =
+        new com.google.protobuf.AbstractParser<ExplorationInfo>() {
+      public ExplorationInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ExplorationInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExplorationInfo> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.ExplorationInfo.CompType}
+     */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 72;</code>
+       */
       MSG_TYPE(1, 72),
       ;
-      
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 72;</code>
+       */
       public static final int MSG_TYPE_VALUE = 72;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
@@ -1426,7 +2349,7 @@ public final class ExplorationInfoProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<CompType>
           internalGetValueMap() {
         return internalValueMap;
@@ -1438,7 +2361,7 @@ public final class ExplorationInfoProtos {
                 return CompType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -1451,11 +2374,9 @@ public final class ExplorationInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final CompType[] VALUES = {
-        COMP_ID, MSG_TYPE, 
-      };
-      
+
+      private static final CompType[] VALUES = values();
+
       public static CompType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -1464,60 +2385,130 @@ public final class ExplorationInfoProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private CompType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.ExplorationInfo.CompType)
     }
-    
+
     // repeated .llsf_msgs.ExplorationSignal signals = 1;
     public static final int SIGNALS_FIELD_NUMBER = 1;
     private java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal> signals_;
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     public java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal> getSignalsList() {
       return signals_;
     }
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     public java.util.List<? extends org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignalOrBuilder> 
         getSignalsOrBuilderList() {
       return signals_;
     }
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     public int getSignalsCount() {
       return signals_.size();
     }
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal getSignals(int index) {
       return signals_.get(index);
     }
+    /**
+     * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+     *
+     * <pre>
+     * The signal assignments
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignalOrBuilder getSignalsOrBuilder(
         int index) {
       return signals_.get(index);
     }
-    
+
     // repeated .llsf_msgs.ExplorationMachine machines = 2;
     public static final int MACHINES_FIELD_NUMBER = 2;
     private java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine> machines_;
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     public java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine> getMachinesList() {
       return machines_;
     }
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     public java.util.List<? extends org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachineOrBuilder> 
         getMachinesOrBuilderList() {
       return machines_;
     }
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     public int getMachinesCount() {
       return machines_.size();
     }
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine getMachines(int index) {
       return machines_.get(index);
     }
+    /**
+     * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+     *
+     * <pre>
+     * The machines to identify
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachineOrBuilder getMachinesOrBuilder(
         int index) {
       return machines_.get(index);
     }
-    
+
     private void initFields() {
       signals_ = java.util.Collections.emptyList();
       machines_ = java.util.Collections.emptyList();
@@ -1526,7 +2517,7 @@ public final class ExplorationInfoProtos {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       for (int i = 0; i < getSignalsCount(); i++) {
         if (!getSignals(i).isInitialized()) {
           memoizedIsInitialized = 0;
@@ -1542,7 +2533,7 @@ public final class ExplorationInfoProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -1554,12 +2545,12 @@ public final class ExplorationInfoProtos {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       for (int i = 0; i < signals_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -1573,94 +2564,83 @@ public final class ExplorationInfoProtos {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code llsf_msgs.ExplorationInfo}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfoOrBuilder {
@@ -1668,18 +2648,21 @@ public final class ExplorationInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationInfo_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationInfo_fieldAccessorTable;
+        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.class, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.Builder.class);
       }
-      
+
       // Construct using org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1692,7 +2675,7 @@ public final class ExplorationInfoProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         if (signalsBuilder_ == null) {
@@ -1709,20 +2692,20 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.getDescriptor();
+        return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.internal_static_llsf_msgs_ExplorationInfo_descriptor;
       }
-      
+
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo getDefaultInstanceForType() {
         return org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.getDefaultInstance();
       }
-      
+
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo build() {
         org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo result = buildPartial();
         if (!result.isInitialized()) {
@@ -1730,17 +2713,7 @@ public final class ExplorationInfoProtos {
         }
         return result;
       }
-      
-      private org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo buildPartial() {
         org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo result = new org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo(this);
         int from_bitField0_ = bitField0_;
@@ -1765,7 +2738,7 @@ public final class ExplorationInfoProtos {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo) {
           return mergeFrom((org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo)other);
@@ -1774,7 +2747,7 @@ public final class ExplorationInfoProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo other) {
         if (other == org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.getDefaultInstance()) return this;
         if (signalsBuilder_ == null) {
@@ -1832,7 +2805,7 @@ public final class ExplorationInfoProtos {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         for (int i = 0; i < getSignalsCount(); i++) {
           if (!getSignals(i).isInitialized()) {
@@ -1848,48 +2821,26 @@ public final class ExplorationInfoProtos {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder subBuilder = org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addSignals(subBuilder.buildPartial());
-              break;
-            }
-            case 18: {
-              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder subBuilder = org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addMachines(subBuilder.buildPartial());
-              break;
-            }
+        org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // repeated .llsf_msgs.ExplorationSignal signals = 1;
       private java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal> signals_ =
         java.util.Collections.emptyList();
@@ -1899,10 +2850,17 @@ public final class ExplorationInfoProtos {
           bitField0_ |= 0x00000001;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignalOrBuilder> signalsBuilder_;
-      
+
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal> getSignalsList() {
         if (signalsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(signals_);
@@ -1910,6 +2868,13 @@ public final class ExplorationInfoProtos {
           return signalsBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public int getSignalsCount() {
         if (signalsBuilder_ == null) {
           return signals_.size();
@@ -1917,6 +2882,13 @@ public final class ExplorationInfoProtos {
           return signalsBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal getSignals(int index) {
         if (signalsBuilder_ == null) {
           return signals_.get(index);
@@ -1924,6 +2896,13 @@ public final class ExplorationInfoProtos {
           return signalsBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public Builder setSignals(
           int index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal value) {
         if (signalsBuilder_ == null) {
@@ -1938,6 +2917,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public Builder setSignals(
           int index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder builderForValue) {
         if (signalsBuilder_ == null) {
@@ -1949,6 +2935,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public Builder addSignals(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal value) {
         if (signalsBuilder_ == null) {
           if (value == null) {
@@ -1962,6 +2955,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public Builder addSignals(
           int index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal value) {
         if (signalsBuilder_ == null) {
@@ -1976,6 +2976,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public Builder addSignals(
           org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder builderForValue) {
         if (signalsBuilder_ == null) {
@@ -1987,6 +2994,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public Builder addSignals(
           int index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder builderForValue) {
         if (signalsBuilder_ == null) {
@@ -1998,6 +3012,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public Builder addAllSignals(
           java.lang.Iterable<? extends org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal> values) {
         if (signalsBuilder_ == null) {
@@ -2009,6 +3030,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public Builder clearSignals() {
         if (signalsBuilder_ == null) {
           signals_ = java.util.Collections.emptyList();
@@ -2019,6 +3047,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public Builder removeSignals(int index) {
         if (signalsBuilder_ == null) {
           ensureSignalsIsMutable();
@@ -2029,10 +3064,24 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder getSignalsBuilder(
           int index) {
         return getSignalsFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignalOrBuilder getSignalsOrBuilder(
           int index) {
         if (signalsBuilder_ == null) {
@@ -2040,6 +3089,13 @@ public final class ExplorationInfoProtos {
           return signalsBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public java.util.List<? extends org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignalOrBuilder> 
            getSignalsOrBuilderList() {
         if (signalsBuilder_ != null) {
@@ -2048,15 +3104,36 @@ public final class ExplorationInfoProtos {
           return java.util.Collections.unmodifiableList(signals_);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder addSignalsBuilder() {
         return getSignalsFieldBuilder().addBuilder(
             org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder addSignalsBuilder(
           int index) {
         return getSignalsFieldBuilder().addBuilder(
             index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationSignal signals = 1;</code>
+       *
+       * <pre>
+       * The signal assignments
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder> 
            getSignalsBuilderList() {
         return getSignalsFieldBuilder().getBuilderList();
@@ -2075,7 +3152,7 @@ public final class ExplorationInfoProtos {
         }
         return signalsBuilder_;
       }
-      
+
       // repeated .llsf_msgs.ExplorationMachine machines = 2;
       private java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine> machines_ =
         java.util.Collections.emptyList();
@@ -2085,10 +3162,17 @@ public final class ExplorationInfoProtos {
           bitField0_ |= 0x00000002;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachineOrBuilder> machinesBuilder_;
-      
+
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine> getMachinesList() {
         if (machinesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(machines_);
@@ -2096,6 +3180,13 @@ public final class ExplorationInfoProtos {
           return machinesBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public int getMachinesCount() {
         if (machinesBuilder_ == null) {
           return machines_.size();
@@ -2103,6 +3194,13 @@ public final class ExplorationInfoProtos {
           return machinesBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine getMachines(int index) {
         if (machinesBuilder_ == null) {
           return machines_.get(index);
@@ -2110,6 +3208,13 @@ public final class ExplorationInfoProtos {
           return machinesBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public Builder setMachines(
           int index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine value) {
         if (machinesBuilder_ == null) {
@@ -2124,6 +3229,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public Builder setMachines(
           int index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder builderForValue) {
         if (machinesBuilder_ == null) {
@@ -2135,6 +3247,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public Builder addMachines(org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine value) {
         if (machinesBuilder_ == null) {
           if (value == null) {
@@ -2148,6 +3267,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public Builder addMachines(
           int index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine value) {
         if (machinesBuilder_ == null) {
@@ -2162,6 +3288,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public Builder addMachines(
           org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder builderForValue) {
         if (machinesBuilder_ == null) {
@@ -2173,6 +3306,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public Builder addMachines(
           int index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder builderForValue) {
         if (machinesBuilder_ == null) {
@@ -2184,6 +3324,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public Builder addAllMachines(
           java.lang.Iterable<? extends org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine> values) {
         if (machinesBuilder_ == null) {
@@ -2195,6 +3342,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public Builder clearMachines() {
         if (machinesBuilder_ == null) {
           machines_ = java.util.Collections.emptyList();
@@ -2205,6 +3359,13 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public Builder removeMachines(int index) {
         if (machinesBuilder_ == null) {
           ensureMachinesIsMutable();
@@ -2215,10 +3376,24 @@ public final class ExplorationInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder getMachinesBuilder(
           int index) {
         return getMachinesFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachineOrBuilder getMachinesOrBuilder(
           int index) {
         if (machinesBuilder_ == null) {
@@ -2226,6 +3401,13 @@ public final class ExplorationInfoProtos {
           return machinesBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public java.util.List<? extends org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachineOrBuilder> 
            getMachinesOrBuilderList() {
         if (machinesBuilder_ != null) {
@@ -2234,15 +3416,36 @@ public final class ExplorationInfoProtos {
           return java.util.Collections.unmodifiableList(machines_);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder addMachinesBuilder() {
         return getMachinesFieldBuilder().addBuilder(
             org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder addMachinesBuilder(
           int index) {
         return getMachinesFieldBuilder().addBuilder(
             index, org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.ExplorationMachine machines = 2;</code>
+       *
+       * <pre>
+       * The machines to identify
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder> 
            getMachinesBuilderList() {
         return getMachinesFieldBuilder().getBuilderList();
@@ -2261,18 +3464,18 @@ public final class ExplorationInfoProtos {
         }
         return machinesBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:llsf_msgs.ExplorationInfo)
     }
-    
+
     static {
       defaultInstance = new ExplorationInfo(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:llsf_msgs.ExplorationInfo)
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_ExplorationSignal_descriptor;
   private static
@@ -2288,7 +3491,7 @@ public final class ExplorationInfoProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_llsf_msgs_ExplorationInfo_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -2298,18 +3501,19 @@ public final class ExplorationInfoProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\025ExplorationInfo.proto\022\tllsf_msgs\032\021Mach" +
-      "ineInfo.proto\032\014Pose2D.proto\"o\n\021Explorati" +
-      "onSignal\022\014\n\004type\030\001 \002(\t\022$\n\006lights\030\002 \003(\0132\024" +
-      ".llsf_msgs.LightSpec\"&\n\010CompType\022\014\n\007COMP" +
-      "_ID\020\320\017\022\014\n\010MSG_TYPE\020F\"k\n\022ExplorationMachi" +
-      "ne\022\014\n\004name\030\001 \002(\t\022\037\n\004pose\030\002 \002(\0132\021.llsf_ms" +
-      "gs.Pose2D\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010M" +
-      "SG_TYPE\020G\"\231\001\n\017ExplorationInfo\022-\n\007signals" +
-      "\030\001 \003(\0132\034.llsf_msgs.ExplorationSignal\022/\n\010" +
-      "machines\030\002 \003(\0132\035.llsf_msgs.ExplorationMa",
-      "chine\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_T" +
-      "YPE\020HB8\n\037org.robocup_logistics.llsf_msgs" +
-      "B\025ExplorationInfoProtos"
+      "ineInfo.proto\032\014Pose2D.proto\032\nTeam.proto\"" +
+      "o\n\021ExplorationSignal\022\014\n\004type\030\001 \002(\t\022$\n\006li" +
+      "ghts\030\002 \003(\0132\024.llsf_msgs.LightSpec\"&\n\010Comp" +
+      "Type\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020F\"\220\001\n\022Exp" +
+      "lorationMachine\022\014\n\004name\030\001 \002(\t\022\037\n\004pose\030\002 " +
+      "\002(\0132\021.llsf_msgs.Pose2D\022#\n\nteam_color\030\003 \002" +
+      "(\0162\017.llsf_msgs.Team\"&\n\010CompType\022\014\n\007COMP_" +
+      "ID\020\320\017\022\014\n\010MSG_TYPE\020G\"\231\001\n\017ExplorationInfo\022" +
+      "-\n\007signals\030\001 \003(\0132\034.llsf_msgs.Exploration",
+      "Signal\022/\n\010machines\030\002 \003(\0132\035.llsf_msgs.Exp" +
+      "lorationMachine\"&\n\010CompType\022\014\n\007COMP_ID\020\320" +
+      "\017\022\014\n\010MSG_TYPE\020HB8\n\037org.robocup_logistics" +
+      ".llsf_msgsB\025ExplorationInfoProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2321,25 +3525,19 @@ public final class ExplorationInfoProtos {
           internal_static_llsf_msgs_ExplorationSignal_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_ExplorationSignal_descriptor,
-              new java.lang.String[] { "Type", "Lights", },
-              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.class,
-              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal.Builder.class);
+              new java.lang.String[] { "Type", "Lights", });
           internal_static_llsf_msgs_ExplorationMachine_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_llsf_msgs_ExplorationMachine_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_ExplorationMachine_descriptor,
-              new java.lang.String[] { "Name", "Pose", },
-              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.class,
-              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine.Builder.class);
+              new java.lang.String[] { "Name", "Pose", "TeamColor", });
           internal_static_llsf_msgs_ExplorationInfo_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_llsf_msgs_ExplorationInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_ExplorationInfo_descriptor,
-              new java.lang.String[] { "Signals", "Machines", },
-              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.class,
-              org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo.Builder.class);
+              new java.lang.String[] { "Signals", "Machines", });
           return null;
         }
       };
@@ -2348,8 +3546,9 @@ public final class ExplorationInfoProtos {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.robocup_logistics.llsf_msgs.MachineInfoProtos.getDescriptor(),
           org.robocup_logistics.llsf_msgs.Pose2DProtos.getDescriptor(),
+          org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor(),
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }

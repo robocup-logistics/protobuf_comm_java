@@ -10,55 +10,176 @@ public final class MachineReportProtos {
   }
   public interface MachineReportEntryOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string name = 1;
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Machine name and recognized type
+     * </pre>
+     */
     boolean hasName();
-    String getName();
-    
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Machine name and recognized type
+     * </pre>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Machine name and recognized type
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
     // required string type = 2;
+    /**
+     * <code>required string type = 2;</code>
+     */
     boolean hasType();
-    String getType();
+    /**
+     * <code>required string type = 2;</code>
+     */
+    java.lang.String getType();
+    /**
+     * <code>required string type = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
   }
+  /**
+   * Protobuf type {@code llsf_msgs.MachineReportEntry}
+   */
   public static final class MachineReportEntry extends
       com.google.protobuf.GeneratedMessage
       implements MachineReportEntryOrBuilder {
     // Use MachineReportEntry.newBuilder() to construct.
-    private MachineReportEntry(Builder builder) {
+    private MachineReportEntry(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private MachineReportEntry(boolean noInit) {}
-    
+    private MachineReportEntry(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final MachineReportEntry defaultInstance;
     public static MachineReportEntry getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public MachineReportEntry getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MachineReportEntry(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              name_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              type_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportEntry_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportEntry_fieldAccessorTable;
+      return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportEntry_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.class, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<MachineReportEntry> PARSER =
+        new com.google.protobuf.AbstractParser<MachineReportEntry>() {
+      public MachineReportEntry parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MachineReportEntry(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MachineReportEntry> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.MachineReportEntry.CompType}
+     */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 60;</code>
+       */
       MSG_TYPE(1, 60),
       ;
-      
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 60;</code>
+       */
       public static final int MSG_TYPE_VALUE = 60;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
@@ -66,7 +187,7 @@ public final class MachineReportProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<CompType>
           internalGetValueMap() {
         return internalValueMap;
@@ -78,7 +199,7 @@ public final class MachineReportProtos {
                 return CompType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -91,11 +212,9 @@ public final class MachineReportProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final CompType[] VALUES = {
-        COMP_ID, MSG_TYPE, 
-      };
-      
+
+      private static final CompType[] VALUES = values();
+
       public static CompType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -104,83 +223,117 @@ public final class MachineReportProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private CompType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.MachineReportEntry.CompType)
     }
-    
+
     private int bitField0_;
     // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Machine name and recognized type
+     * </pre>
+     */
     public boolean hasName() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getName() {
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Machine name and recognized type
+     * </pre>
+     */
+    public java.lang.String getName() {
       java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           name_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getNameBytes() {
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     * Machine name and recognized type
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
       java.lang.Object ref = name_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // required string type = 2;
     public static final int TYPE_FIELD_NUMBER = 2;
     private java.lang.Object type_;
+    /**
+     * <code>required string type = 2;</code>
+     */
     public boolean hasType() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    public String getType() {
+    /**
+     * <code>required string type = 2;</code>
+     */
+    public java.lang.String getType() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           type_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getTypeBytes() {
+    /**
+     * <code>required string type = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         type_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     private void initFields() {
       name_ = "";
       type_ = "";
@@ -189,7 +342,7 @@ public final class MachineReportProtos {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasName()) {
         memoizedIsInitialized = 0;
         return false;
@@ -201,7 +354,7 @@ public final class MachineReportProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -213,12 +366,12 @@ public final class MachineReportProtos {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -232,94 +385,83 @@ public final class MachineReportProtos {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code llsf_msgs.MachineReportEntry}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntryOrBuilder {
@@ -327,18 +469,21 @@ public final class MachineReportProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportEntry_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportEntry_fieldAccessorTable;
+        return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportEntry_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.class, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder.class);
       }
-      
+
       // Construct using org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -349,7 +494,7 @@ public final class MachineReportProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         name_ = "";
@@ -358,20 +503,20 @@ public final class MachineReportProtos {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.getDescriptor();
+        return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportEntry_descriptor;
       }
-      
+
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry getDefaultInstanceForType() {
         return org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.getDefaultInstance();
       }
-      
+
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry build() {
         org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry result = buildPartial();
         if (!result.isInitialized()) {
@@ -379,17 +524,7 @@ public final class MachineReportProtos {
         }
         return result;
       }
-      
-      private org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry buildPartial() {
         org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry result = new org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry(this);
         int from_bitField0_ = bitField0_;
@@ -406,7 +541,7 @@ public final class MachineReportProtos {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry) {
           return mergeFrom((org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry)other);
@@ -415,19 +550,23 @@ public final class MachineReportProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry other) {
         if (other == org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.getDefaultInstance()) return this;
         if (other.hasName()) {
-          setName(other.getName());
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
         }
         if (other.hasType()) {
-          setType(other.getType());
+          bitField0_ |= 0x00000002;
+          type_ = other.type_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasName()) {
           
@@ -439,62 +578,85 @@ public final class MachineReportProtos {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              type_ = input.readBytes();
-              break;
-            }
+        org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string name = 1;
       private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Machine name and recognized type
+       * </pre>
+       */
       public boolean hasName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getName() {
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Machine name and recognized type
+       * </pre>
+       */
+      public java.lang.String getName() {
         java.lang.Object ref = name_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           name_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setName(String value) {
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Machine name and recognized type
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Machine name and recognized type
+       * </pre>
+       */
+      public Builder setName(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -503,34 +665,80 @@ public final class MachineReportProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Machine name and recognized type
+       * </pre>
+       */
       public Builder clearName() {
         bitField0_ = (bitField0_ & ~0x00000001);
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
-      void setName(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       * Machine name and recognized type
+       * </pre>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         name_ = value;
         onChanged();
+        return this;
       }
-      
+
       // required string type = 2;
       private java.lang.Object type_ = "";
+      /**
+       * <code>required string type = 2;</code>
+       */
       public boolean hasType() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      public String getType() {
+      /**
+       * <code>required string type = 2;</code>
+       */
+      public java.lang.String getType() {
         java.lang.Object ref = type_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           type_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setType(String value) {
+      /**
+       * <code>required string type = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string type = 2;</code>
+       */
+      public Builder setType(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -539,82 +747,255 @@ public final class MachineReportProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string type = 2;</code>
+       */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000002);
         type_ = getDefaultInstance().getType();
         onChanged();
         return this;
       }
-      void setType(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000002;
+      /**
+       * <code>required string type = 2;</code>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         type_ = value;
         onChanged();
+        return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:llsf_msgs.MachineReportEntry)
     }
-    
+
     static {
       defaultInstance = new MachineReportEntry(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:llsf_msgs.MachineReportEntry)
   }
-  
+
   public interface MachineReportOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
+    // required .llsf_msgs.Team team_color = 2;
+    /**
+     * <code>required .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the report is sent
+     * </pre>
+     */
+    boolean hasTeamColor();
+    /**
+     * <code>required .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the report is sent
+     * </pre>
+     */
+    org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor();
+
     // repeated .llsf_msgs.MachineReportEntry machines = 1;
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     java.util.List<org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry> 
         getMachinesList();
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry getMachines(int index);
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     int getMachinesCount();
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     java.util.List<? extends org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntryOrBuilder> 
         getMachinesOrBuilderList();
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntryOrBuilder getMachinesOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code llsf_msgs.MachineReport}
+   *
+   * <pre>
+   * Robots send this to announce recognized
+   * machines to the refbox.
+   * </pre>
+   */
   public static final class MachineReport extends
       com.google.protobuf.GeneratedMessage
       implements MachineReportOrBuilder {
     // Use MachineReport.newBuilder() to construct.
-    private MachineReport(Builder builder) {
+    private MachineReport(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private MachineReport(boolean noInit) {}
-    
+    private MachineReport(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final MachineReport defaultInstance;
     public static MachineReport getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public MachineReport getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MachineReport(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                machines_ = new java.util.ArrayList<org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              machines_.add(input.readMessage(org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.PARSER, extensionRegistry));
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.TeamProtos.Team value = org.robocup_logistics.llsf_msgs.TeamProtos.Team.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                teamColor_ = value;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          machines_ = java.util.Collections.unmodifiableList(machines_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReport_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReport_fieldAccessorTable;
+      return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReport_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.class, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<MachineReport> PARSER =
+        new com.google.protobuf.AbstractParser<MachineReport>() {
+      public MachineReport parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MachineReport(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MachineReport> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.MachineReport.CompType}
+     */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 61;</code>
+       */
       MSG_TYPE(1, 61),
       ;
-      
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 61;</code>
+       */
       public static final int MSG_TYPE_VALUE = 61;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
@@ -622,7 +1003,7 @@ public final class MachineReportProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<CompType>
           internalGetValueMap() {
         return internalValueMap;
@@ -634,7 +1015,7 @@ public final class MachineReportProtos {
                 return CompType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -647,11 +1028,9 @@ public final class MachineReportProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final CompType[] VALUES = {
-        COMP_ID, MSG_TYPE, 
-      };
-      
+
+      private static final CompType[] VALUES = values();
+
       public static CompType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -660,47 +1039,117 @@ public final class MachineReportProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private CompType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.MachineReport.CompType)
     }
-    
+
+    private int bitField0_;
+    // required .llsf_msgs.Team team_color = 2;
+    public static final int TEAM_COLOR_FIELD_NUMBER = 2;
+    private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_;
+    /**
+     * <code>required .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the report is sent
+     * </pre>
+     */
+    public boolean hasTeamColor() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the report is sent
+     * </pre>
+     */
+    public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+      return teamColor_;
+    }
+
     // repeated .llsf_msgs.MachineReportEntry machines = 1;
     public static final int MACHINES_FIELD_NUMBER = 1;
     private java.util.List<org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry> machines_;
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     public java.util.List<org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry> getMachinesList() {
       return machines_;
     }
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     public java.util.List<? extends org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntryOrBuilder> 
         getMachinesOrBuilderList() {
       return machines_;
     }
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     public int getMachinesCount() {
       return machines_.size();
     }
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry getMachines(int index) {
       return machines_.get(index);
     }
+    /**
+     * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+     *
+     * <pre>
+     * All machines already already recognized
+     * or a subset thereof
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntryOrBuilder getMachinesOrBuilder(
         int index) {
       return machines_.get(index);
     }
-    
+
     private void initFields() {
+      teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
       machines_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
+      if (!hasTeamColor()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       for (int i = 0; i < getMachinesCount(); i++) {
         if (!getMachines(i).isInitialized()) {
           memoizedIsInitialized = 0;
@@ -710,118 +1159,119 @@ public final class MachineReportProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       for (int i = 0; i < machines_.size(); i++) {
         output.writeMessage(1, machines_.get(i));
       }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(2, teamColor_.getNumber());
+      }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       for (int i = 0; i < machines_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, machines_.get(i));
       }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, teamColor_.getNumber());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code llsf_msgs.MachineReport}
+     *
+     * <pre>
+     * Robots send this to announce recognized
+     * machines to the refbox.
+     * </pre>
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportOrBuilder {
@@ -829,18 +1279,21 @@ public final class MachineReportProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReport_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReport_fieldAccessorTable;
+        return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReport_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.class, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.Builder.class);
       }
-      
+
       // Construct using org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -852,31 +1305,33 @@ public final class MachineReportProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (machinesBuilder_ == null) {
           machines_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           machinesBuilder_.clear();
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.getDescriptor();
+        return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReport_descriptor;
       }
-      
+
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport getDefaultInstanceForType() {
         return org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.getDefaultInstance();
       }
-      
+
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport build() {
         org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport result = buildPartial();
         if (!result.isInitialized()) {
@@ -884,33 +1339,29 @@ public final class MachineReportProtos {
         }
         return result;
       }
-      
-      private org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport buildPartial() {
         org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport result = new org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.teamColor_ = teamColor_;
         if (machinesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
             machines_ = java.util.Collections.unmodifiableList(machines_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.machines_ = machines_;
         } else {
           result.machines_ = machinesBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport) {
           return mergeFrom((org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport)other);
@@ -919,14 +1370,17 @@ public final class MachineReportProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport other) {
         if (other == org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.getDefaultInstance()) return this;
+        if (other.hasTeamColor()) {
+          setTeamColor(other.getTeamColor());
+        }
         if (machinesBuilder_ == null) {
           if (!other.machines_.isEmpty()) {
             if (machines_.isEmpty()) {
               machines_ = other.machines_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureMachinesIsMutable();
               machines_.addAll(other.machines_);
@@ -939,7 +1393,7 @@ public final class MachineReportProtos {
               machinesBuilder_.dispose();
               machinesBuilder_ = null;
               machines_ = other.machines_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               machinesBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getMachinesFieldBuilder() : null;
@@ -951,8 +1405,12 @@ public final class MachineReportProtos {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
+        if (!hasTeamColor()) {
+          
+          return false;
+        }
         for (int i = 0; i < getMachinesCount(); i++) {
           if (!getMachines(i).isInitialized()) {
             
@@ -961,55 +1419,99 @@ public final class MachineReportProtos {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder subBuilder = org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addMachines(subBuilder.buildPartial());
-              break;
-            }
+        org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
+      // required .llsf_msgs.Team team_color = 2;
+      private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+      /**
+       * <code>required .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the report is sent
+       * </pre>
+       */
+      public boolean hasTeamColor() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the report is sent
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+        return teamColor_;
+      }
+      /**
+       * <code>required .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the report is sent
+       * </pre>
+       */
+      public Builder setTeamColor(org.robocup_logistics.llsf_msgs.TeamProtos.Team value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        teamColor_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the report is sent
+       * </pre>
+       */
+      public Builder clearTeamColor() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        onChanged();
+        return this;
+      }
+
       // repeated .llsf_msgs.MachineReportEntry machines = 1;
       private java.util.List<org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry> machines_ =
         java.util.Collections.emptyList();
       private void ensureMachinesIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           machines_ = new java.util.ArrayList<org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry>(machines_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntryOrBuilder> machinesBuilder_;
-      
+
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry> getMachinesList() {
         if (machinesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(machines_);
@@ -1017,6 +1519,14 @@ public final class MachineReportProtos {
           return machinesBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public int getMachinesCount() {
         if (machinesBuilder_ == null) {
           return machines_.size();
@@ -1024,6 +1534,14 @@ public final class MachineReportProtos {
           return machinesBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry getMachines(int index) {
         if (machinesBuilder_ == null) {
           return machines_.get(index);
@@ -1031,6 +1549,14 @@ public final class MachineReportProtos {
           return machinesBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public Builder setMachines(
           int index, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry value) {
         if (machinesBuilder_ == null) {
@@ -1045,6 +1571,14 @@ public final class MachineReportProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public Builder setMachines(
           int index, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder builderForValue) {
         if (machinesBuilder_ == null) {
@@ -1056,6 +1590,14 @@ public final class MachineReportProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public Builder addMachines(org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry value) {
         if (machinesBuilder_ == null) {
           if (value == null) {
@@ -1069,6 +1611,14 @@ public final class MachineReportProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public Builder addMachines(
           int index, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry value) {
         if (machinesBuilder_ == null) {
@@ -1083,6 +1633,14 @@ public final class MachineReportProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public Builder addMachines(
           org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder builderForValue) {
         if (machinesBuilder_ == null) {
@@ -1094,6 +1652,14 @@ public final class MachineReportProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public Builder addMachines(
           int index, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder builderForValue) {
         if (machinesBuilder_ == null) {
@@ -1105,6 +1671,14 @@ public final class MachineReportProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public Builder addAllMachines(
           java.lang.Iterable<? extends org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry> values) {
         if (machinesBuilder_ == null) {
@@ -1116,16 +1690,32 @@ public final class MachineReportProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public Builder clearMachines() {
         if (machinesBuilder_ == null) {
           machines_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           machinesBuilder_.clear();
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public Builder removeMachines(int index) {
         if (machinesBuilder_ == null) {
           ensureMachinesIsMutable();
@@ -1136,10 +1726,26 @@ public final class MachineReportProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder getMachinesBuilder(
           int index) {
         return getMachinesFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntryOrBuilder getMachinesOrBuilder(
           int index) {
         if (machinesBuilder_ == null) {
@@ -1147,6 +1753,14 @@ public final class MachineReportProtos {
           return machinesBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public java.util.List<? extends org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntryOrBuilder> 
            getMachinesOrBuilderList() {
         if (machinesBuilder_ != null) {
@@ -1155,15 +1769,39 @@ public final class MachineReportProtos {
           return java.util.Collections.unmodifiableList(machines_);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder addMachinesBuilder() {
         return getMachinesFieldBuilder().addBuilder(
             org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder addMachinesBuilder(
           int index) {
         return getMachinesFieldBuilder().addBuilder(
             index, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.MachineReportEntry machines = 1;</code>
+       *
+       * <pre>
+       * All machines already already recognized
+       * or a subset thereof
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder> 
            getMachinesBuilderList() {
         return getMachinesFieldBuilder().getBuilderList();
@@ -1175,73 +1813,234 @@ public final class MachineReportProtos {
           machinesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntryOrBuilder>(
                   machines_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           machines_ = null;
         }
         return machinesBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:llsf_msgs.MachineReport)
     }
-    
+
     static {
       defaultInstance = new MachineReport(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:llsf_msgs.MachineReport)
   }
-  
+
   public interface MachineReportInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // repeated string reported_machines = 1;
-    java.util.List<String> getReportedMachinesList();
+    /**
+     * <code>repeated string reported_machines = 1;</code>
+     *
+     * <pre>
+     * Names of machines for which the refbox
+     * received a report from a robot (which
+     * may have been correct or wrong)
+     * </pre>
+     */
+    java.util.List<java.lang.String>
+    getReportedMachinesList();
+    /**
+     * <code>repeated string reported_machines = 1;</code>
+     *
+     * <pre>
+     * Names of machines for which the refbox
+     * received a report from a robot (which
+     * may have been correct or wrong)
+     * </pre>
+     */
     int getReportedMachinesCount();
-    String getReportedMachines(int index);
+    /**
+     * <code>repeated string reported_machines = 1;</code>
+     *
+     * <pre>
+     * Names of machines for which the refbox
+     * received a report from a robot (which
+     * may have been correct or wrong)
+     * </pre>
+     */
+    java.lang.String getReportedMachines(int index);
+    /**
+     * <code>repeated string reported_machines = 1;</code>
+     *
+     * <pre>
+     * Names of machines for which the refbox
+     * received a report from a robot (which
+     * may have been correct or wrong)
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getReportedMachinesBytes(int index);
+
+    // required .llsf_msgs.Team team_color = 2;
+    /**
+     * <code>required .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the report is sent
+     * </pre>
+     */
+    boolean hasTeamColor();
+    /**
+     * <code>required .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the report is sent
+     * </pre>
+     */
+    org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor();
   }
+  /**
+   * Protobuf type {@code llsf_msgs.MachineReportInfo}
+   *
+   * <pre>
+   * The refbox periodically sends this to
+   * acknowledge reported machines
+   * </pre>
+   */
   public static final class MachineReportInfo extends
       com.google.protobuf.GeneratedMessage
       implements MachineReportInfoOrBuilder {
     // Use MachineReportInfo.newBuilder() to construct.
-    private MachineReportInfo(Builder builder) {
+    private MachineReportInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private MachineReportInfo(boolean noInit) {}
-    
+    private MachineReportInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final MachineReportInfo defaultInstance;
     public static MachineReportInfo getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public MachineReportInfo getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MachineReportInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                reportedMachines_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              reportedMachines_.add(input.readBytes());
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.TeamProtos.Team value = org.robocup_logistics.llsf_msgs.TeamProtos.Team.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                teamColor_ = value;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          reportedMachines_ = new com.google.protobuf.UnmodifiableLazyStringList(reportedMachines_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportInfo_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportInfo_fieldAccessorTable;
+      return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.class, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<MachineReportInfo> PARSER =
+        new com.google.protobuf.AbstractParser<MachineReportInfo>() {
+      public MachineReportInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MachineReportInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MachineReportInfo> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.MachineReportInfo.CompType}
+     */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 62;</code>
+       */
       MSG_TYPE(1, 62),
       ;
-      
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 62;</code>
+       */
       public static final int MSG_TYPE_VALUE = 62;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
@@ -1249,7 +2048,7 @@ public final class MachineReportProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<CompType>
           internalGetValueMap() {
         return internalValueMap;
@@ -1261,7 +2060,7 @@ public final class MachineReportProtos {
                 return CompType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -1274,11 +2073,9 @@ public final class MachineReportProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final CompType[] VALUES = {
-        COMP_ID, MSG_TYPE, 
-      };
-      
+
+      private static final CompType[] VALUES = values();
+
       public static CompType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -1287,58 +2084,131 @@ public final class MachineReportProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private CompType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.MachineReportInfo.CompType)
     }
-    
+
+    private int bitField0_;
     // repeated string reported_machines = 1;
     public static final int REPORTED_MACHINES_FIELD_NUMBER = 1;
     private com.google.protobuf.LazyStringList reportedMachines_;
-    public java.util.List<String>
+    /**
+     * <code>repeated string reported_machines = 1;</code>
+     *
+     * <pre>
+     * Names of machines for which the refbox
+     * received a report from a robot (which
+     * may have been correct or wrong)
+     * </pre>
+     */
+    public java.util.List<java.lang.String>
         getReportedMachinesList() {
       return reportedMachines_;
     }
+    /**
+     * <code>repeated string reported_machines = 1;</code>
+     *
+     * <pre>
+     * Names of machines for which the refbox
+     * received a report from a robot (which
+     * may have been correct or wrong)
+     * </pre>
+     */
     public int getReportedMachinesCount() {
       return reportedMachines_.size();
     }
-    public String getReportedMachines(int index) {
+    /**
+     * <code>repeated string reported_machines = 1;</code>
+     *
+     * <pre>
+     * Names of machines for which the refbox
+     * received a report from a robot (which
+     * may have been correct or wrong)
+     * </pre>
+     */
+    public java.lang.String getReportedMachines(int index) {
       return reportedMachines_.get(index);
     }
-    
+    /**
+     * <code>repeated string reported_machines = 1;</code>
+     *
+     * <pre>
+     * Names of machines for which the refbox
+     * received a report from a robot (which
+     * may have been correct or wrong)
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getReportedMachinesBytes(int index) {
+      return reportedMachines_.getByteString(index);
+    }
+
+    // required .llsf_msgs.Team team_color = 2;
+    public static final int TEAM_COLOR_FIELD_NUMBER = 2;
+    private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_;
+    /**
+     * <code>required .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the report is sent
+     * </pre>
+     */
+    public boolean hasTeamColor() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the report is sent
+     * </pre>
+     */
+    public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+      return teamColor_;
+    }
+
     private void initFields() {
       reportedMachines_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
+      if (!hasTeamColor()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       for (int i = 0; i < reportedMachines_.size(); i++) {
         output.writeBytes(1, reportedMachines_.getByteString(i));
       }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(2, teamColor_.getNumber());
+      }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       {
         int dataSize = 0;
@@ -1349,98 +2219,96 @@ public final class MachineReportProtos {
         size += dataSize;
         size += 1 * getReportedMachinesList().size();
       }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, teamColor_.getNumber());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code llsf_msgs.MachineReportInfo}
+     *
+     * <pre>
+     * The refbox periodically sends this to
+     * acknowledge reported machines
+     * </pre>
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfoOrBuilder {
@@ -1448,18 +2316,21 @@ public final class MachineReportProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportInfo_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportInfo_fieldAccessorTable;
+        return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.class, org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.Builder.class);
       }
-      
+
       // Construct using org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1470,27 +2341,29 @@ public final class MachineReportProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         reportedMachines_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.getDescriptor();
+        return org.robocup_logistics.llsf_msgs.MachineReportProtos.internal_static_llsf_msgs_MachineReportInfo_descriptor;
       }
-      
+
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo getDefaultInstanceForType() {
         return org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.getDefaultInstance();
       }
-      
+
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo build() {
         org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo result = buildPartial();
         if (!result.isInitialized()) {
@@ -1498,30 +2371,26 @@ public final class MachineReportProtos {
         }
         return result;
       }
-      
-      private org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo buildPartial() {
         org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo result = new org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           reportedMachines_ = new com.google.protobuf.UnmodifiableLazyStringList(
               reportedMachines_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.reportedMachines_ = reportedMachines_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.teamColor_ = teamColor_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo) {
           return mergeFrom((org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo)other);
@@ -1530,7 +2399,7 @@ public final class MachineReportProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo other) {
         if (other == org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.getDefaultInstance()) return this;
         if (!other.reportedMachines_.isEmpty()) {
@@ -1543,48 +2412,40 @@ public final class MachineReportProtos {
           }
           onChanged();
         }
+        if (other.hasTeamColor()) {
+          setTeamColor(other.getTeamColor());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
+        if (!hasTeamColor()) {
+          
+          return false;
+        }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              ensureReportedMachinesIsMutable();
-              reportedMachines_.add(input.readBytes());
-              break;
-            }
+        org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // repeated string reported_machines = 1;
       private com.google.protobuf.LazyStringList reportedMachines_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureReportedMachinesIsMutable() {
@@ -1593,18 +2454,67 @@ public final class MachineReportProtos {
           bitField0_ |= 0x00000001;
          }
       }
-      public java.util.List<String>
+      /**
+       * <code>repeated string reported_machines = 1;</code>
+       *
+       * <pre>
+       * Names of machines for which the refbox
+       * received a report from a robot (which
+       * may have been correct or wrong)
+       * </pre>
+       */
+      public java.util.List<java.lang.String>
           getReportedMachinesList() {
         return java.util.Collections.unmodifiableList(reportedMachines_);
       }
+      /**
+       * <code>repeated string reported_machines = 1;</code>
+       *
+       * <pre>
+       * Names of machines for which the refbox
+       * received a report from a robot (which
+       * may have been correct or wrong)
+       * </pre>
+       */
       public int getReportedMachinesCount() {
         return reportedMachines_.size();
       }
-      public String getReportedMachines(int index) {
+      /**
+       * <code>repeated string reported_machines = 1;</code>
+       *
+       * <pre>
+       * Names of machines for which the refbox
+       * received a report from a robot (which
+       * may have been correct or wrong)
+       * </pre>
+       */
+      public java.lang.String getReportedMachines(int index) {
         return reportedMachines_.get(index);
       }
+      /**
+       * <code>repeated string reported_machines = 1;</code>
+       *
+       * <pre>
+       * Names of machines for which the refbox
+       * received a report from a robot (which
+       * may have been correct or wrong)
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getReportedMachinesBytes(int index) {
+        return reportedMachines_.getByteString(index);
+      }
+      /**
+       * <code>repeated string reported_machines = 1;</code>
+       *
+       * <pre>
+       * Names of machines for which the refbox
+       * received a report from a robot (which
+       * may have been correct or wrong)
+       * </pre>
+       */
       public Builder setReportedMachines(
-          int index, String value) {
+          int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1613,7 +2523,17 @@ public final class MachineReportProtos {
         onChanged();
         return this;
       }
-      public Builder addReportedMachines(String value) {
+      /**
+       * <code>repeated string reported_machines = 1;</code>
+       *
+       * <pre>
+       * Names of machines for which the refbox
+       * received a report from a robot (which
+       * may have been correct or wrong)
+       * </pre>
+       */
+      public Builder addReportedMachines(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1622,36 +2542,120 @@ public final class MachineReportProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated string reported_machines = 1;</code>
+       *
+       * <pre>
+       * Names of machines for which the refbox
+       * received a report from a robot (which
+       * may have been correct or wrong)
+       * </pre>
+       */
       public Builder addAllReportedMachines(
-          java.lang.Iterable<String> values) {
+          java.lang.Iterable<java.lang.String> values) {
         ensureReportedMachinesIsMutable();
         super.addAll(values, reportedMachines_);
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated string reported_machines = 1;</code>
+       *
+       * <pre>
+       * Names of machines for which the refbox
+       * received a report from a robot (which
+       * may have been correct or wrong)
+       * </pre>
+       */
       public Builder clearReportedMachines() {
         reportedMachines_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
-      void addReportedMachines(com.google.protobuf.ByteString value) {
-        ensureReportedMachinesIsMutable();
+      /**
+       * <code>repeated string reported_machines = 1;</code>
+       *
+       * <pre>
+       * Names of machines for which the refbox
+       * received a report from a robot (which
+       * may have been correct or wrong)
+       * </pre>
+       */
+      public Builder addReportedMachinesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureReportedMachinesIsMutable();
         reportedMachines_.add(value);
         onChanged();
+        return this;
       }
-      
+
+      // required .llsf_msgs.Team team_color = 2;
+      private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+      /**
+       * <code>required .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the report is sent
+       * </pre>
+       */
+      public boolean hasTeamColor() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the report is sent
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+        return teamColor_;
+      }
+      /**
+       * <code>required .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the report is sent
+       * </pre>
+       */
+      public Builder setTeamColor(org.robocup_logistics.llsf_msgs.TeamProtos.Team value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        teamColor_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the report is sent
+       * </pre>
+       */
+      public Builder clearTeamColor() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:llsf_msgs.MachineReportInfo)
     }
-    
+
     static {
       defaultInstance = new MachineReportInfo(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:llsf_msgs.MachineReportInfo)
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_MachineReportEntry_descriptor;
   private static
@@ -1667,7 +2671,7 @@ public final class MachineReportProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_llsf_msgs_MachineReportInfo_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -1677,16 +2681,18 @@ public final class MachineReportProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\023MachineReport.proto\022\tllsf_msgs\032\021Machin" +
-      "eInfo.proto\032\016PuckInfo.proto\"X\n\022MachineRe" +
-      "portEntry\022\014\n\004name\030\001 \002(\t\022\014\n\004type\030\002 \002(\t\"&\n" +
-      "\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020<\"h\n" +
-      "\rMachineReport\022/\n\010machines\030\001 \003(\0132\035.llsf_" +
-      "msgs.MachineReportEntry\"&\n\010CompType\022\014\n\007C" +
-      "OMP_ID\020\320\017\022\014\n\010MSG_TYPE\020=\"V\n\021MachineReport" +
-      "Info\022\031\n\021reported_machines\030\001 \003(\t\"&\n\010CompT" +
-      "ype\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020>B6\n\037org.r" +
-      "obocup_logistics.llsf_msgsB\023MachineRepor",
-      "tProtos"
+      "eInfo.proto\032\016PuckInfo.proto\032\nTeam.proto\"" +
+      "X\n\022MachineReportEntry\022\014\n\004name\030\001 \002(\t\022\014\n\004t" +
+      "ype\030\002 \002(\t\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010M" +
+      "SG_TYPE\020<\"\215\001\n\rMachineReport\022#\n\nteam_colo" +
+      "r\030\002 \002(\0162\017.llsf_msgs.Team\022/\n\010machines\030\001 \003" +
+      "(\0132\035.llsf_msgs.MachineReportEntry\"&\n\010Com" +
+      "pType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020=\"{\n\021Mac" +
+      "hineReportInfo\022\031\n\021reported_machines\030\001 \003(" +
+      "\t\022#\n\nteam_color\030\002 \002(\0162\017.llsf_msgs.Team\"&",
+      "\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020>B6" +
+      "\n\037org.robocup_logistics.llsf_msgsB\023Machi" +
+      "neReportProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1698,25 +2704,19 @@ public final class MachineReportProtos {
           internal_static_llsf_msgs_MachineReportEntry_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_MachineReportEntry_descriptor,
-              new java.lang.String[] { "Name", "Type", },
-              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.class,
-              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportEntry.Builder.class);
+              new java.lang.String[] { "Name", "Type", });
           internal_static_llsf_msgs_MachineReport_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_llsf_msgs_MachineReport_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_MachineReport_descriptor,
-              new java.lang.String[] { "Machines", },
-              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.class,
-              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReport.Builder.class);
+              new java.lang.String[] { "TeamColor", "Machines", });
           internal_static_llsf_msgs_MachineReportInfo_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_llsf_msgs_MachineReportInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_MachineReportInfo_descriptor,
-              new java.lang.String[] { "ReportedMachines", },
-              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.class,
-              org.robocup_logistics.llsf_msgs.MachineReportProtos.MachineReportInfo.Builder.class);
+              new java.lang.String[] { "ReportedMachines", "TeamColor", });
           return null;
         }
       };
@@ -1725,8 +2725,9 @@ public final class MachineReportProtos {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.robocup_logistics.llsf_msgs.MachineInfoProtos.getDescriptor(),
           org.robocup_logistics.llsf_msgs.PuckInfoProtos.getDescriptor(),
+          org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor(),
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }

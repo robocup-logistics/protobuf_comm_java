@@ -10,79 +10,298 @@ public final class OrderInfoProtos {
   }
   public interface OrderOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required uint32 id = 1;
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * ID and requested product of this order
+     * </pre>
+     */
     boolean hasId();
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * ID and requested product of this order
+     * </pre>
+     */
     int getId();
-    
+
     // required .llsf_msgs.Order.ProductType product = 2;
+    /**
+     * <code>required .llsf_msgs.Order.ProductType product = 2;</code>
+     */
     boolean hasProduct();
+    /**
+     * <code>required .llsf_msgs.Order.ProductType product = 2;</code>
+     */
     org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType getProduct();
-    
+
+    // optional .llsf_msgs.Team team_color = 11;
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 11;</code>
+     */
+    boolean hasTeamColor();
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 11;</code>
+     */
+    org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor();
+
     // required uint32 quantity_requested = 3;
+    /**
+     * <code>required uint32 quantity_requested = 3;</code>
+     *
+     * <pre>
+     * Quantity requested and delivered
+     * </pre>
+     */
     boolean hasQuantityRequested();
+    /**
+     * <code>required uint32 quantity_requested = 3;</code>
+     *
+     * <pre>
+     * Quantity requested and delivered
+     * </pre>
+     */
     int getQuantityRequested();
-    
+
     // required uint32 quantity_delivered = 4;
+    /**
+     * <code>required uint32 quantity_delivered = 4;</code>
+     */
     boolean hasQuantityDelivered();
+    /**
+     * <code>required uint32 quantity_delivered = 4;</code>
+     */
     int getQuantityDelivered();
-    
+
     // required uint32 delivery_period_begin = 6;
+    /**
+     * <code>required uint32 delivery_period_begin = 6;</code>
+     *
+     * <pre>
+     * Start and end time of the delivery
+     * period in seconds of game time
+     * </pre>
+     */
     boolean hasDeliveryPeriodBegin();
+    /**
+     * <code>required uint32 delivery_period_begin = 6;</code>
+     *
+     * <pre>
+     * Start and end time of the delivery
+     * period in seconds of game time
+     * </pre>
+     */
     int getDeliveryPeriodBegin();
-    
+
     // required uint32 delivery_period_end = 7;
+    /**
+     * <code>required uint32 delivery_period_end = 7;</code>
+     */
     boolean hasDeliveryPeriodEnd();
+    /**
+     * <code>required uint32 delivery_period_end = 7;</code>
+     */
     int getDeliveryPeriodEnd();
-    
+
     // optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];
+    /**
+     * <code>optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];</code>
+     *
+     * <pre>
+     * The gate to deliver to, defaults to any
+     * (non-defunct, i.e. non-red light) gate
+     * </pre>
+     */
     boolean hasDeliveryGate();
+    /**
+     * <code>optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];</code>
+     *
+     * <pre>
+     * The gate to deliver to, defaults to any
+     * (non-defunct, i.e. non-red light) gate
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate getDeliveryGate();
-    
-    // optional bool late_order = 20;
-    boolean hasLateOrder();
-    boolean getLateOrder();
   }
+  /**
+   * Protobuf type {@code llsf_msgs.Order}
+   */
   public static final class Order extends
       com.google.protobuf.GeneratedMessage
       implements OrderOrBuilder {
     // Use Order.newBuilder() to construct.
-    private Order(Builder builder) {
+    private Order(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private Order(boolean noInit) {}
-    
+    private Order(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final Order defaultInstance;
     public static Order getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public Order getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Order(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType value = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000002;
+                product_ = value;
+              }
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000008;
+              quantityRequested_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000010;
+              quantityDelivered_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              deliveryPeriodBegin_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              deliveryPeriodEnd_ = input.readUInt32();
+              break;
+            }
+            case 64: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate value = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(8, rawValue);
+              } else {
+                bitField0_ |= 0x00000080;
+                deliveryGate_ = value;
+              }
+              break;
+            }
+            case 88: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.TeamProtos.Team value = org.robocup_logistics.llsf_msgs.TeamProtos.Team.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(11, rawValue);
+              } else {
+                bitField0_ |= 0x00000004;
+                teamColor_ = value;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_Order_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_Order_fieldAccessorTable;
+      return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_Order_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.class, org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<Order> PARSER =
+        new com.google.protobuf.AbstractParser<Order>() {
+      public Order parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Order(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Order> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.Order.CompType}
+     */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 40;</code>
+       */
       MSG_TYPE(1, 40),
       ;
-      
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 40;</code>
+       */
       public static final int MSG_TYPE_VALUE = 40;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
@@ -90,7 +309,7 @@ public final class OrderInfoProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<CompType>
           internalGetValueMap() {
         return internalValueMap;
@@ -102,7 +321,7 @@ public final class OrderInfoProtos {
                 return CompType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -115,11 +334,9 @@ public final class OrderInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final CompType[] VALUES = {
-        COMP_ID, MSG_TYPE, 
-      };
-      
+
+      private static final CompType[] VALUES = values();
+
       public static CompType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -128,32 +345,57 @@ public final class OrderInfoProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private CompType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.Order.CompType)
     }
-    
+
+    /**
+     * Protobuf enum {@code llsf_msgs.Order.ProductType}
+     *
+     * <pre>
+     * Ordered product type
+     * </pre>
+     */
     public enum ProductType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>P1 = 1;</code>
+       */
       P1(0, 1),
+      /**
+       * <code>P2 = 2;</code>
+       */
       P2(1, 2),
+      /**
+       * <code>P3 = 3;</code>
+       */
       P3(2, 3),
       ;
-      
+
+      /**
+       * <code>P1 = 1;</code>
+       */
       public static final int P1_VALUE = 1;
+      /**
+       * <code>P2 = 2;</code>
+       */
       public static final int P2_VALUE = 2;
+      /**
+       * <code>P3 = 3;</code>
+       */
       public static final int P3_VALUE = 3;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static ProductType valueOf(int value) {
         switch (value) {
           case 1: return P1;
@@ -162,7 +404,7 @@ public final class OrderInfoProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<ProductType>
           internalGetValueMap() {
         return internalValueMap;
@@ -174,7 +416,7 @@ public final class OrderInfoProtos {
                 return ProductType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -187,11 +429,9 @@ public final class OrderInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.getDescriptor().getEnumTypes().get(1);
       }
-      
-      private static final ProductType[] VALUES = {
-        P1, P2, P3, 
-      };
-      
+
+      private static final ProductType[] VALUES = values();
+
       public static ProductType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -200,44 +440,102 @@ public final class OrderInfoProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private ProductType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.Order.ProductType)
     }
-    
+
+    /**
+     * Protobuf enum {@code llsf_msgs.Order.DeliveryGate}
+     *
+     * <pre>
+     * Gate to deliver to, or any
+     * </pre>
+     */
     public enum DeliveryGate
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>ANY = 1;</code>
+       */
       ANY(0, 1),
+      /**
+       * <code>D1 = 2;</code>
+       */
       D1(1, 2),
+      /**
+       * <code>D2 = 3;</code>
+       */
       D2(2, 3),
+      /**
+       * <code>D3 = 4;</code>
+       */
       D3(3, 4),
+      /**
+       * <code>D4 = 5;</code>
+       */
+      D4(4, 5),
+      /**
+       * <code>D5 = 6;</code>
+       */
+      D5(5, 6),
+      /**
+       * <code>D6 = 7;</code>
+       */
+      D6(6, 7),
       ;
-      
+
+      /**
+       * <code>ANY = 1;</code>
+       */
       public static final int ANY_VALUE = 1;
+      /**
+       * <code>D1 = 2;</code>
+       */
       public static final int D1_VALUE = 2;
+      /**
+       * <code>D2 = 3;</code>
+       */
       public static final int D2_VALUE = 3;
+      /**
+       * <code>D3 = 4;</code>
+       */
       public static final int D3_VALUE = 4;
-      
-      
+      /**
+       * <code>D4 = 5;</code>
+       */
+      public static final int D4_VALUE = 5;
+      /**
+       * <code>D5 = 6;</code>
+       */
+      public static final int D5_VALUE = 6;
+      /**
+       * <code>D6 = 7;</code>
+       */
+      public static final int D6_VALUE = 7;
+
+
       public final int getNumber() { return value; }
-      
+
       public static DeliveryGate valueOf(int value) {
         switch (value) {
           case 1: return ANY;
           case 2: return D1;
           case 3: return D2;
           case 4: return D3;
+          case 5: return D4;
+          case 6: return D5;
+          case 7: return D6;
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<DeliveryGate>
           internalGetValueMap() {
         return internalValueMap;
@@ -249,7 +547,7 @@ public final class OrderInfoProtos {
                 return DeliveryGate.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -262,11 +560,9 @@ public final class OrderInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.getDescriptor().getEnumTypes().get(2);
       }
-      
-      private static final DeliveryGate[] VALUES = {
-        ANY, D1, D2, D3, 
-      };
-      
+
+      private static final DeliveryGate[] VALUES = values();
+
       public static DeliveryGate valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -275,114 +571,198 @@ public final class OrderInfoProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private DeliveryGate(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.Order.DeliveryGate)
     }
-    
+
     private int bitField0_;
     // required uint32 id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * ID and requested product of this order
+     * </pre>
+     */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>required uint32 id = 1;</code>
+     *
+     * <pre>
+     * ID and requested product of this order
+     * </pre>
+     */
     public int getId() {
       return id_;
     }
-    
+
     // required .llsf_msgs.Order.ProductType product = 2;
     public static final int PRODUCT_FIELD_NUMBER = 2;
     private org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType product_;
+    /**
+     * <code>required .llsf_msgs.Order.ProductType product = 2;</code>
+     */
     public boolean hasProduct() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>required .llsf_msgs.Order.ProductType product = 2;</code>
+     */
     public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType getProduct() {
       return product_;
     }
-    
+
+    // optional .llsf_msgs.Team team_color = 11;
+    public static final int TEAM_COLOR_FIELD_NUMBER = 11;
+    private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_;
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 11;</code>
+     */
+    public boolean hasTeamColor() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 11;</code>
+     */
+    public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+      return teamColor_;
+    }
+
     // required uint32 quantity_requested = 3;
     public static final int QUANTITY_REQUESTED_FIELD_NUMBER = 3;
     private int quantityRequested_;
+    /**
+     * <code>required uint32 quantity_requested = 3;</code>
+     *
+     * <pre>
+     * Quantity requested and delivered
+     * </pre>
+     */
     public boolean hasQuantityRequested() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
+    /**
+     * <code>required uint32 quantity_requested = 3;</code>
+     *
+     * <pre>
+     * Quantity requested and delivered
+     * </pre>
+     */
     public int getQuantityRequested() {
       return quantityRequested_;
     }
-    
+
     // required uint32 quantity_delivered = 4;
     public static final int QUANTITY_DELIVERED_FIELD_NUMBER = 4;
     private int quantityDelivered_;
+    /**
+     * <code>required uint32 quantity_delivered = 4;</code>
+     */
     public boolean hasQuantityDelivered() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
+    /**
+     * <code>required uint32 quantity_delivered = 4;</code>
+     */
     public int getQuantityDelivered() {
       return quantityDelivered_;
     }
-    
+
     // required uint32 delivery_period_begin = 6;
     public static final int DELIVERY_PERIOD_BEGIN_FIELD_NUMBER = 6;
     private int deliveryPeriodBegin_;
+    /**
+     * <code>required uint32 delivery_period_begin = 6;</code>
+     *
+     * <pre>
+     * Start and end time of the delivery
+     * period in seconds of game time
+     * </pre>
+     */
     public boolean hasDeliveryPeriodBegin() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
+    /**
+     * <code>required uint32 delivery_period_begin = 6;</code>
+     *
+     * <pre>
+     * Start and end time of the delivery
+     * period in seconds of game time
+     * </pre>
+     */
     public int getDeliveryPeriodBegin() {
       return deliveryPeriodBegin_;
     }
-    
+
     // required uint32 delivery_period_end = 7;
     public static final int DELIVERY_PERIOD_END_FIELD_NUMBER = 7;
     private int deliveryPeriodEnd_;
+    /**
+     * <code>required uint32 delivery_period_end = 7;</code>
+     */
     public boolean hasDeliveryPeriodEnd() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
+    /**
+     * <code>required uint32 delivery_period_end = 7;</code>
+     */
     public int getDeliveryPeriodEnd() {
       return deliveryPeriodEnd_;
     }
-    
+
     // optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];
     public static final int DELIVERY_GATE_FIELD_NUMBER = 8;
     private org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate deliveryGate_;
+    /**
+     * <code>optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];</code>
+     *
+     * <pre>
+     * The gate to deliver to, defaults to any
+     * (non-defunct, i.e. non-red light) gate
+     * </pre>
+     */
     public boolean hasDeliveryGate() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
+    /**
+     * <code>optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];</code>
+     *
+     * <pre>
+     * The gate to deliver to, defaults to any
+     * (non-defunct, i.e. non-red light) gate
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate getDeliveryGate() {
       return deliveryGate_;
     }
-    
-    // optional bool late_order = 20;
-    public static final int LATE_ORDER_FIELD_NUMBER = 20;
-    private boolean lateOrder_;
-    public boolean hasLateOrder() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
-    }
-    public boolean getLateOrder() {
-      return lateOrder_;
-    }
-    
+
     private void initFields() {
       id_ = 0;
       product_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType.P1;
+      teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
       quantityRequested_ = 0;
       quantityDelivered_ = 0;
       deliveryPeriodBegin_ = 0;
       deliveryPeriodEnd_ = 0;
       deliveryGate_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.ANY;
-      lateOrder_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasId()) {
         memoizedIsInitialized = 0;
         return false;
@@ -410,7 +790,7 @@ public final class OrderInfoProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -420,32 +800,32 @@ public final class OrderInfoProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeEnum(2, product_.getNumber());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeUInt32(3, quantityRequested_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeUInt32(4, quantityDelivered_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeUInt32(6, deliveryPeriodBegin_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeUInt32(7, deliveryPeriodEnd_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeEnum(8, deliveryGate_.getNumber());
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBool(20, lateOrder_);
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeEnum(11, teamColor_.getNumber());
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -455,122 +835,111 @@ public final class OrderInfoProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, product_.getNumber());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(3, quantityRequested_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, quantityDelivered_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, deliveryPeriodBegin_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(7, deliveryPeriodEnd_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(8, deliveryGate_.getNumber());
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(20, lateOrder_);
+          .computeEnumSize(11, teamColor_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code llsf_msgs.Order}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderOrBuilder {
@@ -578,18 +947,21 @@ public final class OrderInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_Order_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_Order_fieldAccessorTable;
+        return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_Order_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.class, org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder.class);
       }
-      
+
       // Construct using org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -600,41 +972,41 @@ public final class OrderInfoProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         product_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType.P1;
         bitField0_ = (bitField0_ & ~0x00000002);
-        quantityRequested_ = 0;
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
         bitField0_ = (bitField0_ & ~0x00000004);
-        quantityDelivered_ = 0;
+        quantityRequested_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        deliveryPeriodBegin_ = 0;
+        quantityDelivered_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
-        deliveryPeriodEnd_ = 0;
+        deliveryPeriodBegin_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
-        deliveryGate_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.ANY;
+        deliveryPeriodEnd_ = 0;
         bitField0_ = (bitField0_ & ~0x00000040);
-        lateOrder_ = false;
+        deliveryGate_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.ANY;
         bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.getDescriptor();
+        return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_Order_descriptor;
       }
-      
+
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order getDefaultInstanceForType() {
         return org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.getDefaultInstance();
       }
-      
+
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order build() {
         org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order result = buildPartial();
         if (!result.isInitialized()) {
@@ -642,17 +1014,7 @@ public final class OrderInfoProtos {
         }
         return result;
       }
-      
-      private org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order buildPartial() {
         org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order result = new org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order(this);
         int from_bitField0_ = bitField0_;
@@ -668,32 +1030,32 @@ public final class OrderInfoProtos {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.quantityRequested_ = quantityRequested_;
+        result.teamColor_ = teamColor_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.quantityDelivered_ = quantityDelivered_;
+        result.quantityRequested_ = quantityRequested_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.deliveryPeriodBegin_ = deliveryPeriodBegin_;
+        result.quantityDelivered_ = quantityDelivered_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.deliveryPeriodEnd_ = deliveryPeriodEnd_;
+        result.deliveryPeriodBegin_ = deliveryPeriodBegin_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.deliveryGate_ = deliveryGate_;
+        result.deliveryPeriodEnd_ = deliveryPeriodEnd_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.lateOrder_ = lateOrder_;
+        result.deliveryGate_ = deliveryGate_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order) {
           return mergeFrom((org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order)other);
@@ -702,7 +1064,7 @@ public final class OrderInfoProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order other) {
         if (other == org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.getDefaultInstance()) return this;
         if (other.hasId()) {
@@ -710,6 +1072,9 @@ public final class OrderInfoProtos {
         }
         if (other.hasProduct()) {
           setProduct(other.getProduct());
+        }
+        if (other.hasTeamColor()) {
+          setTeamColor(other.getTeamColor());
         }
         if (other.hasQuantityRequested()) {
           setQuantityRequested(other.getQuantityRequested());
@@ -726,13 +1091,10 @@ public final class OrderInfoProtos {
         if (other.hasDeliveryGate()) {
           setDeliveryGate(other.getDeliveryGate());
         }
-        if (other.hasLateOrder()) {
-          setLateOrder(other.getLateOrder());
-        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasId()) {
           
@@ -760,117 +1122,92 @@ public final class OrderInfoProtos {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              id_ = input.readUInt32();
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType value = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(2, rawValue);
-              } else {
-                bitField0_ |= 0x00000002;
-                product_ = value;
-              }
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              quantityRequested_ = input.readUInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              quantityDelivered_ = input.readUInt32();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000010;
-              deliveryPeriodBegin_ = input.readUInt32();
-              break;
-            }
-            case 56: {
-              bitField0_ |= 0x00000020;
-              deliveryPeriodEnd_ = input.readUInt32();
-              break;
-            }
-            case 64: {
-              int rawValue = input.readEnum();
-              org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate value = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(8, rawValue);
-              } else {
-                bitField0_ |= 0x00000040;
-                deliveryGate_ = value;
-              }
-              break;
-            }
-            case 160: {
-              bitField0_ |= 0x00000080;
-              lateOrder_ = input.readBool();
-              break;
-            }
+        org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required uint32 id = 1;
       private int id_ ;
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * ID and requested product of this order
+       * </pre>
+       */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * ID and requested product of this order
+       * </pre>
+       */
       public int getId() {
         return id_;
       }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * ID and requested product of this order
+       * </pre>
+       */
       public Builder setId(int value) {
         bitField0_ |= 0x00000001;
         id_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required uint32 id = 1;</code>
+       *
+       * <pre>
+       * ID and requested product of this order
+       * </pre>
+       */
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         id_ = 0;
         onChanged();
         return this;
       }
-      
+
       // required .llsf_msgs.Order.ProductType product = 2;
       private org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType product_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType.P1;
+      /**
+       * <code>required .llsf_msgs.Order.ProductType product = 2;</code>
+       */
       public boolean hasProduct() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required .llsf_msgs.Order.ProductType product = 2;</code>
+       */
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType getProduct() {
         return product_;
       }
+      /**
+       * <code>required .llsf_msgs.Order.ProductType product = 2;</code>
+       */
       public Builder setProduct(org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType value) {
         if (value == null) {
           throw new NullPointerException();
@@ -880,206 +1217,496 @@ public final class OrderInfoProtos {
         onChanged();
         return this;
       }
+      /**
+       * <code>required .llsf_msgs.Order.ProductType product = 2;</code>
+       */
       public Builder clearProduct() {
         bitField0_ = (bitField0_ & ~0x00000002);
         product_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.ProductType.P1;
         onChanged();
         return this;
       }
-      
-      // required uint32 quantity_requested = 3;
-      private int quantityRequested_ ;
-      public boolean hasQuantityRequested() {
+
+      // optional .llsf_msgs.Team team_color = 11;
+      private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 11;</code>
+       */
+      public boolean hasTeamColor() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 11;</code>
+       */
+      public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+        return teamColor_;
+      }
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 11;</code>
+       */
+      public Builder setTeamColor(org.robocup_logistics.llsf_msgs.TeamProtos.Team value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        teamColor_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 11;</code>
+       */
+      public Builder clearTeamColor() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        onChanged();
+        return this;
+      }
+
+      // required uint32 quantity_requested = 3;
+      private int quantityRequested_ ;
+      /**
+       * <code>required uint32 quantity_requested = 3;</code>
+       *
+       * <pre>
+       * Quantity requested and delivered
+       * </pre>
+       */
+      public boolean hasQuantityRequested() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required uint32 quantity_requested = 3;</code>
+       *
+       * <pre>
+       * Quantity requested and delivered
+       * </pre>
+       */
       public int getQuantityRequested() {
         return quantityRequested_;
       }
+      /**
+       * <code>required uint32 quantity_requested = 3;</code>
+       *
+       * <pre>
+       * Quantity requested and delivered
+       * </pre>
+       */
       public Builder setQuantityRequested(int value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         quantityRequested_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required uint32 quantity_requested = 3;</code>
+       *
+       * <pre>
+       * Quantity requested and delivered
+       * </pre>
+       */
       public Builder clearQuantityRequested() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         quantityRequested_ = 0;
         onChanged();
         return this;
       }
-      
+
       // required uint32 quantity_delivered = 4;
       private int quantityDelivered_ ;
+      /**
+       * <code>required uint32 quantity_delivered = 4;</code>
+       */
       public boolean hasQuantityDelivered() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
+      /**
+       * <code>required uint32 quantity_delivered = 4;</code>
+       */
       public int getQuantityDelivered() {
         return quantityDelivered_;
       }
+      /**
+       * <code>required uint32 quantity_delivered = 4;</code>
+       */
       public Builder setQuantityDelivered(int value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         quantityDelivered_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required uint32 quantity_delivered = 4;</code>
+       */
       public Builder clearQuantityDelivered() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         quantityDelivered_ = 0;
         onChanged();
         return this;
       }
-      
+
       // required uint32 delivery_period_begin = 6;
       private int deliveryPeriodBegin_ ;
+      /**
+       * <code>required uint32 delivery_period_begin = 6;</code>
+       *
+       * <pre>
+       * Start and end time of the delivery
+       * period in seconds of game time
+       * </pre>
+       */
       public boolean hasDeliveryPeriodBegin() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
+      /**
+       * <code>required uint32 delivery_period_begin = 6;</code>
+       *
+       * <pre>
+       * Start and end time of the delivery
+       * period in seconds of game time
+       * </pre>
+       */
       public int getDeliveryPeriodBegin() {
         return deliveryPeriodBegin_;
       }
+      /**
+       * <code>required uint32 delivery_period_begin = 6;</code>
+       *
+       * <pre>
+       * Start and end time of the delivery
+       * period in seconds of game time
+       * </pre>
+       */
       public Builder setDeliveryPeriodBegin(int value) {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         deliveryPeriodBegin_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required uint32 delivery_period_begin = 6;</code>
+       *
+       * <pre>
+       * Start and end time of the delivery
+       * period in seconds of game time
+       * </pre>
+       */
       public Builder clearDeliveryPeriodBegin() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         deliveryPeriodBegin_ = 0;
         onChanged();
         return this;
       }
-      
+
       // required uint32 delivery_period_end = 7;
       private int deliveryPeriodEnd_ ;
+      /**
+       * <code>required uint32 delivery_period_end = 7;</code>
+       */
       public boolean hasDeliveryPeriodEnd() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
+      /**
+       * <code>required uint32 delivery_period_end = 7;</code>
+       */
       public int getDeliveryPeriodEnd() {
         return deliveryPeriodEnd_;
       }
+      /**
+       * <code>required uint32 delivery_period_end = 7;</code>
+       */
       public Builder setDeliveryPeriodEnd(int value) {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         deliveryPeriodEnd_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required uint32 delivery_period_end = 7;</code>
+       */
       public Builder clearDeliveryPeriodEnd() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         deliveryPeriodEnd_ = 0;
         onChanged();
         return this;
       }
-      
+
       // optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];
       private org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate deliveryGate_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.ANY;
+      /**
+       * <code>optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];</code>
+       *
+       * <pre>
+       * The gate to deliver to, defaults to any
+       * (non-defunct, i.e. non-red light) gate
+       * </pre>
+       */
       public boolean hasDeliveryGate() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
+      /**
+       * <code>optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];</code>
+       *
+       * <pre>
+       * The gate to deliver to, defaults to any
+       * (non-defunct, i.e. non-red light) gate
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate getDeliveryGate() {
         return deliveryGate_;
       }
+      /**
+       * <code>optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];</code>
+       *
+       * <pre>
+       * The gate to deliver to, defaults to any
+       * (non-defunct, i.e. non-red light) gate
+       * </pre>
+       */
       public Builder setDeliveryGate(org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         deliveryGate_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional .llsf_msgs.Order.DeliveryGate delivery_gate = 8 [default = ANY];</code>
+       *
+       * <pre>
+       * The gate to deliver to, defaults to any
+       * (non-defunct, i.e. non-red light) gate
+       * </pre>
+       */
       public Builder clearDeliveryGate() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         deliveryGate_ = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.DeliveryGate.ANY;
         onChanged();
         return this;
       }
-      
-      // optional bool late_order = 20;
-      private boolean lateOrder_ ;
-      public boolean hasLateOrder() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      public boolean getLateOrder() {
-        return lateOrder_;
-      }
-      public Builder setLateOrder(boolean value) {
-        bitField0_ |= 0x00000080;
-        lateOrder_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearLateOrder() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        lateOrder_ = false;
-        onChanged();
-        return this;
-      }
-      
+
       // @@protoc_insertion_point(builder_scope:llsf_msgs.Order)
     }
-    
+
     static {
       defaultInstance = new Order(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:llsf_msgs.Order)
   }
-  
+
   public interface OrderInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // repeated .llsf_msgs.Order orders = 1;
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     java.util.List<org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order> 
         getOrdersList();
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order getOrders(int index);
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     int getOrdersCount();
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     java.util.List<? extends org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderOrBuilder> 
         getOrdersOrBuilderList();
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderOrBuilder getOrdersOrBuilder(
         int index);
+
+    // optional .llsf_msgs.Team team_color = 2;
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the orders are
+     * only send if all orders are for
+     * the same team (broadcast)
+     * </pre>
+     */
+    boolean hasTeamColor();
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the orders are
+     * only send if all orders are for
+     * the same team (broadcast)
+     * </pre>
+     */
+    org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor();
   }
+  /**
+   * Protobuf type {@code llsf_msgs.OrderInfo}
+   */
   public static final class OrderInfo extends
       com.google.protobuf.GeneratedMessage
       implements OrderInfoOrBuilder {
     // Use OrderInfo.newBuilder() to construct.
-    private OrderInfo(Builder builder) {
+    private OrderInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private OrderInfo(boolean noInit) {}
-    
+    private OrderInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final OrderInfo defaultInstance;
     public static OrderInfo getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public OrderInfo getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OrderInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                orders_ = new java.util.ArrayList<org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              orders_.add(input.readMessage(org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.PARSER, extensionRegistry));
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.TeamProtos.Team value = org.robocup_logistics.llsf_msgs.TeamProtos.Team.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                teamColor_ = value;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          orders_ = java.util.Collections.unmodifiableList(orders_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_OrderInfo_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_OrderInfo_fieldAccessorTable;
+      return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_OrderInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.class, org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<OrderInfo> PARSER =
+        new com.google.protobuf.AbstractParser<OrderInfo>() {
+      public OrderInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OrderInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OrderInfo> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.OrderInfo.CompType}
+     */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 41;</code>
+       */
       MSG_TYPE(1, 41),
       ;
-      
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
       public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 41;</code>
+       */
       public static final int MSG_TYPE_VALUE = 41;
-      
-      
+
+
       public final int getNumber() { return value; }
-      
+
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
@@ -1087,7 +1714,7 @@ public final class OrderInfoProtos {
           default: return null;
         }
       }
-      
+
       public static com.google.protobuf.Internal.EnumLiteMap<CompType>
           internalGetValueMap() {
         return internalValueMap;
@@ -1099,7 +1726,7 @@ public final class OrderInfoProtos {
                 return CompType.valueOf(number);
               }
             };
-      
+
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
         return getDescriptor().getValues().get(index);
@@ -1112,11 +1739,9 @@ public final class OrderInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.getDescriptor().getEnumTypes().get(0);
       }
-      
-      private static final CompType[] VALUES = {
-        COMP_ID, MSG_TYPE, 
-      };
-      
+
+      private static final CompType[] VALUES = values();
+
       public static CompType valueOf(
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
@@ -1125,47 +1750,112 @@ public final class OrderInfoProtos {
         }
         return VALUES[desc.getIndex()];
       }
-      
+
       private final int index;
       private final int value;
-      
+
       private CompType(int index, int value) {
         this.index = index;
         this.value = value;
       }
-      
+
       // @@protoc_insertion_point(enum_scope:llsf_msgs.OrderInfo.CompType)
     }
-    
+
+    private int bitField0_;
     // repeated .llsf_msgs.Order orders = 1;
     public static final int ORDERS_FIELD_NUMBER = 1;
     private java.util.List<org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order> orders_;
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     public java.util.List<org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order> getOrdersList() {
       return orders_;
     }
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     public java.util.List<? extends org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderOrBuilder> 
         getOrdersOrBuilderList() {
       return orders_;
     }
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     public int getOrdersCount() {
       return orders_.size();
     }
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order getOrders(int index) {
       return orders_.get(index);
     }
+    /**
+     * <code>repeated .llsf_msgs.Order orders = 1;</code>
+     *
+     * <pre>
+     * The current orders
+     * </pre>
+     */
     public org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderOrBuilder getOrdersOrBuilder(
         int index) {
       return orders_.get(index);
     }
-    
+
+    // optional .llsf_msgs.Team team_color = 2;
+    public static final int TEAM_COLOR_FIELD_NUMBER = 2;
+    private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_;
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the orders are
+     * only send if all orders are for
+     * the same team (broadcast)
+     * </pre>
+     */
+    public boolean hasTeamColor() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .llsf_msgs.Team team_color = 2;</code>
+     *
+     * <pre>
+     * Team for which the orders are
+     * only send if all orders are for
+     * the same team (broadcast)
+     * </pre>
+     */
+    public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+      return teamColor_;
+    }
+
     private void initFields() {
       orders_ = java.util.Collections.emptyList();
+      teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       for (int i = 0; i < getOrdersCount(); i++) {
         if (!getOrders(i).isInitialized()) {
           memoizedIsInitialized = 0;
@@ -1175,118 +1865,114 @@ public final class OrderInfoProtos {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
       for (int i = 0; i < orders_.size(); i++) {
         output.writeMessage(1, orders_.get(i));
       }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(2, teamColor_.getNumber());
+      }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       for (int i = 0; i < orders_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, orders_.get(i));
       }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, teamColor_.getNumber());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code llsf_msgs.OrderInfo}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfoOrBuilder {
@@ -1294,18 +1980,21 @@ public final class OrderInfoProtos {
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_OrderInfo_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_OrderInfo_fieldAccessorTable;
+        return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_OrderInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.class, org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.Builder.class);
       }
-      
+
       // Construct using org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1317,7 +2006,7 @@ public final class OrderInfoProtos {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         if (ordersBuilder_ == null) {
@@ -1326,22 +2015,24 @@ public final class OrderInfoProtos {
         } else {
           ordersBuilder_.clear();
         }
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.getDescriptor();
+        return org.robocup_logistics.llsf_msgs.OrderInfoProtos.internal_static_llsf_msgs_OrderInfo_descriptor;
       }
-      
+
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo getDefaultInstanceForType() {
         return org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.getDefaultInstance();
       }
-      
+
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo build() {
         org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo result = buildPartial();
         if (!result.isInitialized()) {
@@ -1349,20 +2040,11 @@ public final class OrderInfoProtos {
         }
         return result;
       }
-      
-      private org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo buildPartial() {
         org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo result = new org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (ordersBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
             orders_ = java.util.Collections.unmodifiableList(orders_);
@@ -1372,10 +2054,15 @@ public final class OrderInfoProtos {
         } else {
           result.orders_ = ordersBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.teamColor_ = teamColor_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo) {
           return mergeFrom((org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo)other);
@@ -1384,7 +2071,7 @@ public final class OrderInfoProtos {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo other) {
         if (other == org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.getDefaultInstance()) return this;
         if (ordersBuilder_ == null) {
@@ -1413,10 +2100,13 @@ public final class OrderInfoProtos {
             }
           }
         }
+        if (other.hasTeamColor()) {
+          setTeamColor(other.getTeamColor());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         for (int i = 0; i < getOrdersCount(); i++) {
           if (!getOrders(i).isInitialized()) {
@@ -1426,42 +2116,26 @@ public final class OrderInfoProtos {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder subBuilder = org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addOrders(subBuilder.buildPartial());
-              break;
-            }
+        org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // repeated .llsf_msgs.Order orders = 1;
       private java.util.List<org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order> orders_ =
         java.util.Collections.emptyList();
@@ -1471,10 +2145,17 @@ public final class OrderInfoProtos {
           bitField0_ |= 0x00000001;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order, org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder, org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderOrBuilder> ordersBuilder_;
-      
+
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order> getOrdersList() {
         if (ordersBuilder_ == null) {
           return java.util.Collections.unmodifiableList(orders_);
@@ -1482,6 +2163,13 @@ public final class OrderInfoProtos {
           return ordersBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public int getOrdersCount() {
         if (ordersBuilder_ == null) {
           return orders_.size();
@@ -1489,6 +2177,13 @@ public final class OrderInfoProtos {
           return ordersBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order getOrders(int index) {
         if (ordersBuilder_ == null) {
           return orders_.get(index);
@@ -1496,6 +2191,13 @@ public final class OrderInfoProtos {
           return ordersBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public Builder setOrders(
           int index, org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order value) {
         if (ordersBuilder_ == null) {
@@ -1510,6 +2212,13 @@ public final class OrderInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public Builder setOrders(
           int index, org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder builderForValue) {
         if (ordersBuilder_ == null) {
@@ -1521,6 +2230,13 @@ public final class OrderInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public Builder addOrders(org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order value) {
         if (ordersBuilder_ == null) {
           if (value == null) {
@@ -1534,6 +2250,13 @@ public final class OrderInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public Builder addOrders(
           int index, org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order value) {
         if (ordersBuilder_ == null) {
@@ -1548,6 +2271,13 @@ public final class OrderInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public Builder addOrders(
           org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder builderForValue) {
         if (ordersBuilder_ == null) {
@@ -1559,6 +2289,13 @@ public final class OrderInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public Builder addOrders(
           int index, org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder builderForValue) {
         if (ordersBuilder_ == null) {
@@ -1570,6 +2307,13 @@ public final class OrderInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public Builder addAllOrders(
           java.lang.Iterable<? extends org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order> values) {
         if (ordersBuilder_ == null) {
@@ -1581,6 +2325,13 @@ public final class OrderInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public Builder clearOrders() {
         if (ordersBuilder_ == null) {
           orders_ = java.util.Collections.emptyList();
@@ -1591,6 +2342,13 @@ public final class OrderInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public Builder removeOrders(int index) {
         if (ordersBuilder_ == null) {
           ensureOrdersIsMutable();
@@ -1601,10 +2359,24 @@ public final class OrderInfoProtos {
         }
         return this;
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder getOrdersBuilder(
           int index) {
         return getOrdersFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderOrBuilder getOrdersOrBuilder(
           int index) {
         if (ordersBuilder_ == null) {
@@ -1612,6 +2384,13 @@ public final class OrderInfoProtos {
           return ordersBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public java.util.List<? extends org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderOrBuilder> 
            getOrdersOrBuilderList() {
         if (ordersBuilder_ != null) {
@@ -1620,15 +2399,36 @@ public final class OrderInfoProtos {
           return java.util.Collections.unmodifiableList(orders_);
         }
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder addOrdersBuilder() {
         return getOrdersFieldBuilder().addBuilder(
             org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder addOrdersBuilder(
           int index) {
         return getOrdersFieldBuilder().addBuilder(
             index, org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.getDefaultInstance());
       }
+      /**
+       * <code>repeated .llsf_msgs.Order orders = 1;</code>
+       *
+       * <pre>
+       * The current orders
+       * </pre>
+       */
       public java.util.List<org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder> 
            getOrdersBuilderList() {
         return getOrdersFieldBuilder().getBuilderList();
@@ -1647,18 +2447,78 @@ public final class OrderInfoProtos {
         }
         return ordersBuilder_;
       }
-      
+
+      // optional .llsf_msgs.Team team_color = 2;
+      private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the orders are
+       * only send if all orders are for
+       * the same team (broadcast)
+       * </pre>
+       */
+      public boolean hasTeamColor() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the orders are
+       * only send if all orders are for
+       * the same team (broadcast)
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor() {
+        return teamColor_;
+      }
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the orders are
+       * only send if all orders are for
+       * the same team (broadcast)
+       * </pre>
+       */
+      public Builder setTeamColor(org.robocup_logistics.llsf_msgs.TeamProtos.Team value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        teamColor_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .llsf_msgs.Team team_color = 2;</code>
+       *
+       * <pre>
+       * Team for which the orders are
+       * only send if all orders are for
+       * the same team (broadcast)
+       * </pre>
+       */
+      public Builder clearTeamColor() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:llsf_msgs.OrderInfo)
     }
-    
+
     static {
       defaultInstance = new OrderInfo(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:llsf_msgs.OrderInfo)
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_Order_descriptor;
   private static
@@ -1669,7 +2529,7 @@ public final class OrderInfoProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_llsf_msgs_OrderInfo_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -1678,20 +2538,23 @@ public final class OrderInfoProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017OrderInfo.proto\022\tllsf_msgs\"\205\003\n\005Order\022\n" +
-      "\n\002id\030\001 \002(\r\022-\n\007product\030\002 \002(\0162\034.llsf_msgs." +
-      "Order.ProductType\022\032\n\022quantity_requested\030" +
-      "\003 \002(\r\022\032\n\022quantity_delivered\030\004 \002(\r\022\035\n\025del" +
-      "ivery_period_begin\030\006 \002(\r\022\033\n\023delivery_per" +
-      "iod_end\030\007 \002(\r\0229\n\rdelivery_gate\030\010 \001(\0162\035.l" +
-      "lsf_msgs.Order.DeliveryGate:\003ANY\022\022\n\nlate" +
-      "_order\030\024 \001(\010\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014" +
-      "\n\010MSG_TYPE\020(\"%\n\013ProductType\022\006\n\002P1\020\001\022\006\n\002P" +
-      "2\020\002\022\006\n\002P3\020\003\"/\n\014DeliveryGate\022\007\n\003ANY\020\001\022\006\n\002",
-      "D1\020\002\022\006\n\002D2\020\003\022\006\n\002D3\020\004\"U\n\tOrderInfo\022 \n\006ord" +
-      "ers\030\001 \003(\0132\020.llsf_msgs.Order\"&\n\010CompType\022" +
-      "\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020)B2\n\037org.roboc" +
-      "up_logistics.llsf_msgsB\017OrderInfoProtos"
+      "\n\017OrderInfo.proto\022\tllsf_msgs\032\nTeam.proto" +
+      "\"\256\003\n\005Order\022\n\n\002id\030\001 \002(\r\022-\n\007product\030\002 \002(\0162" +
+      "\034.llsf_msgs.Order.ProductType\022#\n\nteam_co" +
+      "lor\030\013 \001(\0162\017.llsf_msgs.Team\022\032\n\022quantity_r" +
+      "equested\030\003 \002(\r\022\032\n\022quantity_delivered\030\004 \002" +
+      "(\r\022\035\n\025delivery_period_begin\030\006 \002(\r\022\033\n\023del" +
+      "ivery_period_end\030\007 \002(\r\0229\n\rdelivery_gate\030" +
+      "\010 \001(\0162\035.llsf_msgs.Order.DeliveryGate:\003AN" +
+      "Y\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020" +
+      "(\"%\n\013ProductType\022\006\n\002P1\020\001\022\006\n\002P2\020\002\022\006\n\002P3\020\003",
+      "\"G\n\014DeliveryGate\022\007\n\003ANY\020\001\022\006\n\002D1\020\002\022\006\n\002D2\020" +
+      "\003\022\006\n\002D3\020\004\022\006\n\002D4\020\005\022\006\n\002D5\020\006\022\006\n\002D6\020\007\"z\n\tOrd" +
+      "erInfo\022 \n\006orders\030\001 \003(\0132\020.llsf_msgs.Order" +
+      "\022#\n\nteam_color\030\002 \001(\0162\017.llsf_msgs.Team\"&\n" +
+      "\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE\020)B2\n" +
+      "\037org.robocup_logistics.llsf_msgsB\017OrderI" +
+      "nfoProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -1703,25 +2566,22 @@ public final class OrderInfoProtos {
           internal_static_llsf_msgs_Order_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_Order_descriptor,
-              new java.lang.String[] { "Id", "Product", "QuantityRequested", "QuantityDelivered", "DeliveryPeriodBegin", "DeliveryPeriodEnd", "DeliveryGate", "LateOrder", },
-              org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.class,
-              org.robocup_logistics.llsf_msgs.OrderInfoProtos.Order.Builder.class);
+              new java.lang.String[] { "Id", "Product", "TeamColor", "QuantityRequested", "QuantityDelivered", "DeliveryPeriodBegin", "DeliveryPeriodEnd", "DeliveryGate", });
           internal_static_llsf_msgs_OrderInfo_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_llsf_msgs_OrderInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_llsf_msgs_OrderInfo_descriptor,
-              new java.lang.String[] { "Orders", },
-              org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.class,
-              org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo.Builder.class);
+              new java.lang.String[] { "Orders", "TeamColor", });
           return null;
         }
       };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor(),
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }
