@@ -1,4 +1,4 @@
-package org.robocup_logistics.llsf_tools;
+package org.robocup_logistics.llsf_utils;
 
 /**
  * The Class NanoSecondsTimestampProvider provides a timestamp in nanoseconds.

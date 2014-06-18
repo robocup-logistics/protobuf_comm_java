@@ -16,7 +16,7 @@ import java.util.Queue;
 
 import org.robocup_logistics.llsf_exceptions.EncryptedStreamMessageException;
 import org.robocup_logistics.llsf_exceptions.UnknownProtocolVersionException;
-import org.robocup_logistics.llsf_tools.Key;
+import org.robocup_logistics.llsf_utils.Key;
 
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.GeneratedMessage;

@@ -27,7 +27,7 @@ import javax.crypto.NoSuchPaddingException;
 import org.robocup_logistics.llsf_encryption.BufferDecryptor;
 import org.robocup_logistics.llsf_encryption.BufferEncryptor;
 import org.robocup_logistics.llsf_exceptions.UnknownProtocolVersionException;
-import org.robocup_logistics.llsf_tools.Key;
+import org.robocup_logistics.llsf_utils.Key;
 
 import com.google.protobuf.Descriptors.EnumDescriptor;
 import com.google.protobuf.GeneratedMessage;

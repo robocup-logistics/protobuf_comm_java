@@ -14,7 +14,7 @@ import org.robocup_logistics.llsf_msgs.OrderInfoProtos.OrderInfo;
 import org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotInfo;
 import org.robocup_logistics.llsf_msgs.TeamProtos.Team;
 import org.robocup_logistics.llsf_msgs.TimeProtos.Time;
-import org.robocup_logistics.llsf_tools.NanoSecondsTimestampProvider;
+import org.robocup_logistics.llsf_utils.NanoSecondsTimestampProvider;
 
 public class User {
 	
