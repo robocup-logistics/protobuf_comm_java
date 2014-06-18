@@ -1,2 +1,6 @@
 org.robocup_logistics.llsf_comm
+org.robocup_logistics.llsf_encryption
+org.robocup_logistics.llsf_example
+org.robocup_logistics.llsf_exceptions
+org.robocup_logistics.llsf_msgs
 org.robocup_logistics.llsf_tools
