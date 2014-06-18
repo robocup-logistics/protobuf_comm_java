@@ -7,7 +7,6 @@ import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.channels.ClosedByInterruptException;
 import java.nio.channels.SocketChannel;
 import java.nio.channels.UnresolvedAddressException;
 import java.util.HashMap;
@@ -303,7 +302,7 @@ public class ProtobufClient {
 			while (run) {
 				try {
 					//read headers
-					ByteBuffer in_header = ByteBuffer.allocate(12);
+					ByteBuffer in_header = ByteBuffer.allocate(ProtobufMessage.FRAME_HEADER_SIZE + ProtobufMessage.MESSAGE_HEADER_SIZE);
 					if (sockchan != null && sockchan.isConnected()) {
 						int read = sockchan.read(in_header);
 						if (read == -1) {
@@ -337,11 +336,8 @@ public class ProtobufClient {
 						continue;
 					}
 					
-					ByteBuffer in_msg = ByteBuffer.allocate(size - 4); //without component ID and message type
+					ByteBuffer in_msg = ByteBuffer.allocate(size - ProtobufMessage.MESSAGE_HEADER_SIZE);
 					while (in_msg.remaining() != 0) {
-<<<<<<< HEAD
-						sockchan.read(in_msg);
-=======
 						if (sockchan != null && sockchan.isConnected()) {
 							int read = sockchan.read(in_msg);
 							if (read == -1) {
@@ -350,7 +346,6 @@ public class ProtobufClient {
 						} else {
 							throw new IOException();
 						}
->>>>>>> implemented new framing protocol and encryption
 					}
 					
 					handle_message(cid, msgid, (ByteBuffer) in_msg.rewind());
