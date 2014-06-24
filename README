@@ -1,0 +1,7 @@
+
+MANUAL FOR "FAKEROBOT" AND "REPORTMACHINE"
+
+==========================================
+
+In order to use the console tools "FakeRobot" and "ReportMachine" you need to compile it first. You cannot just use the corresponding .class-files in the bin directory, as the classes need the protobuf library by Google. So you need to generate runnable JAR files. To do so you have to open Eclipse and import the complete project. Then right-click on FakeRobot.java/ReportMachine.java in the Package Explorer, select Export and choose Java/Runnable Jar. After clicking Next, choose FakeRobot/ReportMachine as the starting point and select "Extract required libraries into generated JAR" as the classes need the referenced protobuf library by Google. Then you can finish the export.
+In a terminal, navigate to the new JAR file and run "java -jar FakeRobot.jar ..." (ReportMachine respectively).
