@@ -190,7 +190,7 @@ public class ProtobufBroadcastPeer {
 				if (con.getException() instanceof UnknownHostException) {
 					throw new UnknownHostException("Don't know about host " + hostname);
 				} else if (con.getException() instanceof IOException) {
-					throw new IOException("Couldn't get I/O for the connection to " + hostname);
+					throw new IOException("Couldn't get I/O for the connection to " + hostname + "(" + con.getException().getMessage() + ")");
 				} else if (con.getException() instanceof UnresolvedAddressException) {
 					throw new UnresolvedAddressException();
 				}
