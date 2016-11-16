@@ -8,10 +8,10 @@ public final class TimeProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface TimeOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TimeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.Time)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int64 sec = 1;
     /**
      * <code>required int64 sec = 1;</code>
      *
@@ -31,7 +31,6 @@ public final class TimeProtos {
      */
     long getSec();
 
-    // required int64 nsec = 2;
     /**
      * <code>required int64 nsec = 2;</code>
      *
@@ -61,8 +60,9 @@ public final class TimeProtos {
    * </pre>
    */
   public static final class Time extends
-      com.google.protobuf.GeneratedMessage
-      implements TimeOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.Time)
+      TimeOrBuilder {
     // Use Time.newBuilder() to construct.
     private Time(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -158,7 +158,6 @@ public final class TimeProtos {
     }
 
     private int bitField0_;
-    // required int64 sec = 1;
     public static final int SEC_FIELD_NUMBER = 1;
     private long sec_;
     /**
@@ -184,7 +183,6 @@ public final class TimeProtos {
       return sec_;
     }
 
-    // required int64 nsec = 2;
     public static final int NSEC_FIELD_NUMBER = 2;
     private long nsec_;
     /**
@@ -217,7 +215,8 @@ public final class TimeProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasSec()) {
         memoizedIsInitialized = 0;
@@ -345,8 +344,9 @@ public final class TimeProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.Time)
+        org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.TimeProtos.internal_static_llsf_msgs_Time_descriptor;
@@ -476,7 +476,6 @@ public final class TimeProtos {
       }
       private int bitField0_;
 
-      // required int64 sec = 1;
       private long sec_ ;
       /**
        * <code>required int64 sec = 1;</code>
@@ -529,7 +528,6 @@ public final class TimeProtos {
         return this;
       }
 
-      // required int64 nsec = 2;
       private long nsec_ ;
       /**
        * <code>required int64 nsec = 2;</code>
@@ -593,7 +591,7 @@ public final class TimeProtos {
     // @@protoc_insertion_point(class_scope:llsf_msgs.Time)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_Time_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -612,23 +610,23 @@ public final class TimeProtos {
       "ics.llsf_msgsB\nTimeProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_llsf_msgs_Time_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_llsf_msgs_Time_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_Time_descriptor,
-              new java.lang.String[] { "Sec", "Nsec", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_llsf_msgs_Time_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_llsf_msgs_Time_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_Time_descriptor,
+        new java.lang.String[] { "Sec", "Nsec", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

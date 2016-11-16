@@ -99,10 +99,10 @@ public final class RobotInfoProtos {
     // @@protoc_insertion_point(enum_scope:llsf_msgs.RobotState)
   }
 
-  public interface RobotOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface RobotOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.Robot)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string name = 1;
     /**
      * <code>required string name = 1;</code>
      *
@@ -135,7 +135,6 @@ public final class RobotInfoProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // required string team = 2;
     /**
      * <code>required string team = 2;</code>
      */
@@ -150,7 +149,6 @@ public final class RobotInfoProtos {
     com.google.protobuf.ByteString
         getTeamBytes();
 
-    // required .llsf_msgs.Team team_color = 12;
     /**
      * <code>required .llsf_msgs.Team team_color = 12;</code>
      */
@@ -160,7 +158,6 @@ public final class RobotInfoProtos {
      */
     org.robocup_logistics.llsf_msgs.TeamProtos.Team getTeamColor();
 
-    // required uint32 number = 7;
     /**
      * <code>required uint32 number = 7;</code>
      */
@@ -170,7 +167,6 @@ public final class RobotInfoProtos {
      */
     int getNumber();
 
-    // required string host = 3;
     /**
      * <code>required string host = 3;</code>
      *
@@ -200,7 +196,6 @@ public final class RobotInfoProtos {
     com.google.protobuf.ByteString
         getHostBytes();
 
-    // required .llsf_msgs.Time last_seen = 4;
     /**
      * <code>required .llsf_msgs.Time last_seen = 4;</code>
      *
@@ -229,7 +224,6 @@ public final class RobotInfoProtos {
      */
     org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder getLastSeenOrBuilder();
 
-    // optional .llsf_msgs.Pose2D pose = 6;
     /**
      * <code>optional .llsf_msgs.Pose2D pose = 6;</code>
      *
@@ -255,7 +249,6 @@ public final class RobotInfoProtos {
      */
     org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder getPoseOrBuilder();
 
-    // optional .llsf_msgs.Pose2D vision_pose = 11;
     /**
      * <code>optional .llsf_msgs.Pose2D vision_pose = 11;</code>
      *
@@ -281,7 +274,6 @@ public final class RobotInfoProtos {
      */
     org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder getVisionPoseOrBuilder();
 
-    // optional .llsf_msgs.RobotState state = 8;
     /**
      * <code>optional .llsf_msgs.RobotState state = 8;</code>
      *
@@ -299,7 +291,6 @@ public final class RobotInfoProtos {
      */
     org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState getState();
 
-    // optional float maintenance_time_remaining = 9 [default = 0];
     /**
      * <code>optional float maintenance_time_remaining = 9 [default = 0];</code>
      *
@@ -319,7 +310,6 @@ public final class RobotInfoProtos {
      */
     float getMaintenanceTimeRemaining();
 
-    // optional uint32 maintenance_cycles = 10;
     /**
      * <code>optional uint32 maintenance_cycles = 10;</code>
      *
@@ -343,8 +333,9 @@ public final class RobotInfoProtos {
    * Protobuf type {@code llsf_msgs.Robot}
    */
   public static final class Robot extends
-      com.google.protobuf.GeneratedMessage
-      implements RobotOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.Robot)
+      RobotOrBuilder {
     // Use Robot.newBuilder() to construct.
     private Robot(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -391,18 +382,21 @@ public final class RobotInfoProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              team_ = input.readBytes();
+              team_ = bs;
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              host_ = input.readBytes();
+              host_ = bs;
               break;
             }
             case 34: {
@@ -603,7 +597,6 @@ public final class RobotInfoProtos {
     }
 
     private int bitField0_;
-    // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -664,7 +657,6 @@ public final class RobotInfoProtos {
       }
     }
 
-    // required string team = 2;
     public static final int TEAM_FIELD_NUMBER = 2;
     private java.lang.Object team_;
     /**
@@ -707,7 +699,6 @@ public final class RobotInfoProtos {
       }
     }
 
-    // required .llsf_msgs.Team team_color = 12;
     public static final int TEAM_COLOR_FIELD_NUMBER = 12;
     private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_;
     /**
@@ -723,7 +714,6 @@ public final class RobotInfoProtos {
       return teamColor_;
     }
 
-    // required uint32 number = 7;
     public static final int NUMBER_FIELD_NUMBER = 7;
     private int number_;
     /**
@@ -739,7 +729,6 @@ public final class RobotInfoProtos {
       return number_;
     }
 
-    // required string host = 3;
     public static final int HOST_FIELD_NUMBER = 3;
     private java.lang.Object host_;
     /**
@@ -797,7 +786,6 @@ public final class RobotInfoProtos {
       }
     }
 
-    // required .llsf_msgs.Time last_seen = 4;
     public static final int LAST_SEEN_FIELD_NUMBER = 4;
     private org.robocup_logistics.llsf_msgs.TimeProtos.Time lastSeen_;
     /**
@@ -834,7 +822,6 @@ public final class RobotInfoProtos {
       return lastSeen_;
     }
 
-    // optional .llsf_msgs.Pose2D pose = 6;
     public static final int POSE_FIELD_NUMBER = 6;
     private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D pose_;
     /**
@@ -868,7 +855,6 @@ public final class RobotInfoProtos {
       return pose_;
     }
 
-    // optional .llsf_msgs.Pose2D vision_pose = 11;
     public static final int VISION_POSE_FIELD_NUMBER = 11;
     private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D visionPose_;
     /**
@@ -902,7 +888,6 @@ public final class RobotInfoProtos {
       return visionPose_;
     }
 
-    // optional .llsf_msgs.RobotState state = 8;
     public static final int STATE_FIELD_NUMBER = 8;
     private org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState state_;
     /**
@@ -926,7 +911,6 @@ public final class RobotInfoProtos {
       return state_;
     }
 
-    // optional float maintenance_time_remaining = 9 [default = 0];
     public static final int MAINTENANCE_TIME_REMAINING_FIELD_NUMBER = 9;
     private float maintenanceTimeRemaining_;
     /**
@@ -952,7 +936,6 @@ public final class RobotInfoProtos {
       return maintenanceTimeRemaining_;
     }
 
-    // optional uint32 maintenance_cycles = 10;
     public static final int MAINTENANCE_CYCLES_FIELD_NUMBER = 10;
     private int maintenanceCycles_;
     /**
@@ -994,7 +977,8 @@ public final class RobotInfoProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasName()) {
         memoizedIsInitialized = 0;
@@ -1211,8 +1195,9 @@ public final class RobotInfoProtos {
      * Protobuf type {@code llsf_msgs.Robot}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.Robot)
+        org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.RobotInfoProtos.internal_static_llsf_msgs_Robot_descriptor;
@@ -1488,7 +1473,6 @@ public final class RobotInfoProtos {
       }
       private int bitField0_;
 
-      // required string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
@@ -1514,9 +1498,12 @@ public final class RobotInfoProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1598,7 +1585,6 @@ public final class RobotInfoProtos {
         return this;
       }
 
-      // required string team = 2;
       private java.lang.Object team_ = "";
       /**
        * <code>required string team = 2;</code>
@@ -1612,9 +1598,12 @@ public final class RobotInfoProtos {
       public java.lang.String getTeam() {
         java.lang.Object ref = team_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          team_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            team_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1672,7 +1661,6 @@ public final class RobotInfoProtos {
         return this;
       }
 
-      // required .llsf_msgs.Team team_color = 12;
       private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
       /**
        * <code>required .llsf_msgs.Team team_color = 12;</code>
@@ -1708,7 +1696,6 @@ public final class RobotInfoProtos {
         return this;
       }
 
-      // required uint32 number = 7;
       private int number_ ;
       /**
        * <code>required uint32 number = 7;</code>
@@ -1741,7 +1728,6 @@ public final class RobotInfoProtos {
         return this;
       }
 
-      // required string host = 3;
       private java.lang.Object host_ = "";
       /**
        * <code>required string host = 3;</code>
@@ -1765,9 +1751,12 @@ public final class RobotInfoProtos {
       public java.lang.String getHost() {
         java.lang.Object ref = host_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          host_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            host_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1845,7 +1834,6 @@ public final class RobotInfoProtos {
         return this;
       }
 
-      // required .llsf_msgs.Time last_seen = 4;
       private org.robocup_logistics.llsf_msgs.TimeProtos.Time lastSeen_ = org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.TimeProtos.Time, org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder, org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder> lastSeenBuilder_;
@@ -1999,7 +1987,7 @@ public final class RobotInfoProtos {
         if (lastSeenBuilder_ == null) {
           lastSeenBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.robocup_logistics.llsf_msgs.TimeProtos.Time, org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder, org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder>(
-                  lastSeen_,
+                  getLastSeen(),
                   getParentForChildren(),
                   isClean());
           lastSeen_ = null;
@@ -2007,7 +1995,6 @@ public final class RobotInfoProtos {
         return lastSeenBuilder_;
       }
 
-      // optional .llsf_msgs.Pose2D pose = 6;
       private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D pose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder> poseBuilder_;
@@ -2152,7 +2139,7 @@ public final class RobotInfoProtos {
         if (poseBuilder_ == null) {
           poseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder>(
-                  pose_,
+                  getPose(),
                   getParentForChildren(),
                   isClean());
           pose_ = null;
@@ -2160,7 +2147,6 @@ public final class RobotInfoProtos {
         return poseBuilder_;
       }
 
-      // optional .llsf_msgs.Pose2D vision_pose = 11;
       private org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D visionPose_ = org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder> visionPoseBuilder_;
@@ -2305,7 +2291,7 @@ public final class RobotInfoProtos {
         if (visionPoseBuilder_ == null) {
           visionPoseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2D.Builder, org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder>(
-                  visionPose_,
+                  getVisionPose(),
                   getParentForChildren(),
                   isClean());
           visionPose_ = null;
@@ -2313,7 +2299,6 @@ public final class RobotInfoProtos {
         return visionPoseBuilder_;
       }
 
-      // optional .llsf_msgs.RobotState state = 8;
       private org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState state_ = org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotState.ACTIVE;
       /**
        * <code>optional .llsf_msgs.RobotState state = 8;</code>
@@ -2365,7 +2350,6 @@ public final class RobotInfoProtos {
         return this;
       }
 
-      // optional float maintenance_time_remaining = 9 [default = 0];
       private float maintenanceTimeRemaining_ ;
       /**
        * <code>optional float maintenance_time_remaining = 9 [default = 0];</code>
@@ -2418,7 +2402,6 @@ public final class RobotInfoProtos {
         return this;
       }
 
-      // optional uint32 maintenance_cycles = 10;
       private int maintenanceCycles_ ;
       /**
        * <code>optional uint32 maintenance_cycles = 10;</code>
@@ -2482,10 +2465,10 @@ public final class RobotInfoProtos {
     // @@protoc_insertion_point(class_scope:llsf_msgs.Robot)
   }
 
-  public interface RobotInfoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface RobotInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.RobotInfo)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .llsf_msgs.Robot robots = 1;
     /**
      * <code>repeated .llsf_msgs.Robot robots = 1;</code>
      *
@@ -2534,8 +2517,9 @@ public final class RobotInfoProtos {
    * Protobuf type {@code llsf_msgs.RobotInfo}
    */
   public static final class RobotInfo extends
-      com.google.protobuf.GeneratedMessage
-      implements RobotInfoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.RobotInfo)
+      RobotInfoOrBuilder {
     // Use RobotInfo.newBuilder() to construct.
     private RobotInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2713,7 +2697,6 @@ public final class RobotInfoProtos {
       // @@protoc_insertion_point(enum_scope:llsf_msgs.RobotInfo.CompType)
     }
 
-    // repeated .llsf_msgs.Robot robots = 1;
     public static final int ROBOTS_FIELD_NUMBER = 1;
     private java.util.List<org.robocup_logistics.llsf_msgs.RobotInfoProtos.Robot> robots_;
     /**
@@ -2775,7 +2758,8 @@ public final class RobotInfoProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getRobotsCount(); i++) {
         if (!getRobots(i).isInitialized()) {
@@ -2888,8 +2872,9 @@ public final class RobotInfoProtos {
      * Protobuf type {@code llsf_msgs.RobotInfo}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotInfoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.RobotInfo)
+        org.robocup_logistics.llsf_msgs.RobotInfoProtos.RobotInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.RobotInfoProtos.internal_static_llsf_msgs_RobotInfo_descriptor;
@@ -3039,7 +3024,6 @@ public final class RobotInfoProtos {
       }
       private int bitField0_;
 
-      // repeated .llsf_msgs.Robot robots = 1;
       private java.util.List<org.robocup_logistics.llsf_msgs.RobotInfoProtos.Robot> robots_ =
         java.util.Collections.emptyList();
       private void ensureRobotsIsMutable() {
@@ -3221,7 +3205,8 @@ public final class RobotInfoProtos {
           java.lang.Iterable<? extends org.robocup_logistics.llsf_msgs.RobotInfoProtos.Robot> values) {
         if (robotsBuilder_ == null) {
           ensureRobotsIsMutable();
-          super.addAll(values, robots_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, robots_);
           onChanged();
         } else {
           robotsBuilder_.addAllMessages(values);
@@ -3362,12 +3347,12 @@ public final class RobotInfoProtos {
     // @@protoc_insertion_point(class_scope:llsf_msgs.RobotInfo)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_Robot_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_llsf_msgs_Robot_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_RobotInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -3399,25 +3384,13 @@ public final class RobotInfoProtos {
       "lsf_msgsB\017RobotInfoProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_llsf_msgs_Robot_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_llsf_msgs_Robot_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_Robot_descriptor,
-              new java.lang.String[] { "Name", "Team", "TeamColor", "Number", "Host", "LastSeen", "Pose", "VisionPose", "State", "MaintenanceTimeRemaining", "MaintenanceCycles", });
-          internal_static_llsf_msgs_RobotInfo_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_llsf_msgs_RobotInfo_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_RobotInfo_descriptor,
-              new java.lang.String[] { "Robots", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
@@ -3425,6 +3398,21 @@ public final class RobotInfoProtos {
           org.robocup_logistics.llsf_msgs.Pose2DProtos.getDescriptor(),
           org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor(),
         }, assigner);
+    internal_static_llsf_msgs_Robot_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_llsf_msgs_Robot_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_Robot_descriptor,
+        new java.lang.String[] { "Name", "Team", "TeamColor", "Number", "Host", "LastSeen", "Pose", "VisionPose", "State", "MaintenanceTimeRemaining", "MaintenanceCycles", });
+    internal_static_llsf_msgs_RobotInfo_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_llsf_msgs_RobotInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_RobotInfo_descriptor,
+        new java.lang.String[] { "Robots", });
+    org.robocup_logistics.llsf_msgs.TimeProtos.getDescriptor();
+    org.robocup_logistics.llsf_msgs.Pose2DProtos.getDescriptor();
+    org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

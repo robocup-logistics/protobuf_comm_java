@@ -8,10 +8,10 @@ public final class GameInfoProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface GameInfoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface GameInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.GameInfo)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated string known_teams = 1;
     /**
      * <code>repeated string known_teams = 1;</code>
      *
@@ -19,8 +19,8 @@ public final class GameInfoProtos {
      * The new desired phase
      * </pre>
      */
-    java.util.List<java.lang.String>
-    getKnownTeamsList();
+    com.google.protobuf.ProtocolStringList
+        getKnownTeamsList();
     /**
      * <code>repeated string known_teams = 1;</code>
      *
@@ -55,8 +55,9 @@ public final class GameInfoProtos {
    * </pre>
    */
   public static final class GameInfo extends
-      com.google.protobuf.GeneratedMessage
-      implements GameInfoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.GameInfo)
+      GameInfoOrBuilder {
     // Use GameInfo.newBuilder() to construct.
     private GameInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -103,11 +104,12 @@ public final class GameInfoProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 knownTeams_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              knownTeams_.add(input.readBytes());
+              knownTeams_.add(bs);
               break;
             }
           }
@@ -119,7 +121,7 @@ public final class GameInfoProtos {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          knownTeams_ = new com.google.protobuf.UnmodifiableLazyStringList(knownTeams_);
+          knownTeams_ = knownTeams_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -234,7 +236,6 @@ public final class GameInfoProtos {
       // @@protoc_insertion_point(enum_scope:llsf_msgs.GameInfo.CompType)
     }
 
-    // repeated string known_teams = 1;
     public static final int KNOWN_TEAMS_FIELD_NUMBER = 1;
     private com.google.protobuf.LazyStringList knownTeams_;
     /**
@@ -244,7 +245,7 @@ public final class GameInfoProtos {
      * The new desired phase
      * </pre>
      */
-    public java.util.List<java.lang.String>
+    public com.google.protobuf.ProtocolStringList
         getKnownTeamsList() {
       return knownTeams_;
     }
@@ -286,7 +287,8 @@ public final class GameInfoProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -402,8 +404,9 @@ public final class GameInfoProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.GameInfoProtos.GameInfoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.GameInfo)
+        org.robocup_logistics.llsf_msgs.GameInfoProtos.GameInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.GameInfoProtos.internal_static_llsf_msgs_GameInfo_descriptor;
@@ -466,8 +469,7 @@ public final class GameInfoProtos {
         org.robocup_logistics.llsf_msgs.GameInfoProtos.GameInfo result = new org.robocup_logistics.llsf_msgs.GameInfoProtos.GameInfo(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          knownTeams_ = new com.google.protobuf.UnmodifiableLazyStringList(
-              knownTeams_);
+          knownTeams_ = knownTeams_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.knownTeams_ = knownTeams_;
@@ -523,7 +525,6 @@ public final class GameInfoProtos {
       }
       private int bitField0_;
 
-      // repeated string known_teams = 1;
       private com.google.protobuf.LazyStringList knownTeams_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureKnownTeamsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -538,9 +539,9 @@ public final class GameInfoProtos {
        * The new desired phase
        * </pre>
        */
-      public java.util.List<java.lang.String>
+      public com.google.protobuf.ProtocolStringList
           getKnownTeamsList() {
-        return java.util.Collections.unmodifiableList(knownTeams_);
+        return knownTeams_.getUnmodifiableView();
       }
       /**
        * <code>repeated string known_teams = 1;</code>
@@ -617,7 +618,8 @@ public final class GameInfoProtos {
       public Builder addAllKnownTeams(
           java.lang.Iterable<java.lang.String> values) {
         ensureKnownTeamsIsMutable();
-        super.addAll(values, knownTeams_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, knownTeams_);
         onChanged();
         return this;
       }
@@ -663,10 +665,10 @@ public final class GameInfoProtos {
     // @@protoc_insertion_point(class_scope:llsf_msgs.GameInfo)
   }
 
-  public interface SetTeamNameOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SetTeamNameOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.SetTeamName)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string team_name = 1;
     /**
      * <code>required string team_name = 1;</code>
      *
@@ -693,7 +695,6 @@ public final class GameInfoProtos {
     com.google.protobuf.ByteString
         getTeamNameBytes();
 
-    // required .llsf_msgs.Team team_color = 2;
     /**
      * <code>required .llsf_msgs.Team team_color = 2;</code>
      *
@@ -719,8 +720,9 @@ public final class GameInfoProtos {
    * </pre>
    */
   public static final class SetTeamName extends
-      com.google.protobuf.GeneratedMessage
-      implements SetTeamNameOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.SetTeamName)
+      SetTeamNameOrBuilder {
     // Use SetTeamName.newBuilder() to construct.
     private SetTeamName(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -767,8 +769,9 @@ public final class GameInfoProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              teamName_ = input.readBytes();
+              teamName_ = bs;
               break;
             }
             case 16: {
@@ -904,7 +907,6 @@ public final class GameInfoProtos {
     }
 
     private int bitField0_;
-    // required string team_name = 1;
     public static final int TEAM_NAME_FIELD_NUMBER = 1;
     private java.lang.Object teamName_;
     /**
@@ -959,7 +961,6 @@ public final class GameInfoProtos {
       }
     }
 
-    // required .llsf_msgs.Team team_color = 2;
     public static final int TEAM_COLOR_FIELD_NUMBER = 2;
     private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_;
     /**
@@ -990,7 +991,8 @@ public final class GameInfoProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasTeamName()) {
         memoizedIsInitialized = 0;
@@ -1116,8 +1118,9 @@ public final class GameInfoProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.GameInfoProtos.SetTeamNameOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.SetTeamName)
+        org.robocup_logistics.llsf_msgs.GameInfoProtos.SetTeamNameOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.GameInfoProtos.internal_static_llsf_msgs_SetTeamName_descriptor;
@@ -1249,7 +1252,6 @@ public final class GameInfoProtos {
       }
       private int bitField0_;
 
-      // required string team_name = 1;
       private java.lang.Object teamName_ = "";
       /**
        * <code>required string team_name = 1;</code>
@@ -1271,9 +1273,12 @@ public final class GameInfoProtos {
       public java.lang.String getTeamName() {
         java.lang.Object ref = teamName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          teamName_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            teamName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1347,7 +1352,6 @@ public final class GameInfoProtos {
         return this;
       }
 
-      // required .llsf_msgs.Team team_color = 2;
       private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
       /**
        * <code>required .llsf_msgs.Team team_color = 2;</code>
@@ -1410,12 +1414,12 @@ public final class GameInfoProtos {
     // @@protoc_insertion_point(class_scope:llsf_msgs.SetTeamName)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_GameInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_llsf_msgs_GameInfo_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_SetTeamName_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -1438,30 +1442,31 @@ public final class GameInfoProtos {
       "ogistics.llsf_msgsB\016GameInfoProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_llsf_msgs_GameInfo_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_llsf_msgs_GameInfo_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_GameInfo_descriptor,
-              new java.lang.String[] { "KnownTeams", });
-          internal_static_llsf_msgs_SetTeamName_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_llsf_msgs_SetTeamName_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_SetTeamName_descriptor,
-              new java.lang.String[] { "TeamName", "TeamColor", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor(),
         }, assigner);
+    internal_static_llsf_msgs_GameInfo_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_llsf_msgs_GameInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_GameInfo_descriptor,
+        new java.lang.String[] { "KnownTeams", });
+    internal_static_llsf_msgs_SetTeamName_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_llsf_msgs_SetTeamName_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_SetTeamName_descriptor,
+        new java.lang.String[] { "TeamName", "TeamColor", });
+    org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

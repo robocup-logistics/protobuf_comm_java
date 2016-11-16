@@ -8,10 +8,10 @@ public final class AttentionMessageProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface AttentionMessageOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface AttentionMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.AttentionMessage)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string message = 1;
     /**
      * <code>required string message = 1;</code>
      *
@@ -38,7 +38,6 @@ public final class AttentionMessageProtos {
     com.google.protobuf.ByteString
         getMessageBytes();
 
-    // optional float time_to_show = 2;
     /**
      * <code>optional float time_to_show = 2;</code>
      *
@@ -56,7 +55,6 @@ public final class AttentionMessageProtos {
      */
     float getTimeToShow();
 
-    // optional .llsf_msgs.Team team_color = 3;
     /**
      * <code>optional .llsf_msgs.Team team_color = 3;</code>
      *
@@ -78,8 +76,9 @@ public final class AttentionMessageProtos {
    * Protobuf type {@code llsf_msgs.AttentionMessage}
    */
   public static final class AttentionMessage extends
-      com.google.protobuf.GeneratedMessage
-      implements AttentionMessageOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.AttentionMessage)
+      AttentionMessageOrBuilder {
     // Use AttentionMessage.newBuilder() to construct.
     private AttentionMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -126,8 +125,9 @@ public final class AttentionMessageProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              message_ = input.readBytes();
+              message_ = bs;
               break;
             }
             case 21: {
@@ -268,7 +268,6 @@ public final class AttentionMessageProtos {
     }
 
     private int bitField0_;
-    // required string message = 1;
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private java.lang.Object message_;
     /**
@@ -323,7 +322,6 @@ public final class AttentionMessageProtos {
       }
     }
 
-    // optional float time_to_show = 2;
     public static final int TIME_TO_SHOW_FIELD_NUMBER = 2;
     private float timeToShow_;
     /**
@@ -347,7 +345,6 @@ public final class AttentionMessageProtos {
       return timeToShow_;
     }
 
-    // optional .llsf_msgs.Team team_color = 3;
     public static final int TEAM_COLOR_FIELD_NUMBER = 3;
     private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_;
     /**
@@ -379,7 +376,8 @@ public final class AttentionMessageProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasMessage()) {
         memoizedIsInitialized = 0;
@@ -504,8 +502,9 @@ public final class AttentionMessageProtos {
      * Protobuf type {@code llsf_msgs.AttentionMessage}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.AttentionMessageProtos.AttentionMessageOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.AttentionMessage)
+        org.robocup_logistics.llsf_msgs.AttentionMessageProtos.AttentionMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.AttentionMessageProtos.internal_static_llsf_msgs_AttentionMessage_descriptor;
@@ -642,7 +641,6 @@ public final class AttentionMessageProtos {
       }
       private int bitField0_;
 
-      // required string message = 1;
       private java.lang.Object message_ = "";
       /**
        * <code>required string message = 1;</code>
@@ -664,9 +662,12 @@ public final class AttentionMessageProtos {
       public java.lang.String getMessage() {
         java.lang.Object ref = message_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          message_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            message_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -740,7 +741,6 @@ public final class AttentionMessageProtos {
         return this;
       }
 
-      // optional float time_to_show = 2;
       private float timeToShow_ ;
       /**
        * <code>optional float time_to_show = 2;</code>
@@ -789,7 +789,6 @@ public final class AttentionMessageProtos {
         return this;
       }
 
-      // optional .llsf_msgs.Team team_color = 3;
       private org.robocup_logistics.llsf_msgs.TeamProtos.Team teamColor_ = org.robocup_logistics.llsf_msgs.TeamProtos.Team.CYAN;
       /**
        * <code>optional .llsf_msgs.Team team_color = 3;</code>
@@ -852,7 +851,7 @@ public final class AttentionMessageProtos {
     // @@protoc_insertion_point(class_scope:llsf_msgs.AttentionMessage)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_AttentionMessage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -875,24 +874,25 @@ public final class AttentionMessageProtos {
       "tos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_llsf_msgs_AttentionMessage_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_llsf_msgs_AttentionMessage_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_AttentionMessage_descriptor,
-              new java.lang.String[] { "Message", "TimeToShow", "TeamColor", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor(),
         }, assigner);
+    internal_static_llsf_msgs_AttentionMessage_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_llsf_msgs_AttentionMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_AttentionMessage_descriptor,
+        new java.lang.String[] { "Message", "TimeToShow", "TeamColor", });
+    org.robocup_logistics.llsf_msgs.TeamProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

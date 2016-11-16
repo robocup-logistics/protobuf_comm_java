@@ -8,756 +8,128 @@ public final class MachineCommandsProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface RemovePuckFromMachineOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // required string machine_name = 1;
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to remove puck from
-     * </pre>
-     */
-    boolean hasMachineName();
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to remove puck from
-     * </pre>
-     */
-    java.lang.String getMachineName();
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to remove puck from
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getMachineNameBytes();
-
-    // required uint32 puck_id = 2;
-    /**
-     * <code>required uint32 puck_id = 2;</code>
-     *
-     * <pre>
-     * ID of the puck to remove
-     * </pre>
-     */
-    boolean hasPuckId();
-    /**
-     * <code>required uint32 puck_id = 2;</code>
-     *
-     * <pre>
-     * ID of the puck to remove
-     * </pre>
-     */
-    int getPuckId();
-  }
   /**
-   * Protobuf type {@code llsf_msgs.RemovePuckFromMachine}
-   *
-   * <pre>
-   * Remove a puck from a machine,
-   * either from RFID sensor or machine
-   * area. Can be overwritten by actual
-   * PLC if that reports there actually
-   * is the very puck.
-   * </pre>
+   * Protobuf enum {@code llsf_msgs.MachineState}
    */
-  public static final class RemovePuckFromMachine extends
-      com.google.protobuf.GeneratedMessage
-      implements RemovePuckFromMachineOrBuilder {
-    // Use RemovePuckFromMachine.newBuilder() to construct.
-    private RemovePuckFromMachine(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private RemovePuckFromMachine(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+  public enum MachineState
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>IDLE = 1;</code>
+     */
+    IDLE(0, 1),
+    /**
+     * <code>AVAILABLE = 2;</code>
+     */
+    AVAILABLE(1, 2),
+    /**
+     * <code>PROCESSED = 3;</code>
+     */
+    PROCESSED(2, 3),
+    /**
+     * <code>DELIVERED = 4;</code>
+     */
+    DELIVERED(3, 4),
+    /**
+     * <code>RETRIEVED = 5;</code>
+     */
+    RETRIEVED(4, 5),
+    /**
+     * <code>RESET = 15;</code>
+     */
+    RESET(5, 15),
+    ;
 
-    private static final RemovePuckFromMachine defaultInstance;
-    public static RemovePuckFromMachine getDefaultInstance() {
-      return defaultInstance;
-    }
+    /**
+     * <code>IDLE = 1;</code>
+     */
+    public static final int IDLE_VALUE = 1;
+    /**
+     * <code>AVAILABLE = 2;</code>
+     */
+    public static final int AVAILABLE_VALUE = 2;
+    /**
+     * <code>PROCESSED = 3;</code>
+     */
+    public static final int PROCESSED_VALUE = 3;
+    /**
+     * <code>DELIVERED = 4;</code>
+     */
+    public static final int DELIVERED_VALUE = 4;
+    /**
+     * <code>RETRIEVED = 5;</code>
+     */
+    public static final int RETRIEVED_VALUE = 5;
+    /**
+     * <code>RESET = 15;</code>
+     */
+    public static final int RESET_VALUE = 15;
 
-    public RemovePuckFromMachine getDefaultInstanceForType() {
-      return defaultInstance;
-    }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private RemovePuckFromMachine(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              machineName_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              puckId_ = input.readUInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
+    public final int getNumber() { return value; }
+
+    public static MachineState valueOf(int value) {
+      switch (value) {
+        case 1: return IDLE;
+        case 2: return AVAILABLE;
+        case 3: return PROCESSED;
+        case 4: return DELIVERED;
+        case 5: return RETRIEVED;
+        case 15: return RESET;
+        default: return null;
       }
     }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+    public static com.google.protobuf.Internal.EnumLiteMap<MachineState>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<MachineState>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MachineState>() {
+            public MachineState findValueByNumber(int number) {
+              return MachineState.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_RemovePuckFromMachine_descriptor;
+      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.getDescriptor().getEnumTypes().get(0);
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_RemovePuckFromMachine_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine.Builder.class);
+    private static final MachineState[] VALUES = values();
+
+    public static MachineState valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
     }
 
-    public static com.google.protobuf.Parser<RemovePuckFromMachine> PARSER =
-        new com.google.protobuf.AbstractParser<RemovePuckFromMachine>() {
-      public RemovePuckFromMachine parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RemovePuckFromMachine(input, extensionRegistry);
-      }
-    };
+    private final int index;
+    private final int value;
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<RemovePuckFromMachine> getParserForType() {
-      return PARSER;
+    private MachineState(int index, int value) {
+      this.index = index;
+      this.value = value;
     }
 
-    /**
-     * Protobuf enum {@code llsf_msgs.RemovePuckFromMachine.CompType}
-     */
-    public enum CompType
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>COMP_ID = 2000;</code>
-       */
-      COMP_ID(0, 2000),
-      /**
-       * <code>MSG_TYPE = 14;</code>
-       */
-      MSG_TYPE(1, 14),
-      ;
-
-      /**
-       * <code>COMP_ID = 2000;</code>
-       */
-      public static final int COMP_ID_VALUE = 2000;
-      /**
-       * <code>MSG_TYPE = 14;</code>
-       */
-      public static final int MSG_TYPE_VALUE = 14;
-
-
-      public final int getNumber() { return value; }
-
-      public static CompType valueOf(int value) {
-        switch (value) {
-          case 2000: return COMP_ID;
-          case 14: return MSG_TYPE;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<CompType>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static com.google.protobuf.Internal.EnumLiteMap<CompType>
-          internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<CompType>() {
-              public CompType findValueByNumber(int number) {
-                return CompType.valueOf(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final CompType[] VALUES = values();
-
-      public static CompType valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private CompType(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:llsf_msgs.RemovePuckFromMachine.CompType)
-    }
-
-    private int bitField0_;
-    // required string machine_name = 1;
-    public static final int MACHINE_NAME_FIELD_NUMBER = 1;
-    private java.lang.Object machineName_;
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to remove puck from
-     * </pre>
-     */
-    public boolean hasMachineName() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to remove puck from
-     * </pre>
-     */
-    public java.lang.String getMachineName() {
-      java.lang.Object ref = machineName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          machineName_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to remove puck from
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getMachineNameBytes() {
-      java.lang.Object ref = machineName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        machineName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // required uint32 puck_id = 2;
-    public static final int PUCK_ID_FIELD_NUMBER = 2;
-    private int puckId_;
-    /**
-     * <code>required uint32 puck_id = 2;</code>
-     *
-     * <pre>
-     * ID of the puck to remove
-     * </pre>
-     */
-    public boolean hasPuckId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required uint32 puck_id = 2;</code>
-     *
-     * <pre>
-     * ID of the puck to remove
-     * </pre>
-     */
-    public int getPuckId() {
-      return puckId_;
-    }
-
-    private void initFields() {
-      machineName_ = "";
-      puckId_ = 0;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      if (!hasMachineName()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasPuckId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getMachineNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeUInt32(2, puckId_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getMachineNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, puckId_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code llsf_msgs.RemovePuckFromMachine}
-     *
-     * <pre>
-     * Remove a puck from a machine,
-     * either from RFID sensor or machine
-     * area. Can be overwritten by actual
-     * PLC if that reports there actually
-     * is the very puck.
-     * </pre>
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachineOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_RemovePuckFromMachine_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_RemovePuckFromMachine_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine.Builder.class);
-      }
-
-      // Construct using org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        machineName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        puckId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_RemovePuckFromMachine_descriptor;
-      }
-
-      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine getDefaultInstanceForType() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine.getDefaultInstance();
-      }
-
-      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine build() {
-        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine buildPartial() {
-        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine result = new org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.machineName_ = machineName_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.puckId_ = puckId_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine) {
-          return mergeFrom((org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine other) {
-        if (other == org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine.getDefaultInstance()) return this;
-        if (other.hasMachineName()) {
-          bitField0_ |= 0x00000001;
-          machineName_ = other.machineName_;
-          onChanged();
-        }
-        if (other.hasPuckId()) {
-          setPuckId(other.getPuckId());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasMachineName()) {
-          
-          return false;
-        }
-        if (!hasPuckId()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.robocup_logistics.llsf_msgs.MachineCommandsProtos.RemovePuckFromMachine) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // required string machine_name = 1;
-      private java.lang.Object machineName_ = "";
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to remove puck from
-       * </pre>
-       */
-      public boolean hasMachineName() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to remove puck from
-       * </pre>
-       */
-      public java.lang.String getMachineName() {
-        java.lang.Object ref = machineName_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          machineName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to remove puck from
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getMachineNameBytes() {
-        java.lang.Object ref = machineName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          machineName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to remove puck from
-       * </pre>
-       */
-      public Builder setMachineName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        machineName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to remove puck from
-       * </pre>
-       */
-      public Builder clearMachineName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        machineName_ = getDefaultInstance().getMachineName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to remove puck from
-       * </pre>
-       */
-      public Builder setMachineNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        machineName_ = value;
-        onChanged();
-        return this;
-      }
-
-      // required uint32 puck_id = 2;
-      private int puckId_ ;
-      /**
-       * <code>required uint32 puck_id = 2;</code>
-       *
-       * <pre>
-       * ID of the puck to remove
-       * </pre>
-       */
-      public boolean hasPuckId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required uint32 puck_id = 2;</code>
-       *
-       * <pre>
-       * ID of the puck to remove
-       * </pre>
-       */
-      public int getPuckId() {
-        return puckId_;
-      }
-      /**
-       * <code>required uint32 puck_id = 2;</code>
-       *
-       * <pre>
-       * ID of the puck to remove
-       * </pre>
-       */
-      public Builder setPuckId(int value) {
-        bitField0_ |= 0x00000002;
-        puckId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required uint32 puck_id = 2;</code>
-       *
-       * <pre>
-       * ID of the puck to remove
-       * </pre>
-       */
-      public Builder clearPuckId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        puckId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:llsf_msgs.RemovePuckFromMachine)
-    }
-
-    static {
-      defaultInstance = new RemovePuckFromMachine(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:llsf_msgs.RemovePuckFromMachine)
+    // @@protoc_insertion_point(enum_scope:llsf_msgs.MachineState)
   }
 
-  public interface PlacePuckUnderMachineOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SetMachineStateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.SetMachineState)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string machine_name = 1;
     /**
      * <code>required string machine_name = 1;</code>
      *
@@ -784,789 +156,47 @@ public final class MachineCommandsProtos {
     com.google.protobuf.ByteString
         getMachineNameBytes();
 
-    // required uint32 puck_id = 2;
     /**
-     * <code>required uint32 puck_id = 2;</code>
+     * <code>required .llsf_msgs.MachineState state = 2;</code>
      *
      * <pre>
-     * ID of the puck to place
+     * State to set
      * </pre>
      */
-    boolean hasPuckId();
+    boolean hasState();
     /**
-     * <code>required uint32 puck_id = 2;</code>
+     * <code>required .llsf_msgs.MachineState state = 2;</code>
      *
      * <pre>
-     * ID of the puck to place
+     * State to set
      * </pre>
      */
-    int getPuckId();
+    org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState getState();
   }
   /**
-   * Protobuf type {@code llsf_msgs.PlacePuckUnderMachine}
-   *
-   * <pre>
-   * Place a puck under an RFID sensor.
-   * Note that this can be overwritten
-   * by actual PLC input.
-   * </pre>
-   */
-  public static final class PlacePuckUnderMachine extends
-      com.google.protobuf.GeneratedMessage
-      implements PlacePuckUnderMachineOrBuilder {
-    // Use PlacePuckUnderMachine.newBuilder() to construct.
-    private PlacePuckUnderMachine(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private PlacePuckUnderMachine(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final PlacePuckUnderMachine defaultInstance;
-    public static PlacePuckUnderMachine getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public PlacePuckUnderMachine getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private PlacePuckUnderMachine(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              machineName_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              puckId_ = input.readUInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_PlacePuckUnderMachine_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_PlacePuckUnderMachine_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<PlacePuckUnderMachine> PARSER =
-        new com.google.protobuf.AbstractParser<PlacePuckUnderMachine>() {
-      public PlacePuckUnderMachine parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PlacePuckUnderMachine(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PlacePuckUnderMachine> getParserForType() {
-      return PARSER;
-    }
-
-    /**
-     * Protobuf enum {@code llsf_msgs.PlacePuckUnderMachine.CompType}
-     */
-    public enum CompType
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>COMP_ID = 2000;</code>
-       */
-      COMP_ID(0, 2000),
-      /**
-       * <code>MSG_TYPE = 15;</code>
-       */
-      MSG_TYPE(1, 15),
-      ;
-
-      /**
-       * <code>COMP_ID = 2000;</code>
-       */
-      public static final int COMP_ID_VALUE = 2000;
-      /**
-       * <code>MSG_TYPE = 15;</code>
-       */
-      public static final int MSG_TYPE_VALUE = 15;
-
-
-      public final int getNumber() { return value; }
-
-      public static CompType valueOf(int value) {
-        switch (value) {
-          case 2000: return COMP_ID;
-          case 15: return MSG_TYPE;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<CompType>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static com.google.protobuf.Internal.EnumLiteMap<CompType>
-          internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<CompType>() {
-              public CompType findValueByNumber(int number) {
-                return CompType.valueOf(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final CompType[] VALUES = values();
-
-      public static CompType valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private CompType(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:llsf_msgs.PlacePuckUnderMachine.CompType)
-    }
-
-    private int bitField0_;
-    // required string machine_name = 1;
-    public static final int MACHINE_NAME_FIELD_NUMBER = 1;
-    private java.lang.Object machineName_;
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to place puck at
-     * </pre>
-     */
-    public boolean hasMachineName() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to place puck at
-     * </pre>
-     */
-    public java.lang.String getMachineName() {
-      java.lang.Object ref = machineName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          machineName_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to place puck at
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getMachineNameBytes() {
-      java.lang.Object ref = machineName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        machineName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // required uint32 puck_id = 2;
-    public static final int PUCK_ID_FIELD_NUMBER = 2;
-    private int puckId_;
-    /**
-     * <code>required uint32 puck_id = 2;</code>
-     *
-     * <pre>
-     * ID of the puck to place
-     * </pre>
-     */
-    public boolean hasPuckId() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required uint32 puck_id = 2;</code>
-     *
-     * <pre>
-     * ID of the puck to place
-     * </pre>
-     */
-    public int getPuckId() {
-      return puckId_;
-    }
-
-    private void initFields() {
-      machineName_ = "";
-      puckId_ = 0;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      if (!hasMachineName()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasPuckId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getMachineNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeUInt32(2, puckId_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getMachineNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, puckId_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code llsf_msgs.PlacePuckUnderMachine}
-     *
-     * <pre>
-     * Place a puck under an RFID sensor.
-     * Note that this can be overwritten
-     * by actual PLC input.
-     * </pre>
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachineOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_PlacePuckUnderMachine_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_PlacePuckUnderMachine_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine.Builder.class);
-      }
-
-      // Construct using org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        machineName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        puckId_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_PlacePuckUnderMachine_descriptor;
-      }
-
-      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine getDefaultInstanceForType() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine.getDefaultInstance();
-      }
-
-      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine build() {
-        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine buildPartial() {
-        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine result = new org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.machineName_ = machineName_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.puckId_ = puckId_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine) {
-          return mergeFrom((org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine other) {
-        if (other == org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine.getDefaultInstance()) return this;
-        if (other.hasMachineName()) {
-          bitField0_ |= 0x00000001;
-          machineName_ = other.machineName_;
-          onChanged();
-        }
-        if (other.hasPuckId()) {
-          setPuckId(other.getPuckId());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasMachineName()) {
-          
-          return false;
-        }
-        if (!hasPuckId()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.robocup_logistics.llsf_msgs.MachineCommandsProtos.PlacePuckUnderMachine) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // required string machine_name = 1;
-      private java.lang.Object machineName_ = "";
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to place puck at
-       * </pre>
-       */
-      public boolean hasMachineName() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to place puck at
-       * </pre>
-       */
-      public java.lang.String getMachineName() {
-        java.lang.Object ref = machineName_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          machineName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to place puck at
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getMachineNameBytes() {
-        java.lang.Object ref = machineName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          machineName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to place puck at
-       * </pre>
-       */
-      public Builder setMachineName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        machineName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to place puck at
-       * </pre>
-       */
-      public Builder clearMachineName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        machineName_ = getDefaultInstance().getMachineName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string machine_name = 1;</code>
-       *
-       * <pre>
-       * Machine to place puck at
-       * </pre>
-       */
-      public Builder setMachineNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        machineName_ = value;
-        onChanged();
-        return this;
-      }
-
-      // required uint32 puck_id = 2;
-      private int puckId_ ;
-      /**
-       * <code>required uint32 puck_id = 2;</code>
-       *
-       * <pre>
-       * ID of the puck to place
-       * </pre>
-       */
-      public boolean hasPuckId() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required uint32 puck_id = 2;</code>
-       *
-       * <pre>
-       * ID of the puck to place
-       * </pre>
-       */
-      public int getPuckId() {
-        return puckId_;
-      }
-      /**
-       * <code>required uint32 puck_id = 2;</code>
-       *
-       * <pre>
-       * ID of the puck to place
-       * </pre>
-       */
-      public Builder setPuckId(int value) {
-        bitField0_ |= 0x00000002;
-        puckId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required uint32 puck_id = 2;</code>
-       *
-       * <pre>
-       * ID of the puck to place
-       * </pre>
-       */
-      public Builder clearPuckId() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        puckId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:llsf_msgs.PlacePuckUnderMachine)
-    }
-
-    static {
-      defaultInstance = new PlacePuckUnderMachine(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:llsf_msgs.PlacePuckUnderMachine)
-  }
-
-  public interface LoadPuckInMachineOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // required string machine_name = 1;
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to place puck at
-     * </pre>
-     */
-    boolean hasMachineName();
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to place puck at
-     * </pre>
-     */
-    java.lang.String getMachineName();
-    /**
-     * <code>required string machine_name = 1;</code>
-     *
-     * <pre>
-     * Machine to place puck at
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getMachineNameBytes();
-
-    // required uint32 puck_id = 2;
-    /**
-     * <code>required uint32 puck_id = 2;</code>
-     *
-     * <pre>
-     * ID of the puck to place
-     * </pre>
-     */
-    boolean hasPuckId();
-    /**
-     * <code>required uint32 puck_id = 2;</code>
-     *
-     * <pre>
-     * ID of the puck to place
-     * </pre>
-     */
-    int getPuckId();
-  }
-  /**
-   * Protobuf type {@code llsf_msgs.LoadPuckInMachine}
+   * Protobuf type {@code llsf_msgs.SetMachineState}
    *
    * <pre>
    * Load puck into machine area.
    * </pre>
    */
-  public static final class LoadPuckInMachine extends
-      com.google.protobuf.GeneratedMessage
-      implements LoadPuckInMachineOrBuilder {
-    // Use LoadPuckInMachine.newBuilder() to construct.
-    private LoadPuckInMachine(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  public static final class SetMachineState extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.SetMachineState)
+      SetMachineStateOrBuilder {
+    // Use SetMachineState.newBuilder() to construct.
+    private SetMachineState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private LoadPuckInMachine(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private SetMachineState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final LoadPuckInMachine defaultInstance;
-    public static LoadPuckInMachine getDefaultInstance() {
+    private static final SetMachineState defaultInstance;
+    public static SetMachineState getDefaultInstance() {
       return defaultInstance;
     }
 
-    public LoadPuckInMachine getDefaultInstanceForType() {
+    public SetMachineState getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -1576,7 +206,7 @@ public final class MachineCommandsProtos {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private LoadPuckInMachine(
+    private SetMachineState(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1600,13 +230,20 @@ public final class MachineCommandsProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              machineName_ = input.readBytes();
+              machineName_ = bs;
               break;
             }
             case 16: {
-              bitField0_ |= 0x00000002;
-              puckId_ = input.readUInt32();
+              int rawValue = input.readEnum();
+              org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState value = org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000002;
+                state_ = value;
+              }
               break;
             }
           }
@@ -1623,33 +260,33 @@ public final class MachineCommandsProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_LoadPuckInMachine_descriptor;
+      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineState_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_LoadPuckInMachine_fieldAccessorTable
+      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineState_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine.Builder.class);
+              org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<LoadPuckInMachine> PARSER =
-        new com.google.protobuf.AbstractParser<LoadPuckInMachine>() {
-      public LoadPuckInMachine parsePartialFrom(
+    public static com.google.protobuf.Parser<SetMachineState> PARSER =
+        new com.google.protobuf.AbstractParser<SetMachineState>() {
+      public SetMachineState parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoadPuckInMachine(input, extensionRegistry);
+        return new SetMachineState(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<LoadPuckInMachine> getParserForType() {
+    public com.google.protobuf.Parser<SetMachineState> getParserForType() {
       return PARSER;
     }
 
     /**
-     * Protobuf enum {@code llsf_msgs.LoadPuckInMachine.CompType}
+     * Protobuf enum {@code llsf_msgs.SetMachineState.CompType}
      */
     public enum CompType
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -1658,9 +295,9 @@ public final class MachineCommandsProtos {
        */
       COMP_ID(0, 2000),
       /**
-       * <code>MSG_TYPE = 16;</code>
+       * <code>MSG_TYPE = 17;</code>
        */
-      MSG_TYPE(1, 16),
+      MSG_TYPE(1, 17),
       ;
 
       /**
@@ -1668,9 +305,9 @@ public final class MachineCommandsProtos {
        */
       public static final int COMP_ID_VALUE = 2000;
       /**
-       * <code>MSG_TYPE = 16;</code>
+       * <code>MSG_TYPE = 17;</code>
        */
-      public static final int MSG_TYPE_VALUE = 16;
+      public static final int MSG_TYPE_VALUE = 17;
 
 
       public final int getNumber() { return value; }
@@ -1678,7 +315,7 @@ public final class MachineCommandsProtos {
       public static CompType valueOf(int value) {
         switch (value) {
           case 2000: return COMP_ID;
-          case 16: return MSG_TYPE;
+          case 17: return MSG_TYPE;
           default: return null;
         }
       }
@@ -1705,7 +342,7 @@ public final class MachineCommandsProtos {
       }
       public static final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptor() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine.getDescriptor().getEnumTypes().get(0);
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState.getDescriptor().getEnumTypes().get(0);
       }
 
       private static final CompType[] VALUES = values();
@@ -1727,11 +364,10 @@ public final class MachineCommandsProtos {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:llsf_msgs.LoadPuckInMachine.CompType)
+      // @@protoc_insertion_point(enum_scope:llsf_msgs.SetMachineState.CompType)
     }
 
     private int bitField0_;
-    // required string machine_name = 1;
     public static final int MACHINE_NAME_FIELD_NUMBER = 1;
     private java.lang.Object machineName_;
     /**
@@ -1786,44 +422,44 @@ public final class MachineCommandsProtos {
       }
     }
 
-    // required uint32 puck_id = 2;
-    public static final int PUCK_ID_FIELD_NUMBER = 2;
-    private int puckId_;
+    public static final int STATE_FIELD_NUMBER = 2;
+    private org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState state_;
     /**
-     * <code>required uint32 puck_id = 2;</code>
+     * <code>required .llsf_msgs.MachineState state = 2;</code>
      *
      * <pre>
-     * ID of the puck to place
+     * State to set
      * </pre>
      */
-    public boolean hasPuckId() {
+    public boolean hasState() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required uint32 puck_id = 2;</code>
+     * <code>required .llsf_msgs.MachineState state = 2;</code>
      *
      * <pre>
-     * ID of the puck to place
+     * State to set
      * </pre>
      */
-    public int getPuckId() {
-      return puckId_;
+    public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState getState() {
+      return state_;
     }
 
     private void initFields() {
       machineName_ = "";
-      puckId_ = 0;
+      state_ = org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState.IDLE;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasMachineName()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasPuckId()) {
+      if (!hasState()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1838,7 +474,7 @@ public final class MachineCommandsProtos {
         output.writeBytes(1, getMachineNameBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeUInt32(2, puckId_);
+        output.writeEnum(2, state_.getNumber());
       }
       getUnknownFields().writeTo(output);
     }
@@ -1855,7 +491,7 @@ public final class MachineCommandsProtos {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, puckId_);
+          .computeEnumSize(2, state_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1869,53 +505,53 @@ public final class MachineCommandsProtos {
       return super.writeReplace();
     }
 
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseFrom(
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseFrom(
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseFrom(byte[] data)
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseFrom(
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseFrom(java.io.InputStream input)
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseFrom(
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseDelimitedFrom(java.io.InputStream input)
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseDelimitedFrom(
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseFrom(
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parseFrom(
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1924,7 +560,7 @@ public final class MachineCommandsProtos {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine prototype) {
+    public static Builder newBuilder(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1936,28 +572,29 @@ public final class MachineCommandsProtos {
       return builder;
     }
     /**
-     * Protobuf type {@code llsf_msgs.LoadPuckInMachine}
+     * Protobuf type {@code llsf_msgs.SetMachineState}
      *
      * <pre>
      * Load puck into machine area.
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachineOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.SetMachineState)
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineStateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_LoadPuckInMachine_descriptor;
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineState_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_LoadPuckInMachine_fieldAccessorTable
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineState_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine.Builder.class);
+                org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState.Builder.class);
       }
 
-      // Construct using org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine.newBuilder()
+      // Construct using org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1979,7 +616,7 @@ public final class MachineCommandsProtos {
         super.clear();
         machineName_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        puckId_ = 0;
+        state_ = org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState.IDLE;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -1990,23 +627,23 @@ public final class MachineCommandsProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_LoadPuckInMachine_descriptor;
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineState_descriptor;
       }
 
-      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine getDefaultInstanceForType() {
-        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine.getDefaultInstance();
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState getDefaultInstanceForType() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState.getDefaultInstance();
       }
 
-      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine build() {
-        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine result = buildPartial();
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState build() {
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine buildPartial() {
-        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine result = new org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine(this);
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState buildPartial() {
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState result = new org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2016,30 +653,30 @@ public final class MachineCommandsProtos {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.puckId_ = puckId_;
+        result.state_ = state_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine) {
-          return mergeFrom((org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine)other);
+        if (other instanceof org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState) {
+          return mergeFrom((org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine other) {
-        if (other == org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine.getDefaultInstance()) return this;
+      public Builder mergeFrom(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState other) {
+        if (other == org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState.getDefaultInstance()) return this;
         if (other.hasMachineName()) {
           bitField0_ |= 0x00000001;
           machineName_ = other.machineName_;
           onChanged();
         }
-        if (other.hasPuckId()) {
-          setPuckId(other.getPuckId());
+        if (other.hasState()) {
+          setState(other.getState());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -2050,7 +687,7 @@ public final class MachineCommandsProtos {
           
           return false;
         }
-        if (!hasPuckId()) {
+        if (!hasState()) {
           
           return false;
         }
@@ -2061,11 +698,11 @@ public final class MachineCommandsProtos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine parsedMessage = null;
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (org.robocup_logistics.llsf_msgs.MachineCommandsProtos.LoadPuckInMachine) e.getUnfinishedMessage();
+          parsedMessage = (org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineState) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2076,7 +713,6 @@ public final class MachineCommandsProtos {
       }
       private int bitField0_;
 
-      // required string machine_name = 1;
       private java.lang.Object machineName_ = "";
       /**
        * <code>required string machine_name = 1;</code>
@@ -2098,9 +734,12 @@ public final class MachineCommandsProtos {
       public java.lang.String getMachineName() {
         java.lang.Object ref = machineName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          machineName_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            machineName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2174,81 +813,1811 @@ public final class MachineCommandsProtos {
         return this;
       }
 
-      // required uint32 puck_id = 2;
-      private int puckId_ ;
+      private org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState state_ = org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState.IDLE;
       /**
-       * <code>required uint32 puck_id = 2;</code>
+       * <code>required .llsf_msgs.MachineState state = 2;</code>
        *
        * <pre>
-       * ID of the puck to place
+       * State to set
        * </pre>
        */
-      public boolean hasPuckId() {
+      public boolean hasState() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required uint32 puck_id = 2;</code>
+       * <code>required .llsf_msgs.MachineState state = 2;</code>
        *
        * <pre>
-       * ID of the puck to place
+       * State to set
        * </pre>
        */
-      public int getPuckId() {
-        return puckId_;
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState getState() {
+        return state_;
       }
       /**
-       * <code>required uint32 puck_id = 2;</code>
+       * <code>required .llsf_msgs.MachineState state = 2;</code>
        *
        * <pre>
-       * ID of the puck to place
+       * State to set
        * </pre>
        */
-      public Builder setPuckId(int value) {
+      public Builder setState(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
         bitField0_ |= 0x00000002;
-        puckId_ = value;
+        state_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 puck_id = 2;</code>
+       * <code>required .llsf_msgs.MachineState state = 2;</code>
        *
        * <pre>
-       * ID of the puck to place
+       * State to set
        * </pre>
        */
-      public Builder clearPuckId() {
+      public Builder clearState() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        puckId_ = 0;
+        state_ = org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineState.IDLE;
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:llsf_msgs.LoadPuckInMachine)
+      // @@protoc_insertion_point(builder_scope:llsf_msgs.SetMachineState)
     }
 
     static {
-      defaultInstance = new LoadPuckInMachine(true);
+      defaultInstance = new SetMachineState(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:llsf_msgs.LoadPuckInMachine)
+    // @@protoc_insertion_point(class_scope:llsf_msgs.SetMachineState)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_llsf_msgs_RemovePuckFromMachine_descriptor;
+  public interface MachineAddBaseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.MachineAddBase)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    boolean hasMachineName();
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    java.lang.String getMachineName();
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getMachineNameBytes();
+  }
+  /**
+   * Protobuf type {@code llsf_msgs.MachineAddBase}
+   *
+   * <pre>
+   * Load puck into machine area.
+   * </pre>
+   */
+  public static final class MachineAddBase extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.MachineAddBase)
+      MachineAddBaseOrBuilder {
+    // Use MachineAddBase.newBuilder() to construct.
+    private MachineAddBase(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private MachineAddBase(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final MachineAddBase defaultInstance;
+    public static MachineAddBase getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public MachineAddBase getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MachineAddBase(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              machineName_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_MachineAddBase_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_MachineAddBase_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<MachineAddBase> PARSER =
+        new com.google.protobuf.AbstractParser<MachineAddBase>() {
+      public MachineAddBase parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MachineAddBase(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MachineAddBase> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.MachineAddBase.CompType}
+     */
+    public enum CompType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
+      COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 18;</code>
+       */
+      MSG_TYPE(1, 18),
+      ;
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
+      public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 18;</code>
+       */
+      public static final int MSG_TYPE_VALUE = 18;
+
+
+      public final int getNumber() { return value; }
+
+      public static CompType valueOf(int value) {
+        switch (value) {
+          case 2000: return COMP_ID;
+          case 18: return MSG_TYPE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<CompType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static com.google.protobuf.Internal.EnumLiteMap<CompType>
+          internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<CompType>() {
+              public CompType findValueByNumber(int number) {
+                return CompType.valueOf(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final CompType[] VALUES = values();
+
+      public static CompType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private CompType(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:llsf_msgs.MachineAddBase.CompType)
+    }
+
+    private int bitField0_;
+    public static final int MACHINE_NAME_FIELD_NUMBER = 1;
+    private java.lang.Object machineName_;
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    public boolean hasMachineName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    public java.lang.String getMachineName() {
+      java.lang.Object ref = machineName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          machineName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getMachineNameBytes() {
+      java.lang.Object ref = machineName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        machineName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      machineName_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasMachineName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getMachineNameBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getMachineNameBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code llsf_msgs.MachineAddBase}
+     *
+     * <pre>
+     * Load puck into machine area.
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.MachineAddBase)
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBaseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_MachineAddBase_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_MachineAddBase_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase.Builder.class);
+      }
+
+      // Construct using org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        machineName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_MachineAddBase_descriptor;
+      }
+
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase getDefaultInstanceForType() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase.getDefaultInstance();
+      }
+
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase build() {
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase buildPartial() {
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase result = new org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.machineName_ = machineName_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase) {
+          return mergeFrom((org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase other) {
+        if (other == org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase.getDefaultInstance()) return this;
+        if (other.hasMachineName()) {
+          bitField0_ |= 0x00000001;
+          machineName_ = other.machineName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasMachineName()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.MachineCommandsProtos.MachineAddBase) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object machineName_ = "";
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public boolean hasMachineName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public java.lang.String getMachineName() {
+        java.lang.Object ref = machineName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            machineName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getMachineNameBytes() {
+        java.lang.Object ref = machineName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          machineName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public Builder setMachineName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        machineName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public Builder clearMachineName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        machineName_ = getDefaultInstance().getMachineName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public Builder setMachineNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        machineName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:llsf_msgs.MachineAddBase)
+    }
+
+    static {
+      defaultInstance = new MachineAddBase(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:llsf_msgs.MachineAddBase)
+  }
+
+  public interface SetMachineLightsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.SetMachineLights)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    boolean hasMachineName();
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    java.lang.String getMachineName();
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getMachineNameBytes();
+
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> 
+        getLightsList();
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec getLights(int index);
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    int getLightsCount();
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    java.util.List<? extends org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder> 
+        getLightsOrBuilderList();
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder getLightsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code llsf_msgs.SetMachineLights}
+   *
+   * <pre>
+   * Set machine lights.
+   * </pre>
+   */
+  public static final class SetMachineLights extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.SetMachineLights)
+      SetMachineLightsOrBuilder {
+    // Use SetMachineLights.newBuilder() to construct.
+    private SetMachineLights(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private SetMachineLights(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final SetMachineLights defaultInstance;
+    public static SetMachineLights getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public SetMachineLights getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SetMachineLights(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              machineName_ = bs;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                lights_ = new java.util.ArrayList<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              lights_.add(input.readMessage(org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          lights_ = java.util.Collections.unmodifiableList(lights_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineLights_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineLights_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<SetMachineLights> PARSER =
+        new com.google.protobuf.AbstractParser<SetMachineLights>() {
+      public SetMachineLights parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SetMachineLights(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SetMachineLights> getParserForType() {
+      return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code llsf_msgs.SetMachineLights.CompType}
+     */
+    public enum CompType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
+      COMP_ID(0, 2000),
+      /**
+       * <code>MSG_TYPE = 19;</code>
+       */
+      MSG_TYPE(1, 19),
+      ;
+
+      /**
+       * <code>COMP_ID = 2000;</code>
+       */
+      public static final int COMP_ID_VALUE = 2000;
+      /**
+       * <code>MSG_TYPE = 19;</code>
+       */
+      public static final int MSG_TYPE_VALUE = 19;
+
+
+      public final int getNumber() { return value; }
+
+      public static CompType valueOf(int value) {
+        switch (value) {
+          case 2000: return COMP_ID;
+          case 19: return MSG_TYPE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<CompType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static com.google.protobuf.Internal.EnumLiteMap<CompType>
+          internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<CompType>() {
+              public CompType findValueByNumber(int number) {
+                return CompType.valueOf(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final CompType[] VALUES = values();
+
+      public static CompType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private CompType(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:llsf_msgs.SetMachineLights.CompType)
+    }
+
+    private int bitField0_;
+    public static final int MACHINE_NAME_FIELD_NUMBER = 1;
+    private java.lang.Object machineName_;
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    public boolean hasMachineName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    public java.lang.String getMachineName() {
+      java.lang.Object ref = machineName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          machineName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string machine_name = 1;</code>
+     *
+     * <pre>
+     * Machine to place puck at
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getMachineNameBytes() {
+      java.lang.Object ref = machineName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        machineName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LIGHTS_FIELD_NUMBER = 2;
+    private java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> lights_;
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    public java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> getLightsList() {
+      return lights_;
+    }
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    public java.util.List<? extends org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder> 
+        getLightsOrBuilderList() {
+      return lights_;
+    }
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    public int getLightsCount() {
+      return lights_.size();
+    }
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec getLights(int index) {
+      return lights_.get(index);
+    }
+    /**
+     * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+     *
+     * <pre>
+     * Desired state of the lights
+     * </pre>
+     */
+    public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder getLightsOrBuilder(
+        int index) {
+      return lights_.get(index);
+    }
+
+    private void initFields() {
+      machineName_ = "";
+      lights_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasMachineName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getLightsCount(); i++) {
+        if (!getLights(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getMachineNameBytes());
+      }
+      for (int i = 0; i < lights_.size(); i++) {
+        output.writeMessage(2, lights_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getMachineNameBytes());
+      }
+      for (int i = 0; i < lights_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, lights_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code llsf_msgs.SetMachineLights}
+     *
+     * <pre>
+     * Set machine lights.
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.SetMachineLights)
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLightsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineLights_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineLights_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights.class, org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights.Builder.class);
+      }
+
+      // Construct using org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getLightsFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        machineName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (lightsBuilder_ == null) {
+          lights_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          lightsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.internal_static_llsf_msgs_SetMachineLights_descriptor;
+      }
+
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights getDefaultInstanceForType() {
+        return org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights.getDefaultInstance();
+      }
+
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights build() {
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights buildPartial() {
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights result = new org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.machineName_ = machineName_;
+        if (lightsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            lights_ = java.util.Collections.unmodifiableList(lights_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.lights_ = lights_;
+        } else {
+          result.lights_ = lightsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights) {
+          return mergeFrom((org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights other) {
+        if (other == org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights.getDefaultInstance()) return this;
+        if (other.hasMachineName()) {
+          bitField0_ |= 0x00000001;
+          machineName_ = other.machineName_;
+          onChanged();
+        }
+        if (lightsBuilder_ == null) {
+          if (!other.lights_.isEmpty()) {
+            if (lights_.isEmpty()) {
+              lights_ = other.lights_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureLightsIsMutable();
+              lights_.addAll(other.lights_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.lights_.isEmpty()) {
+            if (lightsBuilder_.isEmpty()) {
+              lightsBuilder_.dispose();
+              lightsBuilder_ = null;
+              lights_ = other.lights_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              lightsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getLightsFieldBuilder() : null;
+            } else {
+              lightsBuilder_.addAllMessages(other.lights_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasMachineName()) {
+          
+          return false;
+        }
+        for (int i = 0; i < getLightsCount(); i++) {
+          if (!getLights(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.robocup_logistics.llsf_msgs.MachineCommandsProtos.SetMachineLights) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object machineName_ = "";
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public boolean hasMachineName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public java.lang.String getMachineName() {
+        java.lang.Object ref = machineName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            machineName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getMachineNameBytes() {
+        java.lang.Object ref = machineName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          machineName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public Builder setMachineName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        machineName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public Builder clearMachineName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        machineName_ = getDefaultInstance().getMachineName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string machine_name = 1;</code>
+       *
+       * <pre>
+       * Machine to place puck at
+       * </pre>
+       */
+      public Builder setMachineNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        machineName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> lights_ =
+        java.util.Collections.emptyList();
+      private void ensureLightsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          lights_ = new java.util.ArrayList<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec>(lights_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder> lightsBuilder_;
+
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> getLightsList() {
+        if (lightsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(lights_);
+        } else {
+          return lightsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public int getLightsCount() {
+        if (lightsBuilder_ == null) {
+          return lights_.size();
+        } else {
+          return lightsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec getLights(int index) {
+        if (lightsBuilder_ == null) {
+          return lights_.get(index);
+        } else {
+          return lightsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public Builder setLights(
+          int index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec value) {
+        if (lightsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLightsIsMutable();
+          lights_.set(index, value);
+          onChanged();
+        } else {
+          lightsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public Builder setLights(
+          int index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder builderForValue) {
+        if (lightsBuilder_ == null) {
+          ensureLightsIsMutable();
+          lights_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          lightsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public Builder addLights(org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec value) {
+        if (lightsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLightsIsMutable();
+          lights_.add(value);
+          onChanged();
+        } else {
+          lightsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public Builder addLights(
+          int index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec value) {
+        if (lightsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureLightsIsMutable();
+          lights_.add(index, value);
+          onChanged();
+        } else {
+          lightsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public Builder addLights(
+          org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder builderForValue) {
+        if (lightsBuilder_ == null) {
+          ensureLightsIsMutable();
+          lights_.add(builderForValue.build());
+          onChanged();
+        } else {
+          lightsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public Builder addLights(
+          int index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder builderForValue) {
+        if (lightsBuilder_ == null) {
+          ensureLightsIsMutable();
+          lights_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          lightsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public Builder addAllLights(
+          java.lang.Iterable<? extends org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec> values) {
+        if (lightsBuilder_ == null) {
+          ensureLightsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, lights_);
+          onChanged();
+        } else {
+          lightsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public Builder clearLights() {
+        if (lightsBuilder_ == null) {
+          lights_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          lightsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public Builder removeLights(int index) {
+        if (lightsBuilder_ == null) {
+          ensureLightsIsMutable();
+          lights_.remove(index);
+          onChanged();
+        } else {
+          lightsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder getLightsBuilder(
+          int index) {
+        return getLightsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder getLightsOrBuilder(
+          int index) {
+        if (lightsBuilder_ == null) {
+          return lights_.get(index);  } else {
+          return lightsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public java.util.List<? extends org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder> 
+           getLightsOrBuilderList() {
+        if (lightsBuilder_ != null) {
+          return lightsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(lights_);
+        }
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder addLightsBuilder() {
+        return getLightsFieldBuilder().addBuilder(
+            org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder addLightsBuilder(
+          int index) {
+        return getLightsFieldBuilder().addBuilder(
+            index, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .llsf_msgs.LightSpec lights = 2;</code>
+       *
+       * <pre>
+       * Desired state of the lights
+       * </pre>
+       */
+      public java.util.List<org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder> 
+           getLightsBuilderList() {
+        return getLightsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder> 
+          getLightsFieldBuilder() {
+        if (lightsBuilder_ == null) {
+          lightsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec.Builder, org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpecOrBuilder>(
+                  lights_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          lights_ = null;
+        }
+        return lightsBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:llsf_msgs.SetMachineLights)
+    }
+
+    static {
+      defaultInstance = new SetMachineLights(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:llsf_msgs.SetMachineLights)
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_llsf_msgs_SetMachineState_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_llsf_msgs_RemovePuckFromMachine_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_llsf_msgs_PlacePuckUnderMachine_descriptor;
+      internal_static_llsf_msgs_SetMachineState_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_llsf_msgs_MachineAddBase_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_llsf_msgs_PlacePuckUnderMachine_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_llsf_msgs_LoadPuckInMachine_descriptor;
+      internal_static_llsf_msgs_MachineAddBase_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_llsf_msgs_SetMachineLights_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_llsf_msgs_LoadPuckInMachine_fieldAccessorTable;
+      internal_static_llsf_msgs_SetMachineLights_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2258,47 +2627,53 @@ public final class MachineCommandsProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025MachineCommands.proto\022\tllsf_msgs\"f\n\025Re" +
-      "movePuckFromMachine\022\024\n\014machine_name\030\001 \002(" +
-      "\t\022\017\n\007puck_id\030\002 \002(\r\"&\n\010CompType\022\014\n\007COMP_I" +
-      "D\020\320\017\022\014\n\010MSG_TYPE\020\016\"f\n\025PlacePuckUnderMach" +
-      "ine\022\024\n\014machine_name\030\001 \002(\t\022\017\n\007puck_id\030\002 \002" +
-      "(\r\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017\022\014\n\010MSG_TYPE" +
-      "\020\017\"b\n\021LoadPuckInMachine\022\024\n\014machine_name\030" +
-      "\001 \002(\t\022\017\n\007puck_id\030\002 \002(\r\"&\n\010CompType\022\014\n\007CO" +
-      "MP_ID\020\320\017\022\014\n\010MSG_TYPE\020\020B8\n\037org.robocup_lo" +
-      "gistics.llsf_msgsB\025MachineCommandsProtos"
+      "\n\025MachineCommands.proto\022\tllsf_msgs\032\021Mach" +
+      "ineInfo.proto\"w\n\017SetMachineState\022\024\n\014mach" +
+      "ine_name\030\001 \002(\t\022&\n\005state\030\002 \002(\0162\027.llsf_msg" +
+      "s.MachineState\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017" +
+      "\022\014\n\010MSG_TYPE\020\021\"N\n\016MachineAddBase\022\024\n\014mach" +
+      "ine_name\030\001 \002(\t\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017" +
+      "\022\014\n\010MSG_TYPE\020\022\"v\n\020SetMachineLights\022\024\n\014ma" +
+      "chine_name\030\001 \002(\t\022$\n\006lights\030\002 \003(\0132\024.llsf_" +
+      "msgs.LightSpec\"&\n\010CompType\022\014\n\007COMP_ID\020\320\017" +
+      "\022\014\n\010MSG_TYPE\020\023*_\n\014MachineState\022\010\n\004IDLE\020\001",
+      "\022\r\n\tAVAILABLE\020\002\022\r\n\tPROCESSED\020\003\022\r\n\tDELIVE" +
+      "RED\020\004\022\r\n\tRETRIEVED\020\005\022\t\n\005RESET\020\017B8\n\037org.r" +
+      "obocup_logistics.llsf_msgsB\025MachineComma" +
+      "ndsProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_llsf_msgs_RemovePuckFromMachine_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_llsf_msgs_RemovePuckFromMachine_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_RemovePuckFromMachine_descriptor,
-              new java.lang.String[] { "MachineName", "PuckId", });
-          internal_static_llsf_msgs_PlacePuckUnderMachine_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_llsf_msgs_PlacePuckUnderMachine_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_PlacePuckUnderMachine_descriptor,
-              new java.lang.String[] { "MachineName", "PuckId", });
-          internal_static_llsf_msgs_LoadPuckInMachine_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_llsf_msgs_LoadPuckInMachine_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_LoadPuckInMachine_descriptor,
-              new java.lang.String[] { "MachineName", "PuckId", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          org.robocup_logistics.llsf_msgs.MachineInfoProtos.getDescriptor(),
         }, assigner);
+    internal_static_llsf_msgs_SetMachineState_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_llsf_msgs_SetMachineState_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_SetMachineState_descriptor,
+        new java.lang.String[] { "MachineName", "State", });
+    internal_static_llsf_msgs_MachineAddBase_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_llsf_msgs_MachineAddBase_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_MachineAddBase_descriptor,
+        new java.lang.String[] { "MachineName", });
+    internal_static_llsf_msgs_SetMachineLights_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_llsf_msgs_SetMachineLights_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_SetMachineLights_descriptor,
+        new java.lang.String[] { "MachineName", "Lights", });
+    org.robocup_logistics.llsf_msgs.MachineInfoProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

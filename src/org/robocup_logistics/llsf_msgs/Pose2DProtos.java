@@ -8,10 +8,10 @@ public final class Pose2DProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface Pose2DOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface Pose2DOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.Pose2D)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .llsf_msgs.Time timestamp = 1;
     /**
      * <code>required .llsf_msgs.Time timestamp = 1;</code>
      *
@@ -37,7 +37,6 @@ public final class Pose2DProtos {
      */
     org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder getTimestampOrBuilder();
 
-    // required float x = 2;
     /**
      * <code>required float x = 2;</code>
      *
@@ -55,7 +54,6 @@ public final class Pose2DProtos {
      */
     float getX();
 
-    // required float y = 3;
     /**
      * <code>required float y = 3;</code>
      */
@@ -65,7 +63,6 @@ public final class Pose2DProtos {
      */
     float getY();
 
-    // required float ori = 4;
     /**
      * <code>required float ori = 4;</code>
      *
@@ -92,8 +89,9 @@ public final class Pose2DProtos {
    * </pre>
    */
   public static final class Pose2D extends
-      com.google.protobuf.GeneratedMessage
-      implements Pose2DOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.Pose2D)
+      Pose2DOrBuilder {
     // Use Pose2D.newBuilder() to construct.
     private Pose2D(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -207,7 +205,6 @@ public final class Pose2DProtos {
     }
 
     private int bitField0_;
-    // required .llsf_msgs.Time timestamp = 1;
     public static final int TIMESTAMP_FIELD_NUMBER = 1;
     private org.robocup_logistics.llsf_msgs.TimeProtos.Time timestamp_;
     /**
@@ -241,7 +238,6 @@ public final class Pose2DProtos {
       return timestamp_;
     }
 
-    // required float x = 2;
     public static final int X_FIELD_NUMBER = 2;
     private float x_;
     /**
@@ -265,7 +261,6 @@ public final class Pose2DProtos {
       return x_;
     }
 
-    // required float y = 3;
     public static final int Y_FIELD_NUMBER = 3;
     private float y_;
     /**
@@ -281,7 +276,6 @@ public final class Pose2DProtos {
       return y_;
     }
 
-    // required float ori = 4;
     public static final int ORI_FIELD_NUMBER = 4;
     private float ori_;
     /**
@@ -314,7 +308,8 @@ public final class Pose2DProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasTimestamp()) {
         memoizedIsInitialized = 0;
@@ -467,8 +462,9 @@ public final class Pose2DProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.Pose2D)
+        org.robocup_logistics.llsf_msgs.Pose2DProtos.Pose2DOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.Pose2DProtos.internal_static_llsf_msgs_Pose2D_descriptor;
@@ -637,7 +633,6 @@ public final class Pose2DProtos {
       }
       private int bitField0_;
 
-      // required .llsf_msgs.Time timestamp = 1;
       private org.robocup_logistics.llsf_msgs.TimeProtos.Time timestamp_ = org.robocup_logistics.llsf_msgs.TimeProtos.Time.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           org.robocup_logistics.llsf_msgs.TimeProtos.Time, org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder, org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder> timestampBuilder_;
@@ -782,7 +777,7 @@ public final class Pose2DProtos {
         if (timestampBuilder_ == null) {
           timestampBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               org.robocup_logistics.llsf_msgs.TimeProtos.Time, org.robocup_logistics.llsf_msgs.TimeProtos.Time.Builder, org.robocup_logistics.llsf_msgs.TimeProtos.TimeOrBuilder>(
-                  timestamp_,
+                  getTimestamp(),
                   getParentForChildren(),
                   isClean());
           timestamp_ = null;
@@ -790,7 +785,6 @@ public final class Pose2DProtos {
         return timestampBuilder_;
       }
 
-      // required float x = 2;
       private float x_ ;
       /**
        * <code>required float x = 2;</code>
@@ -839,7 +833,6 @@ public final class Pose2DProtos {
         return this;
       }
 
-      // required float y = 3;
       private float y_ ;
       /**
        * <code>required float y = 3;</code>
@@ -872,7 +865,6 @@ public final class Pose2DProtos {
         return this;
       }
 
-      // required float ori = 4;
       private float ori_ ;
       /**
        * <code>required float ori = 4;</code>
@@ -932,7 +924,7 @@ public final class Pose2DProtos {
     // @@protoc_insertion_point(class_scope:llsf_msgs.Pose2D)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_Pose2D_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -953,24 +945,25 @@ public final class Pose2DProtos {
       "DProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_llsf_msgs_Pose2D_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_llsf_msgs_Pose2D_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_Pose2D_descriptor,
-              new java.lang.String[] { "Timestamp", "X", "Y", "Ori", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.robocup_logistics.llsf_msgs.TimeProtos.getDescriptor(),
         }, assigner);
+    internal_static_llsf_msgs_Pose2D_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_llsf_msgs_Pose2D_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_Pose2D_descriptor,
+        new java.lang.String[] { "Timestamp", "X", "Y", "Ori", });
+    org.robocup_logistics.llsf_msgs.TimeProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

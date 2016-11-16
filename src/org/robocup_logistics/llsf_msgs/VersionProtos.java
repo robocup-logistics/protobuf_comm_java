@@ -8,10 +8,10 @@ public final class VersionProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface VersionInfoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface VersionInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:llsf_msgs.VersionInfo)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required uint32 version_major = 1;
     /**
      * <code>required uint32 version_major = 1;</code>
      */
@@ -21,7 +21,6 @@ public final class VersionProtos {
      */
     int getVersionMajor();
 
-    // required uint32 version_minor = 2;
     /**
      * <code>required uint32 version_minor = 2;</code>
      */
@@ -31,7 +30,6 @@ public final class VersionProtos {
      */
     int getVersionMinor();
 
-    // required uint32 version_micro = 3;
     /**
      * <code>required uint32 version_micro = 3;</code>
      */
@@ -41,7 +39,6 @@ public final class VersionProtos {
      */
     int getVersionMicro();
 
-    // required string version_string = 4;
     /**
      * <code>required string version_string = 4;</code>
      */
@@ -60,8 +57,9 @@ public final class VersionProtos {
    * Protobuf type {@code llsf_msgs.VersionInfo}
    */
   public static final class VersionInfo extends
-      com.google.protobuf.GeneratedMessage
-      implements VersionInfoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:llsf_msgs.VersionInfo)
+      VersionInfoOrBuilder {
     // Use VersionInfo.newBuilder() to construct.
     private VersionInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -123,8 +121,9 @@ public final class VersionProtos {
               break;
             }
             case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              versionString_ = input.readBytes();
+              versionString_ = bs;
               break;
             }
           }
@@ -249,7 +248,6 @@ public final class VersionProtos {
     }
 
     private int bitField0_;
-    // required uint32 version_major = 1;
     public static final int VERSION_MAJOR_FIELD_NUMBER = 1;
     private int versionMajor_;
     /**
@@ -265,7 +263,6 @@ public final class VersionProtos {
       return versionMajor_;
     }
 
-    // required uint32 version_minor = 2;
     public static final int VERSION_MINOR_FIELD_NUMBER = 2;
     private int versionMinor_;
     /**
@@ -281,7 +278,6 @@ public final class VersionProtos {
       return versionMinor_;
     }
 
-    // required uint32 version_micro = 3;
     public static final int VERSION_MICRO_FIELD_NUMBER = 3;
     private int versionMicro_;
     /**
@@ -297,7 +293,6 @@ public final class VersionProtos {
       return versionMicro_;
     }
 
-    // required string version_string = 4;
     public static final int VERSION_STRING_FIELD_NUMBER = 4;
     private java.lang.Object versionString_;
     /**
@@ -349,7 +344,8 @@ public final class VersionProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasVersionMajor()) {
         memoizedIsInitialized = 0;
@@ -493,8 +489,9 @@ public final class VersionProtos {
      * Protobuf type {@code llsf_msgs.VersionInfo}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.robocup_logistics.llsf_msgs.VersionProtos.VersionInfoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:llsf_msgs.VersionInfo)
+        org.robocup_logistics.llsf_msgs.VersionProtos.VersionInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.robocup_logistics.llsf_msgs.VersionProtos.internal_static_llsf_msgs_VersionInfo_descriptor;
@@ -652,7 +649,6 @@ public final class VersionProtos {
       }
       private int bitField0_;
 
-      // required uint32 version_major = 1;
       private int versionMajor_ ;
       /**
        * <code>required uint32 version_major = 1;</code>
@@ -685,7 +681,6 @@ public final class VersionProtos {
         return this;
       }
 
-      // required uint32 version_minor = 2;
       private int versionMinor_ ;
       /**
        * <code>required uint32 version_minor = 2;</code>
@@ -718,7 +713,6 @@ public final class VersionProtos {
         return this;
       }
 
-      // required uint32 version_micro = 3;
       private int versionMicro_ ;
       /**
        * <code>required uint32 version_micro = 3;</code>
@@ -751,7 +745,6 @@ public final class VersionProtos {
         return this;
       }
 
-      // required string version_string = 4;
       private java.lang.Object versionString_ = "";
       /**
        * <code>required string version_string = 4;</code>
@@ -765,9 +758,12 @@ public final class VersionProtos {
       public java.lang.String getVersionString() {
         java.lang.Object ref = versionString_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          versionString_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            versionString_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -836,7 +832,7 @@ public final class VersionProtos {
     // @@protoc_insertion_point(class_scope:llsf_msgs.VersionInfo)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_llsf_msgs_VersionInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -858,23 +854,23 @@ public final class VersionProtos {
       "tics.llsf_msgsB\rVersionProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_llsf_msgs_VersionInfo_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_llsf_msgs_VersionInfo_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_llsf_msgs_VersionInfo_descriptor,
-              new java.lang.String[] { "VersionMajor", "VersionMinor", "VersionMicro", "VersionString", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_llsf_msgs_VersionInfo_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_llsf_msgs_VersionInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_llsf_msgs_VersionInfo_descriptor,
+        new java.lang.String[] { "VersionMajor", "VersionMinor", "VersionMicro", "VersionString", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
