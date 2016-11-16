@@ -10,7 +10,6 @@ import org.robocup_logistics.llsf_comm.ProtobufMessage;
 import org.robocup_logistics.llsf_comm.ProtobufMessageHandler;
 import org.robocup_logistics.llsf_msgs.BeaconSignalProtos.BeaconSignal;
 import org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationInfo;
-import org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationMachine;
 import org.robocup_logistics.llsf_msgs.ExplorationInfoProtos.ExplorationSignal;
 import org.robocup_logistics.llsf_msgs.GameStateProtos.GameState;
 import org.robocup_logistics.llsf_msgs.MachineInfoProtos.LightSpec;
@@ -197,10 +196,10 @@ public class FakeRobot {
 						long min_end = end / 60;
 						long sec_end = end - min_end * 60;
 						
-						System.out.printf("  %d: %d/%d of %s from %02d:%02d to %02d:%02d at gate %s\n",
-								order.getId(), order.getQuantityDelivered(), order.getQuantityRequested(),
-								order.getProduct().toString(), min_begin, sec_begin, min_end, sec_end,
-								order.getDeliveryGate().toString());
+						System.out.printf("  %d: %d/%d/%d from %02d:%02d to %02d:%02d at gate %s\n",
+								order.getId(), order.getQuantityDeliveredCyan(), order.getQuantityDeliveredMagenta(),
+								order.getQuantityRequested(), min_begin, sec_begin, min_end, sec_end,
+								order.getDeliveryGate());
 					}
 				} catch (InvalidProtocolBufferException e) {
 					e.printStackTrace();
@@ -311,12 +310,14 @@ public class FakeRobot {
 					}
 					System.out.printf("  --\n");
 					
+					/*
 					for (int i = 0; i < exploration.getMachinesCount(); i++) {
 						ExplorationMachine machine = exploration.getMachines(i);
 						System.out.printf("  Machine %s at (%f, %f, %f)\n",
 								machine.getName(), machine.getPose().getX(),
 								machine.getPose().getY(), machine.getPose().getOri());
 					}
+					*/
 				} catch (InvalidProtocolBufferException e) {
 					e.printStackTrace();
 				}
